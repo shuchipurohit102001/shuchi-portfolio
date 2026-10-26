@@ -13,7 +13,12 @@ import {
 } from "@/components/ui/ui";
 import { communityPillars, founderNote, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { AudioOutlined, BulbOutlined, IdcardOutlined, SmileOutlined } from "@ant-design/icons";
+import {
+  IdentificationCardIcon,
+  LightbulbIcon,
+  MusicNoteIcon,
+  SmileyIcon,
+} from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -95,10 +100,10 @@ const NoteFoot = styled.div`
 `;
 
 const pillarIcons: Record<string, ReactNode> = {
-  "soft-skills": <BulbOutlined aria-hidden />,
-  grooming: <IdcardOutlined aria-hidden />,
-  personality: <SmileOutlined aria-hidden />,
-  articulation: <AudioOutlined aria-hidden />,
+  "soft-skills": <LightbulbIcon aria-hidden />,
+  grooming: <IdentificationCardIcon aria-hidden />,
+  personality: <SmileyIcon aria-hidden />,
+  articulation: <MusicNoteIcon aria-hidden />,
 };
 
 const Foundations = () => {

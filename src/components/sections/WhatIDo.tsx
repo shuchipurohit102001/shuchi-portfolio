@@ -13,15 +13,15 @@ import {
 } from "@/components/ui/ui";
 import { homePillars, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { BankOutlined, CompassOutlined, SmileOutlined, TeamOutlined } from "@ant-design/icons";
+import { BankIcon, CompassIcon, SmileyIcon, UsersThreeIcon } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
 const icons: Record<string, ReactNode> = {
-  tech: <BankOutlined aria-hidden />,
-  corporate: <TeamOutlined aria-hidden />,
-  coaching: <SmileOutlined aria-hidden />,
-  vedic: <CompassOutlined aria-hidden />,
+  tech: <BankIcon aria-hidden />,
+  corporate: <UsersThreeIcon aria-hidden />,
+  coaching: <SmileyIcon aria-hidden />,
+  vedic: <CompassIcon aria-hidden />,
 };
 
 const Vision = styled(Panel)`

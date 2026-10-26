@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/ui";
 import { person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ArrowRightOutlined, InstagramOutlined, MessageOutlined } from "@ant-design/icons";
+import { ArrowRightIcon, ChatIcon, InstagramLogoIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const JoinPanel = styled(Panel)`
@@ -113,14 +113,14 @@ const Join = () => {
                 >
                   <HotlineCopy>
                     <IconBadge $tone="clay" $round>
-                      <MessageOutlined aria-hidden />
+                      <ChatIcon aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>WhatsApp direct helpline</strong>
                       <span>{person.phone}</span>
                     </span>
                   </HotlineCopy>
-                  <ArrowRightOutlined aria-hidden />
+                  <ArrowRightIcon aria-hidden />
                 </Hotline>
 
                 <Hotline
@@ -130,14 +130,14 @@ const Join = () => {
                 >
                   <HotlineCopy>
                     <IconBadge $tone="cont" $round>
-                      <InstagramOutlined aria-hidden />
+                      <InstagramLogoIcon aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>Instagram direct message</strong>
                       <span>@skill_synergy_</span>
                     </span>
                   </HotlineCopy>
-                  <ArrowRightOutlined aria-hidden />
+                  <ArrowRightIcon aria-hidden />
                 </Hotline>
               </Hotlines>
             </Copy>

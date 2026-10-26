@@ -2,7 +2,12 @@
 import { Avatar, Container, ExtBtn, Grid, Muted, Panel, Section, SectionHead } from "@/components/ui/ui";
 import { feed, testimonials } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { CommentOutlined, HeartOutlined, InstagramOutlined, PlayCircleOutlined } from "@ant-design/icons";
+import {
+  ChatIcon,
+  HeartIcon,
+  InstagramLogoIcon,
+  PlayCircleIcon,
+} from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const FeedCard = styled(Panel)`
@@ -136,7 +141,7 @@ const Showcase = () => {
               rel="noopener noreferrer"
               $v="ghost"
             >
-              <InstagramOutlined aria-hidden />
+              <InstagramLogoIcon aria-hidden />
               Visit @skill_synergy_
             </ExtBtn>
           }
@@ -157,7 +162,7 @@ const Showcase = () => {
               </PlayerWrap>
               <FeedBody>
                 <Category>
-                  <PlayCircleOutlined aria-hidden />
+                  <PlayCircleIcon aria-hidden />
                   {item.category}
                 </Category>
                 <h4>{item.title}</h4>
@@ -165,15 +170,15 @@ const Showcase = () => {
                 <FeedFoot>
                   <Stats>
                     <span>
-                      <PlayCircleOutlined aria-hidden />
+                      <PlayCircleIcon aria-hidden />
                       {item.plays}
                     </span>
                     <span>
-                      <HeartOutlined aria-hidden />
+                      <HeartIcon aria-hidden />
                       {item.likes}
                     </span>
                     <span>
-                      <CommentOutlined aria-hidden />
+                      <ChatIcon aria-hidden />
                       {item.comments}
                     </span>
                   </Stats>

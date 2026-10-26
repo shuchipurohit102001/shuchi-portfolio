@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/ui";
 import { homeServices, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { CalendarOutlined } from "@ant-design/icons";
+import { CalendarBlankIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const ServiceCard = styled(Panel)`
@@ -48,7 +48,7 @@ const Offerings = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <CalendarOutlined aria-hidden />
+              <CalendarBlankIcon aria-hidden />
               Request a custom proposal
             </ExtBtn>
           }

@@ -4,15 +4,15 @@ import { Container, Eyebrow, H2, IconBadge, Lead, Panel, Section, Split } from "
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  ArrowRightOutlined,
-  CoffeeOutlined,
-  LinkedinOutlined,
-  MailOutlined,
-  SendOutlined,
-  TeamOutlined,
-  UserOutlined,
-  WhatsAppOutlined,
-} from "@ant-design/icons";
+  ArrowRightIcon,
+  CoffeeIcon,
+  EnvelopeIcon,
+  LinkedinLogoIcon,
+  PaperPlaneRightIcon,
+  UserIcon,
+  UsersThreeIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -123,9 +123,9 @@ const Meta = styled.div`
 `;
 
 const ventureIcons: Record<string, ReactNode> = {
-  skill_synergy_: <TeamOutlined aria-hidden />,
-  bhoojanpriye: <CoffeeOutlined aria-hidden />,
-  purohitshuchi: <UserOutlined aria-hidden />,
+  skill_synergy_: <UsersThreeIcon aria-hidden />,
+  bhoojanpriye: <CoffeeIcon aria-hidden />,
+  purohitshuchi: <UserIcon aria-hidden />,
 };
 
 const Contact = () => {
@@ -144,7 +144,7 @@ const Contact = () => {
             <WhatsAppCard $tone="clay" $pad="lg">
               <div style={{ display: "flex", alignItems: "center", gap: t.s.md }}>
                 <IconBadge $tone="dark" $round $size="lg">
-                  <WhatsAppOutlined aria-hidden />
+                  <WhatsappLogoIcon aria-hidden />
                 </IconBadge>
                 <div>
                   <strong>{person.phone}</strong>
@@ -159,17 +159,17 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 aria-label="Message Shuchi on WhatsApp"
               >
-                <SendOutlined aria-hidden />
+                <PaperPlaneRightIcon aria-hidden />
               </SendBtn>
             </WhatsAppCard>
 
             <Meta>
               <a href={`mailto:${person.email}`}>
-                <MailOutlined aria-hidden />
+                <EnvelopeIcon aria-hidden />
                 {person.email}
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
-                <LinkedinOutlined aria-hidden />
+                <LinkedinLogoIcon aria-hidden />
                 LinkedIn
               </a>
             </Meta>
@@ -186,7 +186,7 @@ const Contact = () => {
                     <small>{venture.tag}</small>
                   </span>
                 </SocialCopy>
-                <ArrowRightOutlined aria-hidden />
+                <ArrowRightIcon aria-hidden />
               </SocialRow>
             ))}
           </Copy>

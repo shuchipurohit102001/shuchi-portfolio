@@ -14,12 +14,12 @@ import {
 import { person, programs } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  ArrowRightOutlined,
-  BulbOutlined,
-  IdcardOutlined,
-  MessageOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
+  ArrowRightIcon,
+  ChatIcon,
+  IdentificationCardIcon,
+  LightbulbIcon,
+  UsersThreeIcon,
+} from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -56,10 +56,10 @@ const Foot = styled.div`
 `;
 
 const programIcons: Record<string, ReactNode> = {
-  grooming: <IdcardOutlined aria-hidden />,
-  communication: <MessageOutlined aria-hidden />,
-  coaching: <BulbOutlined aria-hidden />,
-  personality: <TeamOutlined aria-hidden />,
+  grooming: <IdentificationCardIcon aria-hidden />,
+  communication: <ChatIcon aria-hidden />,
+  coaching: <LightbulbIcon aria-hidden />,
+  personality: <UsersThreeIcon aria-hidden />,
 };
 
 const Programs = () => {
@@ -80,7 +80,7 @@ const Programs = () => {
               $v="ghost"
             >
               Request cohort syllabus
-              <ArrowRightOutlined aria-hidden />
+              <ArrowRightIcon aria-hidden />
             </ExtBtn>
           }
         />

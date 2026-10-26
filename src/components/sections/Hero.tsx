@@ -17,7 +17,12 @@ import {
 } from "@/components/ui/ui";
 import { homeMetrics, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ArrowRightOutlined, BankOutlined, SafetyCertificateOutlined, WhatsAppOutlined } from "@ant-design/icons";
+import {
+  ArrowRightIcon,
+  BankIcon,
+  SealCheckIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const HeroShell = styled(Section)`
@@ -127,12 +132,12 @@ const Hero = () => {
 
               <Row>
                 <ExtBtn href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
-                  <WhatsAppOutlined aria-hidden />
+                  <WhatsappLogoIcon aria-hidden />
                   Book a 1:1 on WhatsApp
                 </ExtBtn>
                 <Btn href="/community" $v="secondary">
                   Explore Skills Synergy
-                  <ArrowRightOutlined aria-hidden />
+                  <ArrowRightIcon aria-hidden />
                 </Btn>
               </Row>
 
@@ -152,12 +157,12 @@ const Hero = () => {
                 <Portrait src="/profilePhoto.png" label="Shuchi Purohit" initials="SP" ratio="1/1">
                   <FloatingPills>
                     <Pill $tone="canvas">
-                      <SafetyCertificateOutlined aria-hidden />
+                      <SealCheckIcon aria-hidden />
                       Founder @ Skills Synergy
                     </Pill>
                     <MiniPills>
                       <Pill $tone="cont">
-                        <BankOutlined aria-hidden />
+                        <BankIcon aria-hidden />
                         BDE @ Software Co
                       </Pill>
                       <Pill $tone="clay">Corporate Trainer</Pill>

@@ -1,6 +1,6 @@
 "use client";
 import { t } from "@/providers/tokens";
-import { CheckCircleFilled } from "@ant-design/icons";
+import { CheckCircleIcon, ImageIcon, VideoCameraIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -425,7 +425,7 @@ export function CheckList({ items }: { items: readonly string[] }) {
     <CheckListWrap>
       {items.map((item) => (
         <li key={item}>
-          <CheckCircleFilled aria-hidden />
+          <CheckCircleIcon weight="fill" aria-hidden />
           <span>{item}</span>
         </li>
       ))}
@@ -678,7 +678,7 @@ export function Media({
   poster?: string;
   hint?: boolean;
 }) {
-  const icon = kind === "video" ? "▶" : "🖼";
+  const Icon = kind === "video" ? VideoCameraIcon : ImageIcon;
   return (
     <Frame $ratio={ratio} role="img" aria-label={label}>
       {src && kind === "image" && (
@@ -687,8 +687,8 @@ export function Media({
       {src && kind === "video" && <video src={src} poster={poster} controls preload="metadata" />}
       {!src && (
         <figcaption>
-          <span aria-hidden style={{ fontSize: "1.75rem" }}>
-            {icon}
+          <span aria-hidden>
+            <Icon size="1.75rem" />
           </span>
           {label}
           {hint && <small>Placeholder: add file to /public/media</small>}

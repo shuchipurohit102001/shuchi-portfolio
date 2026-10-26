@@ -18,14 +18,14 @@ import {
 import { communityMetrics, communityPanelPoints, person } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  CustomerServiceOutlined,
-  InstagramOutlined,
-  ReadOutlined,
-  StarFilled,
-  TeamOutlined,
-  UserOutlined,
-  WhatsAppOutlined,
-} from "@ant-design/icons";
+  BookOpenIcon,
+  HeadphonesIcon,
+  InstagramLogoIcon,
+  StarIcon,
+  UserIcon,
+  UsersThreeIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -146,10 +146,10 @@ const Stars = styled.div`
 `;
 
 const pointIcons: Record<string, ReactNode> = {
-  groups: <TeamOutlined aria-hidden />,
-  masterclass: <ReadOutlined aria-hidden />,
-  support: <CustomerServiceOutlined aria-hidden />,
-  "one-to-one": <UserOutlined aria-hidden />,
+  groups: <UsersThreeIcon aria-hidden />,
+  masterclass: <BookOpenIcon aria-hidden />,
+  support: <HeadphonesIcon aria-hidden />,
+  "one-to-one": <UserIcon aria-hidden />,
 };
 
 const CommunityHero = () => {
@@ -186,7 +186,7 @@ const CommunityHero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <WhatsAppOutlined aria-hidden />
+                    <WhatsappLogoIcon aria-hidden />
                     Join the WhatsApp community
                   </ExtBtn>
                   <ExtBtn
@@ -195,7 +195,7 @@ const CommunityHero = () => {
                     rel="noopener noreferrer"
                     $v="ghost"
                   >
-                    <InstagramOutlined aria-hidden />
+                    <InstagramLogoIcon aria-hidden />
                     Follow @skill_synergy_
                   </ExtBtn>
                 </Row>
@@ -231,7 +231,7 @@ const CommunityHero = () => {
                   <span>Community rating</span>
                   <Stars>
                     {[0, 1, 2, 3, 4].map((i) => (
-                      <StarFilled key={i} aria-hidden />
+                      <StarIcon key={i} weight="fill" aria-hidden />
                     ))}
                     <small>4.9 / 5</small>
                   </Stars>

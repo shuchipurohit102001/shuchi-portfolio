@@ -15,13 +15,12 @@ import {
 import { journeys, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  AudioOutlined,
-  CheckCircleFilled,
-  CompassOutlined,
-  ExportOutlined,
-  YoutubeFilled,
-  YoutubeOutlined,
-} from "@ant-design/icons";
+  ArrowSquareOutIcon,
+  CheckCircleIcon,
+  CompassIcon,
+  MusicNoteIcon,
+  YoutubeLogoIcon,
+} from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -183,8 +182,8 @@ const NoteLine = styled.div`
 `;
 
 const journeyIcons: Record<string, ReactNode> = {
-  campus: <AudioOutlined aria-hidden />,
-  corporate: <CompassOutlined aria-hidden />,
+  campus: <MusicNoteIcon aria-hidden />,
+  corporate: <CompassIcon aria-hidden />,
 };
 
 const Ventures = () => {
@@ -209,7 +208,7 @@ const Ventures = () => {
                 <Pill $tone="dark">Flagship collective</Pill>
                 <ExtLink href={synergy.url} target="_blank" rel="noopener noreferrer">
                   @{synergy.handle}
-                  <ExportOutlined aria-hidden />
+                  <ArrowSquareOutIcon aria-hidden />
                 </ExtLink>
               </PanelHead>
               <Title>{synergy.name}</Title>
@@ -243,7 +242,7 @@ const Ventures = () => {
                 <Pill $tone="clay">Culinary passion</Pill>
                 <ExtLink href={bhoojan.url} target="_blank" rel="noopener noreferrer">
                   @{bhoojan.handle}
-                  <ExportOutlined aria-hidden />
+                  <ArrowSquareOutIcon aria-hidden />
                 </ExtLink>
               </PanelHead>
               <Title>{bhoojan.name}</Title>
@@ -253,7 +252,7 @@ const Ventures = () => {
               </Muted>
               <VideoRow $tone="lowest" $pad="md">
                 <IconBadge $tone="error" $round $size="sm">
-                  <YoutubeOutlined aria-hidden />
+                  <YoutubeLogoIcon aria-hidden />
                 </IconBadge>
                 <div>
                   <strong>YouTube culinary series</strong>
@@ -263,7 +262,7 @@ const Ventures = () => {
             </div>
             <FooterRow>
               <ExtBtn href={bhoojan.href} target="_blank" rel="noopener noreferrer" $v="ghost">
-                <YoutubeFilled aria-hidden />
+                <YoutubeLogoIcon weight="fill" aria-hidden />
                 Watch playlist &amp; recipes
               </ExtBtn>
             </FooterRow>
@@ -278,7 +277,7 @@ const Ventures = () => {
               <h3>{journey.title}</h3>
               <Muted>{journey.text}</Muted>
               <NoteLine>
-                <CheckCircleFilled aria-hidden />
+                <CheckCircleIcon weight="fill" aria-hidden />
                 <span>{journey.foot}</span>
               </NoteLine>
             </JourneyCard>

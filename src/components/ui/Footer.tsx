@@ -1,7 +1,12 @@
 "use client";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { InstagramOutlined, MailOutlined, MessageOutlined, PhoneOutlined } from "@ant-design/icons";
+import {
+  EnvelopeIcon,
+  InstagramLogoIcon,
+  PhoneIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react";
 import Link from "next/link";
 import styled from "styled-components";
 import { Container } from "./ui";
@@ -185,7 +190,7 @@ export default function Footer() {
             <SocialPills>
               {ventures.map((v) => (
                 <a key={v.handle} href={v.url} target="_blank" rel="noopener noreferrer">
-                  <InstagramOutlined /> @{v.handle}
+                  <InstagramLogoIcon aria-hidden /> @{v.handle}
                 </a>
               ))}
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
@@ -208,16 +213,16 @@ export default function Footer() {
             <ColTitle>Direct access</ColTitle>
             <p>Connect for keynote invitations, community mentorship and bespoke collaborations.</p>
             <Direct href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
-              <MessageOutlined aria-hidden />
+              <WhatsappLogoIcon aria-hidden />
               Initiate conversation
             </Direct>
             <Meta>
               <a href={`tel:${person.wa}`}>
-                <PhoneOutlined aria-hidden />
+                <PhoneIcon aria-hidden />
                 {person.phone}
               </a>
               <a href={`mailto:${person.email}`}>
-                <MailOutlined aria-hidden />
+                <EnvelopeIcon aria-hidden />
                 {person.email}
               </a>
             </Meta>

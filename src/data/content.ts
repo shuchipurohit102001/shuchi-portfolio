@@ -123,15 +123,6 @@ export const ventures = [
     href: "/community",
   },
   {
-    handle: "bhoojanpriye",
-    name: "Bhoojanpriye",
-    tag: "Recipes",
-    url: "https://www.instagram.com/bhoojanpriye/",
-    stats: "117 posts · 180 followers",
-    text: "Easy recipes for busy people, with new recipes every week and full videos on YouTube.",
-    href: "https://www.youtube.com/playlist?list=PLYAsIpW5s7mQFNhNpfI2tGJvu8VZ73",
-  },
-  {
     handle: "purohitshuchi",
     name: "Personal profile",
     tag: "Campus to corporate · Purposeful living",
@@ -139,6 +130,15 @@ export const ventures = [
     stats: "99 posts · 407 followers",
     text: "My journey across campus, corporate and coaching, with lessons for students and early-career professionals.",
     href: "https://www.instagram.com/purohitshuchi/",
+  },
+  {
+    handle: "bhoojanpriye",
+    name: "Bhoojanpriye",
+    tag: "Recipes",
+    url: "https://www.instagram.com/bhoojanpriye/",
+    stats: "117 posts · 180 followers",
+    text: "Easy recipes for busy people, with new recipes every week and full videos on YouTube.",
+    href: "https://www.youtube.com/playlist?list=PLYAsIpW5s7mQFNhNpfI2tGJvu8VZ73",
   },
 ];
 export const offerings = [

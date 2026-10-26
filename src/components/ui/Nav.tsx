@@ -2,7 +2,7 @@
 import { Container, ExtBtn } from "@/components/ui/ui";
 import { person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { MenuOutlined, WhatsAppOutlined } from "@ant-design/icons";
+import { ListIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
 import { Drawer } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -165,13 +165,13 @@ export default function Nav() {
 
           <Cta>
             <ExtBtn href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer" $v="secondary">
-              <WhatsAppOutlined aria-hidden />
+              <WhatsappLogoIcon aria-hidden />
               WhatsApp Inquiry
             </ExtBtn>
           </Cta>
 
           <Burger aria-label="Open menu" onClick={() => setOpen(true)}>
-            <MenuOutlined />
+            <ListIcon aria-hidden />
           </Burger>
 
           <Drawer open={open} onClose={() => setOpen(false)} placement="right" size={300} title="Menu">
@@ -191,7 +191,7 @@ export default function Nav() {
                 $v="secondary"
                 style={{ marginTop: t.s.sm }}
               >
-                <WhatsAppOutlined aria-hidden />
+                <WhatsappLogoIcon aria-hidden />
                 WhatsApp Inquiry
               </ExtBtn>
             </DrawerLinks>
