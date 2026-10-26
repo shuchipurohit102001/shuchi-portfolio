@@ -45,6 +45,9 @@ export const t = {
     error: "#b3261e",
     errorContainer: "#ffe7e3",
     onErrorContainer: "#8c1d18",
+
+    /* Yellow */
+    yellow: "#ffe6a7",
   },
 
   r: {

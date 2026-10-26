@@ -67,7 +67,7 @@ const Halo = styled.div`
   position: absolute;
   inset: -2% -3% 4% -2%;
   border-radius: ${t.r.xl};
-  background: linear-gradient(135deg, ${t.c.clay}, ${t.c.high});
+  background: linear-gradient(135deg, ${t.c.yellow}, ${t.c.clay}, ${t.c.high});
   transform: rotate(-2deg);
   box-shadow: ${t.shadow};
 `;
@@ -120,9 +120,9 @@ const Hero = () => {
               </H1>
 
               <Lead>
-                Business development executive in software solutions, founder of{" "}
-                <LeadStrong>Skills Synergy</LeadStrong> &amp; <LeadStrong>Bhoojanpriye</LeadStrong>, classical Kathak
-                artist, recipe curator and advocate for grounded Vedic wisdom in modern leadership.
+                Business development executive in software solutions, founder of <LeadStrong>Skills Synergy</LeadStrong>{" "}
+                &amp; <LeadStrong>Bhoojanpriye</LeadStrong>, classical Kathak artist, recipe curator and advocate for
+                grounded Vedic wisdom in modern leadership.
               </Lead>
 
               <Row>

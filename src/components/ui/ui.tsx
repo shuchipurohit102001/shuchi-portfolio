@@ -346,7 +346,7 @@ export const Avatar = styled.span<{ $size?: number; $src?: string }>`
   background: ${(p) =>
     p.$src
       ? `url(${p.$src}) center / cover no-repeat, ${t.c.clay}`
-      : `linear-gradient(145deg, ${t.c.clay}, ${t.c.high})`};
+      : `linear-gradient(145deg, ${t.c.yellow}, ${t.c.clay}, ${t.c.high})`};
   border: 2px solid ${t.c.lowest};
   color: ${(p) => (p.$src ? "transparent" : t.c.clayInk)};
   font-family: var(--font-epilogue);
@@ -535,7 +535,7 @@ const PortraitBox = styled.figure<{ $ratio: string }>`
   aspect-ratio: ${(p) => p.$ratio};
   background:
     radial-gradient(circle at 28% 22%, ${t.c.clay} 0%, transparent 52%),
-    linear-gradient(150deg, ${t.c.high} 0%, ${t.c.low} 52%, ${t.c.cont} 100%);
+    linear-gradient(150deg, ${t.c.high} 0%, ${t.c.low} 52%, ${t.c.cont}, ${t.c.yellow} 100%);
   display: grid;
   place-items: center;
   border: 1px solid ${t.c.line}55;
@@ -635,7 +635,7 @@ const Frame = styled.figure<{ $ratio: string }>`
   overflow: hidden;
   border-radius: ${t.r.lg};
   aspect-ratio: ${(p) => p.$ratio};
-  background: linear-gradient(135deg, ${t.c.high}, ${t.c.clay}99);
+  background: linear-gradient(145deg, ${t.c.yellow}, ${t.c.clay}, ${t.c.high});
   border: 1px solid ${t.c.line}55;
   display: grid;
   place-items: center;
