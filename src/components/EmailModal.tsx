@@ -1,26 +1,33 @@
 "use client";
+import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "@emailjs/browser";
 import { PaperPlaneRightIcon, TrashIcon, XIcon } from "@phosphor-icons/react";
-import { Button, Form, Input, Modal, Select, message } from "antd";
-import { useState } from "react";
+import { Button, Input, Modal, Select, message } from "antd";
+import { Controller, useForm } from "react-hook-form";
 import styled from "styled-components";
+import { z } from "zod";
 
 const RECIPIENT = "shuchipurohit102001@gmail.com";
 
-const QUERY_OPTIONS = [
-  { value: "1:1 coaching", label: "1:1 coaching" },
-  { value: "College or corporate workshop", label: "College or corporate workshop" },
-  { value: "IELTS & TOEFL preparation", label: "IELTS & TOEFL preparation" },
-  { value: "Classroom-to-Corporate series", label: "Classroom-to-Corporate series" },
-  { value: "Collaboration", label: "Collaboration" },
-  { value: "Other", label: "Other" },
-];
+const QUERY_VALUES = [
+  "1:1 coaching",
+  "College or corporate workshop",
+  "IELTS & TOEFL preparation",
+  "Classroom-to-Corporate series",
+  "Collaboration",
+  "Other",
+] as const;
 
-type FormValues = {
-  email: string;
-  name: string;
-  query: string;
-  message: string;
-};
+const QUERY_OPTIONS = QUERY_VALUES.map((value) => ({ value, label: value }));
+
+const formSchema = z.object({
+  email: z.email("Enter a valid email address").max(254),
+  name: z.string().trim().min(2, "Please enter your name").max(80, "Name must be 80 characters or fewer"),
+  query: z.enum(QUERY_VALUES, { error: "Please select a query" }),
+  message: z.string().trim().min(10, "Please write at least 10 characters").max(2000),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 /* Gmail compose-window look: dark title bar, hairline-separated rows, blue pill Send button. */
 const Bar = styled.div`
@@ -66,13 +73,14 @@ const Row = styled.div`
     padding-top: 0.45rem;
     color: #5f6368;
   }
-  .ant-form-item {
+  .field {
     flex: 1;
     min-width: 0;
-    margin: 0;
   }
-  .ant-form-item-explain-error {
-    padding-bottom: 0.35rem;
+  .field-error {
+    display: block;
+    padding: 0.15rem 0 0.35rem;
+    color: #d93025;
     font-size: 0.75rem;
   }
 `;
@@ -131,34 +139,52 @@ type Props = {
 };
 
 const EmailModal = ({ open, onClose }: Props) => {
-  const [form] = Form.useForm<FormValues>();
-  const [sending, setSending] = useState(false);
   const [toast, toastHolder] = message.useMessage();
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { email: "", name: "", message: "" },
+  });
 
   const handleFinish = async (values: FormValues) => {
-    setSending(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("Email sending is not configured. Please try again later.");
       }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_email: RECIPIENT,
+          from_name: values.name,
+          name: values.name,
+          from_email: values.email,
+          email: values.email,
+          reply_to: values.email,
+          query: values.query,
+          subject: values.query,
+          message: values.message,
+        },
+        { publicKey },
+      );
       toast.success("Message sent. Shuchi will get back to you soon.");
-      form.resetFields();
+      reset();
       onClose();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not send your message.");
-    } finally {
-      setSending(false);
     }
   };
 
   const discard = () => {
-    form.resetFields();
+    reset();
     onClose();
   };
 
@@ -182,7 +208,7 @@ const EmailModal = ({ open, onClose }: Props) => {
           </button>
         </Bar>
 
-        <Form form={form} layout="vertical" onFinish={handleFinish} requiredMark={false} disabled={sending}>
+        <form onSubmit={handleSubmit(handleFinish)}>
           <Compose>
             <Row>
               <span className="row-label">To</span>
@@ -191,71 +217,118 @@ const EmailModal = ({ open, onClose }: Props) => {
 
             <Row>
               <label htmlFor="email">From</label>
-              <Form.Item
-                name="email"
-                rules={[
-                  { required: true, message: "Please enter your email" },
-                  { type: "email", message: "Enter a valid email address" },
-                ]}
-              >
-                <Input id="email" variant="borderless" placeholder="you@example.com" autoComplete="email" />
-              </Form.Item>
+              <div className="field">
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      id="email"
+                      variant="borderless"
+                      placeholder="you@example.com"
+                      autoComplete="email"
+                      type="email"
+                      disabled={isSubmitting}
+                      status={errors.email ? "error" : undefined}
+                    />
+                  )}
+                />
+                {errors.email && <span className="field-error">{errors.email.message}</span>}
+              </div>
             </Row>
 
             <Row>
               <label htmlFor="name">Name</label>
-              <Form.Item name="name" rules={[{ required: true, message: "Please enter your name" }]}>
-                <Input id="name" variant="borderless" placeholder="Your name" autoComplete="name" maxLength={80} />
-              </Form.Item>
+              <div className="field">
+                <Controller
+                  name="name"
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      id="name"
+                      variant="borderless"
+                      placeholder="Your name"
+                      autoComplete="name"
+                      maxLength={80}
+                      disabled={isSubmitting}
+                      status={errors.name ? "error" : undefined}
+                    />
+                  )}
+                />
+                {errors.name && <span className="field-error">{errors.name.message}</span>}
+              </div>
             </Row>
 
             <Row>
               <label htmlFor="query">Subject</label>
-              <Form.Item name="query" rules={[{ required: true, message: "Please select a query" }]}>
-                <Select
-                  id="query"
-                  variant="borderless"
-                  placeholder="Select your query"
-                  options={QUERY_OPTIONS}
-                  style={{ width: "100%" }}
+              <div className="field">
+                <Controller
+                  name="query"
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      id="query"
+                      variant="borderless"
+                      placeholder="Select your query"
+                      options={QUERY_OPTIONS}
+                      style={{ width: "100%" }}
+                      disabled={isSubmitting}
+                      status={errors.query ? "error" : undefined}
+                    />
+                  )}
                 />
-              </Form.Item>
+                {errors.query && <span className="field-error">{errors.query.message}</span>}
+              </div>
             </Row>
 
             <Row style={{ borderBottom: 0 }}>
-              <Form.Item
-                name="message"
-                rules={[
-                  { required: true, message: "Please add a short description" },
-                  { min: 10, message: "Please write at least 10 characters" },
-                ]}
-              >
-                <Input.TextArea
-                  variant="borderless"
-                  placeholder="Describe what you need help with"
-                  autoSize={{ minRows: 7, maxRows: 12 }}
-                  maxLength={2000}
-                  showCount
-                  style={{ paddingLeft: 0 }}
+              <div className="field">
+                <Controller
+                  name="message"
+                  control={control}
+                  render={({ field }) => (
+                    <Input.TextArea
+                      {...field}
+                      id="message"
+                      variant="borderless"
+                      placeholder="Describe what you need help with"
+                      autoSize={{ minRows: 7, maxRows: 12 }}
+                      maxLength={2000}
+                      showCount
+                      style={{ paddingLeft: 0 }}
+                      disabled={isSubmitting}
+                      status={errors.message ? "error" : undefined}
+                    />
+                  )}
                 />
-              </Form.Item>
+                {errors.message && <span className="field-error">{errors.message.message}</span>}
+              </div>
             </Row>
 
             <Foot>
               <SendButton
                 htmlType="submit"
                 type="primary"
-                loading={sending}
+                loading={isSubmitting}
                 icon={<PaperPlaneRightIcon size={20} aria-hidden />}
               >
                 Send
               </SendButton>
-              <button type="button" className="discard" onClick={discard} aria-label="Discard draft" disabled={sending}>
+              <button
+                type="button"
+                className="discard"
+                onClick={discard}
+                aria-label="Discard draft"
+                disabled={isSubmitting}
+              >
                 <TrashIcon size={20} aria-hidden />
               </button>
             </Foot>
           </Compose>
-        </Form>
+        </form>
       </Modal>
     </>
   );
