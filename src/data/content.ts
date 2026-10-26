@@ -366,7 +366,7 @@ export const feed = [
     plays: "5.4k",
     likes: "170",
     comments: "0",
-    url: "https://www.instagram.com/reel/DU5w51yk0L1/",
+    url: "/waste.mp4",
     cta: "Watch reel",
   },
   {
@@ -379,7 +379,7 @@ export const feed = [
     plays: "5.1k",
     likes: "185",
     comments: "2",
-    url: "https://www.instagram.com/reel/DTssZG8jFfb/",
+    url: "/felecit.mp4",
     cta: "Watch reel",
   },
   {
@@ -392,7 +392,7 @@ export const feed = [
     plays: "1.3k",
     likes: "22",
     comments: "4",
-    url: "https://www.instagram.com/reel/DLNjjh-zTWW/",
+    url: "/launch.mp4",
     cta: "Watch reel",
   },
 ] as const;

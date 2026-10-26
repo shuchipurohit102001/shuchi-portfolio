@@ -49,6 +49,13 @@ const BrandMark = styled.span`
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  ${Brand}:hover & {
+    transform: rotate(-5deg) scale(1.04);
+    box-shadow: ${t.shadowSoft};
+  }
 `;
 
 const BrandText = styled.span`
@@ -87,6 +94,7 @@ const Links = styled.nav`
 `;
 
 const NavLink = styled(Link)<{ $on: boolean }>`
+  position: relative;
   padding: 0.5rem 1rem;
   border-radius: ${t.r.md};
   text-decoration: none;
@@ -98,6 +106,22 @@ const NavLink = styled(Link)<{ $on: boolean }>`
   &:hover {
     background: ${t.c.cont};
     color: ${t.c.ink};
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    bottom: 0.3rem;
+    left: 1rem;
+    height: 2px;
+    border-radius: ${t.r.full};
+    background: ${t.c.secondary};
+    transform: scaleX(${(p) => (p.$on ? 1 : 0)});
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  &:hover::after {
+    transform: scaleX(1);
   }
 `;
 
@@ -119,7 +143,22 @@ const Burger = styled.button`
   color: ${t.c.ink};
   border-radius: ${t.r.md};
   cursor: pointer;
-  font-size: 1.1rem;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  &:hover {
+    background: ${t.c.cont};
+    border-color: ${t.c.outline};
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: scale(0.97);
+  }
+  &:focus-visible {
+    outline: 2px solid ${t.c.primary};
+    outline-offset: 3px;
+  }
   @media (min-width: ${t.bp.desktop}) {
     display: none;
   }
@@ -132,7 +171,7 @@ const DrawerLinks = styled.div`
 
 const items = [
   { href: "/", label: "Portfolio & About" },
-  { href: "/community", label: "Skills Synergy community" },
+  { href: "/community", label: "Skills Synergy Community" },
 ];
 
 export default function Nav() {

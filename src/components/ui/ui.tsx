@@ -242,6 +242,21 @@ export const Panel = styled.div<{
   border-radius: ${(p) => t.r[p.$round ?? "lg"]};
   padding: ${(p) => t.s[p.$pad ?? "lg"]};
   box-shadow: ${(p) => (p.$shadow === "lift" ? t.shadowLift : p.$shadow === "soft" ? t.shadowSoft : "none")};
+  &:has(a, button) {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    &:has(a, button):hover {
+      transform: translateY(-2px);
+      box-shadow: ${t.shadowLift};
+    }
+  }
+  &:has(a:focus-visible, button:focus-visible) {
+    outline: 2px solid ${t.c.primary};
+    outline-offset: 3px;
+  }
 `;
 
 export const Lift = styled.div`
@@ -265,15 +280,29 @@ export const Card = styled.div`
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: ${t.shadowLift};
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: ${t.shadowLift};
+    }
+    &:hover > span:first-child {
+      transform: scale(1.06) rotate(-4deg);
+    }
+  }
+  > span:first-child {
+    transition: transform 0.2s ease;
   }
   h3 {
     font-size: 1.15rem;
     font-family: var(--font-manrope);
     font-weight: 600;
     line-height: 1.35;
+    transition: color 0.2s ease;
+  }
+  @media (hover: hover) {
+    &:hover h3 {
+      color: ${t.c.secondary};
+    }
   }
 `;
 
@@ -348,6 +377,10 @@ export const IconBadge = styled.span<{
   height: ${(p) => (p.$size === "sm" ? "2rem" : p.$size === "lg" ? "3rem" : "2.5rem")};
   font-size: ${(p) => (p.$size === "sm" ? "1rem" : p.$size === "lg" ? "1.45rem" : "1.15rem")};
   border-radius: ${(p) => (p.$round ? "50%" : t.r.md)};
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
   ${(p) => {
     switch (p.$tone) {
       case "dark":
@@ -506,7 +539,7 @@ const btnStyles = css<{ $v?: "primary" | "secondary" | "ghost" }>`
   transition:
     background 0.15s ease,
     color 0.15s ease,
-    transform 0.15s ease,
+    transform 0.2s ease,
     box-shadow 0.15s ease;
   min-height: 44px;
   cursor: pointer;
@@ -514,6 +547,13 @@ const btnStyles = css<{ $v?: "primary" | "secondary" | "ghost" }>`
   white-space: nowrap;
   &:hover {
     transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+  &:focus-visible {
+    outline: 2px solid ${t.c.secondary};
+    outline-offset: 3px;
   }
   ${(p) =>
     p.$v === "secondary"
@@ -676,6 +716,14 @@ const Frame = styled.figure<{ $ratio: string }>`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  img {
+    transition: transform 0.45s ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    &:hover img {
+      transform: scale(1.035);
+    }
   }
   figcaption {
     position: relative;

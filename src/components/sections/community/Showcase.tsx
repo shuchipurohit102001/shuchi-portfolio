@@ -2,13 +2,7 @@
 import { Avatar, Container, ExtBtn, Grid, Muted, Panel, Section, SectionHead } from "@/components/ui/ui";
 import { feed, testimonials } from "@/data/content";
 import { t } from "@/providers/tokens";
-import {
-  ChatIcon,
-  HeartIcon,
-  InstagramLogoIcon,
-  PlayCircleIcon,
-  QuotesIcon,
-} from "@phosphor-icons/react";
+import { ChatIcon, HeartIcon, InstagramLogoIcon, PlayCircleIcon, QuotesIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const FeedCard = styled(Panel)`
@@ -23,16 +17,16 @@ const FeedCard = styled(Panel)`
 const PlayerWrap = styled.div`
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 14;
-  min-height: 460px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
   background: ${t.c.cont};
-  iframe {
+  video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     border: 0;
-    background: ${t.c.cont};
   }
 `;
 
@@ -119,9 +113,6 @@ const Author = styled.div`
   }
 `;
 
-/* https://www.instagram.com/reel/CODE/  ->  https://www.instagram.com/reel/CODE/embed */
-const embedUrl = (url: string) => `${url.replace(/\/+$/, "")}/embed`;
-
 const Showcase = () => {
   return (
     <Section>
@@ -152,14 +143,7 @@ const Showcase = () => {
           {feed.map((item) => (
             <FeedCard key={item.id} $tone="lowest" $shadow="soft">
               <PlayerWrap>
-                <iframe
-                  src={embedUrl(item.url)}
-                  title={item.title}
-                  loading="lazy"
-                  scrolling="no"
-                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-                  allowFullScreen
-                />
+                <video src={item.url} title={item.title} autoPlay muted loop playsInline controls />
               </PlayerWrap>
               <FeedBody>
                 <Category>
@@ -196,7 +180,7 @@ const Showcase = () => {
           {testimonials.map((item) => (
             <Testimonial key={item.name} $tone="cont" $pad="lg">
               <blockquote>
-                <QuotesIcon size={20} aria-hidden />
+                <QuotesIcon size={20} weight="fill" aria-hidden />
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
               <Author>
