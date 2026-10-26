@@ -172,10 +172,10 @@ export const homeMetrics = [
 
 export const homePillars = [
   {
-    id: "tech",
-    title: "Tech business development",
-    text: "Strategic client acquisition, consultative selling and high-trust stakeholder navigation in modern software landscapes.",
-    foot: "B2B software growth",
+    id: "ielts",
+    title: "IELTS & TOEFL trainer",
+    text: "Structured preparation for IELTS and TOEFL (Test of English as a Foreign Language): listening, reading, writing and speaking practice, with clear feedback on writing and speaking tasks.",
+    foot: "English proficiency test prep",
   },
   {
     id: "corporate",

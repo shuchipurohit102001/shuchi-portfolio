@@ -23,7 +23,7 @@ import type { ReactNode } from "react";
 import styled from "styled-components";
 
 const icons: Record<string, ReactNode> = {
-  tech: <BankIcon size={20} aria-hidden />,
+  ielts: <BankIcon size={20} aria-hidden />,
   corporate: <UsersThreeIcon size={20} aria-hidden />,
   coaching: <SmileyIcon size={20} aria-hidden />,
   campus: <GraduationCapIcon size={20} aria-hidden />,

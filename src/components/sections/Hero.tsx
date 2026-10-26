@@ -17,7 +17,21 @@ import {
 import { homeMetrics, person } from "@/data/content";
 import { t } from "@/providers/tokens";
 import { ArrowRightIcon, BankIcon, SealCheckIcon, UsersThreeIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
+
+const roles = ["Corporate Professional", "Communication Coach", "Leadership Mentor"];
+
+const roleEnter = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(0.3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const HeroShell = styled(Section)`
   position: relative;
@@ -45,6 +59,27 @@ const Accent = styled.em`
   color: ${t.c.secondary};
   font-style: italic;
   font-weight: 600;
+`;
+
+const RoleLine = styled.p`
+  min-height: 2.6em;
+  font-family: var(--font-epilogue);
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.3;
+`;
+
+const AnimatedRole = styled.span`
+  display: inline-block;
+  background: linear-gradient(to left, #e0a100, #2fa4b8, #2b6cb0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: ${roleEnter} 0.2s ease both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `;
 
 const LeadStrong = styled.strong`
@@ -99,6 +134,16 @@ const MiniPills = styled.div`
 `;
 
 const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setRoleIndex((index) => (index + 1) % roles.length);
+    }, 2300);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <HeroShell>
       <Inner>
@@ -115,6 +160,12 @@ const Hero = () => {
               <H1>
                 Empowering Communication, Fostering <Accent>Leadership</Accent> &amp; Unlocking Opportunities.
               </H1>
+
+              <RoleLine aria-label={roles.join(", ")}>
+                <AnimatedRole key={roles[roleIndex]} aria-hidden="true">
+                  {roles[roleIndex]}
+                </AnimatedRole>
+              </RoleLine>
 
               <Lead>
                 Business development executive in software solutions, founder of <LeadStrong>Skills Synergy</LeadStrong>{" "}
