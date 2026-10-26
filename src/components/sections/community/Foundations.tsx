@@ -5,6 +5,7 @@ import {
   Container,
   Grid,
   IconBadge,
+  Media,
   Muted,
   Panel,
   Section,
@@ -116,6 +117,7 @@ const Foundations = () => {
               </div>
             </FounderHead>
             <Quote>{founderNote}</Quote>
+            <Media label="Skill Workshop" src="/skillSynergy.JPEG" />
             <NoteFoot>
               <span>Community hub</span>
               <strong>Skills Synergy platform</strong>

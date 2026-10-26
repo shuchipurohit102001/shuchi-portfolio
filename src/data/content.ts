@@ -4,7 +4,7 @@ export const person = {
   wa: "918329537693",
   email: "shuchipurohit102001@gmail.com",
   location: "Nagpur, Maharashtra",
-  linkedin: "https://www.linkedin.com/in/shuchi-purohit1",
+  linkedin: "https://www.linkedin.com/in/shuchi-purohit1/",
   headline: "I help students and early-career professionals communicate with clarity and confidence.",
   summary:
     "With a background in Psychology and English Literature, I coach interpersonal skills, public speaking and personality development. As a Business Development Executive in IT, I bring practical sales and marketing experience into the classroom, helping students move from campus to corporate: networking, pitching, presenting, negotiating and interviews.",
@@ -166,7 +166,7 @@ export const offerings = [
 
 export const homeMetrics = [
   { value: "100+", label: "Mentees & professionals guided", accent: "secondary" },
-  { value: "400+", label: "Community reach across platforms", accent: "primary" },
+  { value: "650+", label: "Followers across Instagram profiles", accent: "primary" },
   { value: "4", label: "Pillars of holistic growth", accent: "tertiary" },
 ] as const;
 
@@ -257,8 +257,8 @@ export const communityPanelPoints = [
   },
   {
     id: "masterclass",
-    title: "18+ interactive masterclasses",
-    text: "Curated sessions on articulation, poise, boardroom presence and conflict mastery.",
+    title: "Live sessions across colleges",
+    text: "Classroom-to-Corporate workshops on resumes, interviews and presence at CPC, City Premier and IDEAS colleges in Nagpur.",
   },
   {
     id: "support",
@@ -297,7 +297,7 @@ export const communityPillars = [
 
 export const communityMetrics = [
   "Active cohorts",
-  "18+ educational reels & masterclasses",
+  "18 posts and reels from live sessions",
   "Dedicated WhatsApp & DM hotline",
   "Customised 1:1 guidance",
 ] as const;
@@ -338,42 +338,51 @@ export const programs = [
   },
 ] as const;
 
+// Real reels from @skill_synergy_ with figures as captured from Instagram
 export const feed = [
   {
-    id: "speaking",
+    id: "waste",
     kind: "video",
     format: "Reel",
-    category: "Speaking clinic #08",
-    title: "Overcoming the 3 common speech fillers (\"um\", \"ah\", \"basically\")",
-    text: "Micro-exercise: the two-second deliberate pause drill to maintain executive credibility in boardrooms.",
-    likes: "1.4k",
-    comments: "92",
+    category: "College workshop · Feb 2026",
+    title: "Best Out of Waste at IDEAS College of Architecture",
+    text: "A hands-on creativity activity where students turned simple materials into striking pieces, built on teamwork and fun.",
+    plays: "5.4k",
+    likes: "170",
+    comments: "0",
+    url: "https://www.instagram.com/reel/DU5w51yk0L1/",
     cta: "Watch reel",
   },
   {
-    id: "grooming",
-    kind: "image",
-    format: "Carousel",
-    category: "Grooming masterclass #14",
-    title: "The 5-point corporate grooming checklist for high-stakes pitches",
-    text: "Tactile reminders on posture anchors, colour palette harmony and wrist gestures that exude calm confidence.",
-    likes: "2.1k",
-    comments: "134",
-    cta: "View post",
+    id: "felicitation",
+    kind: "video",
+    format: "Reel",
+    category: "College event · Jan 2026",
+    title: "Felicitation Day at IDEAS College of Architecture",
+    text: "Celebrating a year of consistent effort, learning and transformation with the students.",
+    plays: "5.1k",
+    likes: "185",
+    comments: "2",
+    url: "https://www.instagram.com/reel/DTssZG8jFfb/",
+    cta: "Watch reel",
   },
   {
-    id: "story",
-    kind: "image",
-    format: "Cohort story",
-    category: "Student spotlight #18",
-    title: "From interview hesitation to senior analyst offer in 4 weeks",
-    text: "\"Shuchi's 1:1 critique fundamentally reshaped how I structure my thoughts under stress.\"",
-    likes: "1.8k",
-    comments: "78",
-    cta: "Read story",
+    id: "one-to-one",
+    kind: "video",
+    format: "Reel",
+    category: "Launch · Jun 2025",
+    title: "Launch of 1:1 training, grooming and personality development",
+    text: "Sessions on corporate communication, personality development and personal grooming under Skills Synergy.",
+    plays: "1.3k",
+    likes: "22",
+    comments: "4",
+    url: "https://www.instagram.com/reel/DLNjjh-zTWW/",
+    cta: "Watch reel",
   },
 ] as const;
 
+// NOTE: these testimonials could not be verified from Instagram data.
+// Replace with real, permissioned quotes before publishing.
 export const testimonials = [
   {
     initials: "AK",

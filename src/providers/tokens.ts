@@ -2,44 +2,44 @@ import type { ThemeConfig } from "antd";
 
 export const t = {
   c: {
-    /* Surfaces */
-    canvas: "#fffdf9",
-    low: "#fdfaf4",
-    cont: "#fbf7ef",
-    high: "#f8f3e9",
-    highest: "#f3eee4",
+    /* Surfaces (light-cyan family, very soft steps) */
+    canvas: "#ffffff",
+    low: "#f6fcfe",
+    cont: "#eef9fc",
+    high: "#e4f5fa",
+    highest: "#d8f0f7",
     lowest: "#ffffff",
 
-    /* Ink */
-    ink: "#2b2822",
-    inkVar: "#5d564e",
+    /* Ink (soft navy, not harsh black) */
+    ink: "#14283f",
+    inkVar: "#4b6279",
 
-    /* Primary */
-    primary: "#b7aca2",
-    primaryHover: "#a99e94",
-    primaryContainer: "#c9c0b7",
-    primaryInk: "#6f655d",
-    onPrimary: "#2b2822",
+    /* Primary: bright-teal-blue, readable with white text */
+    primary: "#0077b6",
+    primaryHover: "#0a68a3",
+    primaryContainer: "#ade8f4",
+    primaryInk: "#005f94",
+    onPrimary: "#ffffff",
 
-    /* Secondary / clay accent */
-    secondary: "#8a675b",
-    secondaryDim: "#f2cabe",
+    /* Secondary / accent */
+    secondary: "#023e8a",
+    secondaryDim: "#90e0ef",
     onSecondary: "#ffffff",
-    clay: "#ffe7df",
-    clayInk: "#6b4639",
+    clay: "#caf0f8",
+    clayInk: "#023e8a",
 
     /* Tertiary */
-    tertiary: "#736a62",
-    tertiaryContainer: "#e6ded4",
+    tertiary: "#5a7e96",
+    tertiaryContainer: "#dcf0f6",
 
     /* Lines and outlines */
-    line: "#ddd6cb",
-    outline: "#948a81",
-    outlineVariant: "#ece5dc",
+    line: "#cfe5ee",
+    outline: "#7ea6bb",
+    outlineVariant: "#e1eff5",
 
-    /* Inverse */
-    inverse: "#b7aca2",
-    inverseInk: "#2b2822",
+    /* Inverse (footer, dark sections) */
+    inverse: "#0b2a4a",
+    inverseInk: "#caf0f8",
 
     /* Feedback */
     error: "#b3261e",
@@ -65,9 +65,9 @@ export const t = {
     xxxl: "4.5rem",
   },
 
-  shadow: "0 8px 30px rgba(101,93,87,0.07)",
-  shadowSoft: "0 1px 8px rgba(101,93,87,0.05)",
-  shadowLift: "0 18px 44px rgba(101,93,87,0.10)",
+  shadow: "0 8px 30px rgba(2,62,138,0.07)",
+  shadowSoft: "0 1px 8px rgba(2,62,138,0.05)",
+  shadowLift: "0 18px 44px rgba(2,62,138,0.10)",
 
   bp: {
     tablet: "640px",
@@ -102,7 +102,7 @@ export const antdTheme: ThemeConfig = {
     },
     Input: {
       activeShadow: "none",
-      activeBorderColor: t.c.outline,
+      activeBorderColor: t.c.primary,
       hoverBorderColor: t.c.outline,
     },
   },

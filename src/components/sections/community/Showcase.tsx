@@ -1,24 +1,8 @@
 "use client";
-import {
-  Avatar,
-  Container,
-  ExtBtn,
-  Grid,
-  Media,
-  Muted,
-  Panel,
-  Section,
-  SectionHead,
-} from "@/components/ui/ui";
+import { Avatar, Container, ExtBtn, Grid, Muted, Panel, Section, SectionHead } from "@/components/ui/ui";
 import { feed, testimonials } from "@/data/content";
 import { t } from "@/providers/tokens";
-import {
-  AppstoreOutlined,
-  CommentOutlined,
-  HeartOutlined,
-  InstagramOutlined,
-  PlayCircleOutlined,
-} from "@ant-design/icons";
+import { CommentOutlined, HeartOutlined, InstagramOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
 const FeedCard = styled(Panel)`
@@ -28,31 +12,22 @@ const FeedCard = styled(Panel)`
   padding: 0;
 `;
 
-const MediaWrap = styled.div`
+/* Instagram's embed player is a tall, fixed-layout frame, so the wrapper
+   gives it a portrait box and lets the iframe fill it. */
+const PlayerWrap = styled.div`
   position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 14;
+  min-height: 460px;
   background: ${t.c.cont};
-  figure {
-    border-radius: 0;
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     border: 0;
+    background: ${t.c.cont};
   }
-`;
-
-const FormatTag = styled.span`
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: ${t.r.full};
-  background: ${t.c.inverse}dd;
-  color: ${t.c.inverseInk};
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(6px);
 `;
 
 const FeedBody = styled.div`
@@ -71,6 +46,9 @@ const FeedBody = styled.div`
 `;
 
 const Category = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: ${t.c.secondary};
   font-size: 0.72rem;
   font-weight: 700;
@@ -99,6 +77,10 @@ const FeedFoot = styled.div`
       text-decoration: underline;
     }
   }
+`;
+
+const Stats = styled.span`
+  gap: ${t.s.sm} !important;
 `;
 
 const Testimonial = styled(Panel)`
@@ -131,6 +113,9 @@ const Author = styled.div`
   }
 `;
 
+/* https://www.instagram.com/reel/CODE/  ->  https://www.instagram.com/reel/CODE/embed */
+const embedUrl = (url: string) => `${url.replace(/\/+$/, "")}/embed`;
+
 const Showcase = () => {
   return (
     <Section>
@@ -157,22 +142,32 @@ const Showcase = () => {
           }
         />
 
-        <Grid $min="260px">
+        <Grid $min="280px">
           {feed.map((item) => (
             <FeedCard key={item.id} $tone="lowest" $shadow="soft">
-              <MediaWrap>
-                <Media kind={item.kind} ratio="4/3" label={item.format} hint={false} />
-                <FormatTag>
-                  {item.kind === "video" ? <PlayCircleOutlined aria-hidden /> : <AppstoreOutlined aria-hidden />}
-                  {item.format}
-                </FormatTag>
-              </MediaWrap>
+              <PlayerWrap>
+                <iframe
+                  src={embedUrl(item.url)}
+                  title={item.title}
+                  loading="lazy"
+                  scrolling="no"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              </PlayerWrap>
               <FeedBody>
-                <Category>{item.category}</Category>
+                <Category>
+                  <PlayCircleOutlined aria-hidden />
+                  {item.category}
+                </Category>
                 <h4>{item.title}</h4>
                 <Muted>{item.text}</Muted>
                 <FeedFoot>
-                  <span>
+                  <Stats>
+                    <span>
+                      <PlayCircleOutlined aria-hidden />
+                      {item.plays}
+                    </span>
                     <span>
                       <HeartOutlined aria-hidden />
                       {item.likes}
@@ -181,8 +176,8 @@ const Showcase = () => {
                       <CommentOutlined aria-hidden />
                       {item.comments}
                     </span>
-                  </span>
-                  <a href="https://www.instagram.com/skill_synergy_/" target="_blank" rel="noopener noreferrer">
+                  </Stats>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.cta}
                   </a>
                 </FeedFoot>

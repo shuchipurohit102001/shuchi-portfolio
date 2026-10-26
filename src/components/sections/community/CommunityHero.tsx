@@ -20,11 +20,11 @@ import { t } from "@/providers/tokens";
 import {
   CustomerServiceOutlined,
   InstagramOutlined,
-  MessageOutlined,
   ReadOutlined,
   StarFilled,
   TeamOutlined,
   UserOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import type { ReactNode } from "react";
 import styled from "styled-components";
@@ -186,7 +186,7 @@ const CommunityHero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MessageOutlined aria-hidden />
+                    <WhatsAppOutlined aria-hidden />
                     Join the WhatsApp community
                   </ExtBtn>
                   <ExtBtn
