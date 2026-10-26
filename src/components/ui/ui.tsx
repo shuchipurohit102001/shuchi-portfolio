@@ -425,7 +425,7 @@ export function CheckList({ items }: { items: readonly string[] }) {
     <CheckListWrap>
       {items.map((item) => (
         <li key={item}>
-          <CheckCircleIcon weight="fill" aria-hidden />
+          <CheckCircleIcon size={20} weight="fill" aria-hidden />
           <span>{item}</span>
         </li>
       ))}
@@ -688,7 +688,7 @@ export function Media({
       {!src && (
         <figcaption>
           <span aria-hidden>
-            <Icon size="1.75rem" />
+            <Icon size={20} />
           </span>
           {label}
           {hint && <small>Placeholder: add file to /public/media</small>}

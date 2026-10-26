@@ -113,14 +113,14 @@ const Join = () => {
                 >
                   <HotlineCopy>
                     <IconBadge $tone="clay" $round>
-                      <ChatIcon aria-hidden />
+                      <ChatIcon size={20} aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>WhatsApp direct helpline</strong>
                       <span>{person.phone}</span>
                     </span>
                   </HotlineCopy>
-                  <ArrowRightIcon aria-hidden />
+                  <ArrowRightIcon size={20} aria-hidden />
                 </Hotline>
 
                 <Hotline
@@ -130,14 +130,14 @@ const Join = () => {
                 >
                   <HotlineCopy>
                     <IconBadge $tone="cont" $round>
-                      <InstagramLogoIcon aria-hidden />
+                      <InstagramLogoIcon size={20} aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>Instagram direct message</strong>
                       <span>@skill_synergy_</span>
                     </span>
                   </HotlineCopy>
-                  <ArrowRightIcon aria-hidden />
+                  <ArrowRightIcon size={20} aria-hidden />
                 </Hotline>
               </Hotlines>
             </Copy>

@@ -19,6 +19,7 @@ import {
   IdentificationCardIcon,
   LightbulbIcon,
   UsersThreeIcon,
+  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
@@ -56,10 +57,10 @@ const Foot = styled.div`
 `;
 
 const programIcons: Record<string, ReactNode> = {
-  grooming: <IdentificationCardIcon aria-hidden />,
-  communication: <ChatIcon aria-hidden />,
-  coaching: <LightbulbIcon aria-hidden />,
-  personality: <UsersThreeIcon aria-hidden />,
+  grooming: <IdentificationCardIcon size={20} aria-hidden />,
+  communication: <ChatIcon size={20} aria-hidden />,
+  coaching: <LightbulbIcon size={20} aria-hidden />,
+  personality: <UsersThreeIcon size={20} aria-hidden />,
 };
 
 const Programs = () => {
@@ -80,7 +81,7 @@ const Programs = () => {
               $v="ghost"
             >
               Request cohort syllabus
-              <ArrowRightIcon aria-hidden />
+              <ArrowRightIcon size={20} aria-hidden />
             </ExtBtn>
           }
         />
@@ -93,7 +94,12 @@ const Programs = () => {
                 <CardTop>
                   <Pill $tone="clay">{program.module}</Pill>
                   {featured ? (
-                    <Pill $tone="dark">High impact</Pill>
+                    <>
+                      <Pill $tone="dark">High impact</Pill>
+                      <IconBadge $tone="cont" $size="sm">
+                        {programIcons[program.id]}
+                      </IconBadge>
+                    </>
                   ) : (
                     <IconBadge $tone="cont" $size="sm">
                       {programIcons[program.id]}
@@ -110,6 +116,7 @@ const Programs = () => {
                     rel="noopener noreferrer"
                     $v={featured ? "primary" : "ghost"}
                   >
+                    <WhatsappLogoIcon size={20} aria-hidden />
                     {featured ? "Book private 1:1" : "Enquire module"}
                   </ExtBtn>
                 </Foot>

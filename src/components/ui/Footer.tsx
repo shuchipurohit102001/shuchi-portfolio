@@ -3,9 +3,13 @@ import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
   EnvelopeIcon,
+  GraduationCapIcon,
+  HouseIcon,
   InstagramLogoIcon,
   PhoneIcon,
+  UsersThreeIcon,
   WhatsappLogoIcon,
+  YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 import Link from "next/link";
 import styled from "styled-components";
@@ -111,6 +115,9 @@ const Nav = styled.nav`
   display: grid;
   gap: ${t.s.xs};
   a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     color: ${t.c.inkVar};
     font-size: 0.82rem;
     text-decoration: none;
@@ -190,10 +197,11 @@ export default function Footer() {
             <SocialPills>
               {ventures.map((v) => (
                 <a key={v.handle} href={v.url} target="_blank" rel="noopener noreferrer">
-                  <InstagramLogoIcon aria-hidden /> @{v.handle}
+                  <InstagramLogoIcon size={20} aria-hidden /> @{v.handle}
                 </a>
               ))}
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                <YoutubeLogoIcon size={20} aria-hidden />
                 YouTube
               </a>
             </SocialPills>
@@ -202,10 +210,22 @@ export default function Footer() {
           <Col>
             <ColTitle>Exploration</ColTitle>
             <Nav aria-label="Footer">
-              <Link href="/">Portfolio &amp; biography</Link>
-              <Link href="/community">Skills Synergy hub</Link>
-              <Link href="/#contact">Direct advisory &amp; inquiries</Link>
-              <Link href="/community#contact">Join the next cohort</Link>
+              <Link href="/">
+                <HouseIcon size={20} aria-hidden />
+                Portfolio &amp; biography
+              </Link>
+              <Link href="/community">
+                <UsersThreeIcon size={20} aria-hidden />
+                Skills Synergy hub
+              </Link>
+              <Link href="/#contact">
+                <EnvelopeIcon size={20} aria-hidden />
+                Direct advisory &amp; inquiries
+              </Link>
+              <Link href="/community#contact">
+                <GraduationCapIcon size={20} aria-hidden />
+                Join the next cohort
+              </Link>
             </Nav>
           </Col>
 
@@ -213,16 +233,16 @@ export default function Footer() {
             <ColTitle>Direct access</ColTitle>
             <p>Connect for keynote invitations, community mentorship and bespoke collaborations.</p>
             <Direct href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
-              <WhatsappLogoIcon aria-hidden />
+              <WhatsappLogoIcon size={20} aria-hidden />
               Initiate conversation
             </Direct>
             <Meta>
               <a href={`tel:${person.wa}`}>
-                <PhoneIcon aria-hidden />
+                <PhoneIcon size={20} aria-hidden />
                 {person.phone}
               </a>
               <a href={`mailto:${person.email}`}>
-                <EnvelopeIcon aria-hidden />
+                <EnvelopeIcon size={20} aria-hidden />
                 {person.email}
               </a>
             </Meta>

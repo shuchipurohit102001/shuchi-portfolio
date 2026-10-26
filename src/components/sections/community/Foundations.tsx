@@ -18,6 +18,7 @@ import {
   LightbulbIcon,
   MusicNoteIcon,
   SmileyIcon,
+  UsersThreeIcon,
 } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
@@ -89,6 +90,9 @@ const NoteFoot = styled.div`
   border-radius: ${t.r.md};
   background: ${t.c.cont};
   span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     color: ${t.c.inkVar};
     font-size: 0.76rem;
   }
@@ -100,10 +104,10 @@ const NoteFoot = styled.div`
 `;
 
 const pillarIcons: Record<string, ReactNode> = {
-  "soft-skills": <LightbulbIcon aria-hidden />,
-  grooming: <IdentificationCardIcon aria-hidden />,
-  personality: <SmileyIcon aria-hidden />,
-  articulation: <MusicNoteIcon aria-hidden />,
+  "soft-skills": <LightbulbIcon size={20} aria-hidden />,
+  grooming: <IdentificationCardIcon size={20} aria-hidden />,
+  personality: <SmileyIcon size={20} aria-hidden />,
+  articulation: <MusicNoteIcon size={20} aria-hidden />,
 };
 
 const Foundations = () => {
@@ -124,7 +128,10 @@ const Foundations = () => {
             <Quote>{founderNote}</Quote>
             <Media label="Skill Workshop" src="/skillSynergy.png" />
             <NoteFoot>
-              <span>Community hub</span>
+              <span>
+                <UsersThreeIcon size={20} aria-hidden />
+                Community hub
+              </span>
               <strong>Skills Synergy platform</strong>
             </NoteFoot>
           </NotePanel>

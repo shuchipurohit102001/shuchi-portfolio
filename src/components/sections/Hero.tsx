@@ -17,12 +17,7 @@ import {
 } from "@/components/ui/ui";
 import { homeMetrics, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import {
-  ArrowRightIcon,
-  BankIcon,
-  SealCheckIcon,
-  WhatsappLogoIcon,
-} from "@phosphor-icons/react";
+import { ArrowRightIcon, BankIcon, SealCheckIcon, UsersThreeIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const HeroShell = styled(Section)`
@@ -132,12 +127,12 @@ const Hero = () => {
 
               <Row>
                 <ExtBtn href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
-                  <WhatsappLogoIcon aria-hidden />
+                  <WhatsappLogoIcon size={20} aria-hidden />
                   Book a 1:1 on WhatsApp
                 </ExtBtn>
                 <Btn href="/community" $v="secondary">
                   Explore Skills Synergy
-                  <ArrowRightIcon aria-hidden />
+                  <ArrowRightIcon size={20} aria-hidden />
                 </Btn>
               </Row>
 
@@ -157,15 +152,18 @@ const Hero = () => {
                 <Portrait src="/profilePhoto.png" label="Shuchi Purohit" initials="SP" ratio="1/1">
                   <FloatingPills>
                     <Pill $tone="canvas">
-                      <SealCheckIcon aria-hidden />
+                      <SealCheckIcon size={20} aria-hidden />
                       Founder @ Skills Synergy
                     </Pill>
                     <MiniPills>
                       <Pill $tone="cont">
-                        <BankIcon aria-hidden />
+                        <BankIcon size={20} aria-hidden />
                         BDE @ Software Co
                       </Pill>
-                      <Pill $tone="clay">Corporate Trainer</Pill>
+                      <Pill $tone="clay">
+                        <UsersThreeIcon size={20} aria-hidden />
+                        Corporate Trainer
+                      </Pill>
                     </MiniPills>
                   </FloatingPills>
                 </Portrait>

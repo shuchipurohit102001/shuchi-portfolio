@@ -165,13 +165,13 @@ export default function Nav() {
 
           <Cta>
             <ExtBtn href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer" $v="secondary">
-              <WhatsappLogoIcon aria-hidden />
+              <WhatsappLogoIcon size={20} aria-hidden />
               WhatsApp Inquiry
             </ExtBtn>
           </Cta>
 
           <Burger aria-label="Open menu" onClick={() => setOpen(true)}>
-            <ListIcon aria-hidden />
+            <ListIcon size={20} aria-hidden />
           </Burger>
 
           <Drawer open={open} onClose={() => setOpen(false)} placement="right" size={300} title="Menu">
@@ -191,7 +191,7 @@ export default function Nav() {
                 $v="secondary"
                 style={{ marginTop: t.s.sm }}
               >
-                <WhatsappLogoIcon aria-hidden />
+                <WhatsappLogoIcon size={20} aria-hidden />
                 WhatsApp Inquiry
               </ExtBtn>
             </DrawerLinks>

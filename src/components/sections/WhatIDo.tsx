@@ -13,15 +13,20 @@ import {
 } from "@/components/ui/ui";
 import { homePillars, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { BankIcon, CompassIcon, SmileyIcon, UsersThreeIcon } from "@phosphor-icons/react";
+import {
+  BankIcon,
+  GraduationCapIcon,
+  SmileyIcon,
+  UsersThreeIcon,
+} from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
 const icons: Record<string, ReactNode> = {
-  tech: <BankIcon aria-hidden />,
-  corporate: <UsersThreeIcon aria-hidden />,
-  coaching: <SmileyIcon aria-hidden />,
-  vedic: <CompassIcon aria-hidden />,
+  tech: <BankIcon size={20} aria-hidden />,
+  corporate: <UsersThreeIcon size={20} aria-hidden />,
+  coaching: <SmileyIcon size={20} aria-hidden />,
+  campus: <GraduationCapIcon size={20} aria-hidden />,
 };
 
 const Vision = styled(Panel)`

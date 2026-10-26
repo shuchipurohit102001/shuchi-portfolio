@@ -1,10 +1,18 @@
 "use client";
 import { person } from "@/data/content";
 import { t } from "@/providers/tokens";
+import {
+  ChatTextIcon,
+  EnvelopeIcon,
+  TagIcon,
+  UserIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Form, Input, message, Select } from "antd";
 import { Controller, useForm, type ControllerRenderProps } from "react-hook-form";
 import styled from "styled-components";
+import type { ReactNode } from "react";
 import { z } from "zod";
 
 const schema = z.object({
@@ -38,6 +46,12 @@ const Box = styled.div<{ $plain?: boolean }>`
     line-height: 1.6;
     margin-bottom: ${t.s.lg};
   }
+`;
+
+const FieldLabel = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 `;
 
 export default function InquiryForm({
@@ -78,10 +92,16 @@ export default function InquiryForm({
   const field = <Name extends keyof Values>(
     name: Name,
     label: string,
+    icon: ReactNode,
     node: (f: ControllerRenderProps<Values, Name>) => React.ReactNode,
   ) => (
     <Form.Item
-      label={label}
+      label={
+        <FieldLabel>
+          {icon}
+          {label}
+        </FieldLabel>
+      }
       validateStatus={errors[name] ? "error" : ""}
       help={errors[name]?.message}
       required={name !== "email"}
@@ -95,22 +115,23 @@ export default function InquiryForm({
       <h3>{title}</h3>
       {description && <p className="form-lede">{description}</p>}
       <Form layout="vertical" onFinish={handleSubmit(onSubmit)} requiredMark="optional">
-        {field("name", "Full name", (f) => (
+        {field("name", "Full name", <UserIcon size={20} aria-hidden />, (f) => (
           <Input {...f} autoComplete="name" />
         ))}
-        {field("phone", "WhatsApp number", (f) => (
+        {field("phone", "WhatsApp number", <WhatsappLogoIcon size={20} aria-hidden />, (f) => (
           <Input {...f} type="tel" autoComplete="tel" placeholder="+91 98765 43210" />
         ))}
-        {field("email", "Email", (f) => (
+        {field("email", "Email", <EnvelopeIcon size={20} aria-hidden />, (f) => (
           <Input {...f} type="email" autoComplete="email" />
         ))}
-        {field("interest", "Topic", (f) => (
+        {field("interest", "Topic", <TagIcon size={20} aria-hidden />, (f) => (
           <Select {...f} options={options} />
         ))}
-        {field("message", "What would you like help with?", (f) => (
+        {field("message", "What would you like help with?", <ChatTextIcon size={20} aria-hidden />, (f) => (
           <Input.TextArea {...f} rows={4} />
         ))}
         <Button type="primary" htmlType="submit" loading={isSubmitting} size="large" block>
+          <WhatsappLogoIcon size={20} aria-hidden />
           Send on WhatsApp
         </Button>
       </Form>

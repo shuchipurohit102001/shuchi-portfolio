@@ -7,6 +7,7 @@ import {
   HeartIcon,
   InstagramLogoIcon,
   PlayCircleIcon,
+  QuotesIcon,
 } from "@phosphor-icons/react";
 import styled from "styled-components";
 
@@ -141,7 +142,7 @@ const Showcase = () => {
               rel="noopener noreferrer"
               $v="ghost"
             >
-              <InstagramLogoIcon aria-hidden />
+              <InstagramLogoIcon size={20} aria-hidden />
               Visit @skill_synergy_
             </ExtBtn>
           }
@@ -162,7 +163,7 @@ const Showcase = () => {
               </PlayerWrap>
               <FeedBody>
                 <Category>
-                  <PlayCircleIcon aria-hidden />
+                  <PlayCircleIcon size={20} aria-hidden />
                   {item.category}
                 </Category>
                 <h4>{item.title}</h4>
@@ -170,15 +171,15 @@ const Showcase = () => {
                 <FeedFoot>
                   <Stats>
                     <span>
-                      <PlayCircleIcon aria-hidden />
+                      <PlayCircleIcon size={20} aria-hidden />
                       {item.plays}
                     </span>
                     <span>
-                      <HeartIcon aria-hidden />
+                      <HeartIcon size={20} aria-hidden />
                       {item.likes}
                     </span>
                     <span>
-                      <ChatIcon aria-hidden />
+                      <ChatIcon size={20} aria-hidden />
                       {item.comments}
                     </span>
                   </Stats>
@@ -194,7 +195,10 @@ const Showcase = () => {
         <Grid $min="260px" style={{ marginTop: t.s.xl }}>
           {testimonials.map((item) => (
             <Testimonial key={item.name} $tone="cont" $pad="lg">
-              <blockquote>&ldquo;{item.quote}&rdquo;</blockquote>
+              <blockquote>
+                <QuotesIcon size={20} aria-hidden />
+                &ldquo;{item.quote}&rdquo;
+              </blockquote>
               <Author>
                 <Avatar>{item.initials}</Avatar>
                 <div>

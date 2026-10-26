@@ -123,9 +123,9 @@ const Meta = styled.div`
 `;
 
 const ventureIcons: Record<string, ReactNode> = {
-  skill_synergy_: <UsersThreeIcon aria-hidden />,
-  bhoojanpriye: <CoffeeIcon aria-hidden />,
-  purohitshuchi: <UserIcon aria-hidden />,
+  skill_synergy_: <UsersThreeIcon size={20} aria-hidden />,
+  bhoojanpriye: <CoffeeIcon size={20} aria-hidden />,
+  purohitshuchi: <UserIcon size={20} aria-hidden />,
 };
 
 const Contact = () => {
@@ -144,7 +144,7 @@ const Contact = () => {
             <WhatsAppCard $tone="clay" $pad="lg">
               <div style={{ display: "flex", alignItems: "center", gap: t.s.md }}>
                 <IconBadge $tone="dark" $round $size="lg">
-                  <WhatsappLogoIcon aria-hidden />
+                  <WhatsappLogoIcon size={20} aria-hidden />
                 </IconBadge>
                 <div>
                   <strong>{person.phone}</strong>
@@ -159,17 +159,17 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 aria-label="Message Shuchi on WhatsApp"
               >
-                <PaperPlaneRightIcon aria-hidden />
+                <PaperPlaneRightIcon size={20} aria-hidden />
               </SendBtn>
             </WhatsAppCard>
 
             <Meta>
               <a href={`mailto:${person.email}`}>
-                <EnvelopeIcon aria-hidden />
+                <EnvelopeIcon size={20} aria-hidden />
                 {person.email}
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
-                <LinkedinLogoIcon aria-hidden />
+                <LinkedinLogoIcon size={20} aria-hidden />
                 LinkedIn
               </a>
             </Meta>
@@ -186,7 +186,7 @@ const Contact = () => {
                     <small>{venture.tag}</small>
                   </span>
                 </SocialCopy>
-                <ArrowRightIcon aria-hidden />
+                <ArrowRightIcon size={20} aria-hidden />
               </SocialRow>
             ))}
           </Copy>

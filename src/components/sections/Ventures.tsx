@@ -16,9 +16,13 @@ import { journeys, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
   ArrowSquareOutIcon,
+  ArrowRightIcon,
+  BookOpenIcon,
+  BriefcaseIcon,
+  CalendarBlankIcon,
   CheckCircleIcon,
   CompassIcon,
-  MusicNoteIcon,
+  UsersThreeIcon,
   YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
@@ -92,9 +96,20 @@ const MiniGrid = styled.div`
 `;
 
 const Mini = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: ${t.s.sm};
   background: ${t.c.lowest}cc;
   border-radius: ${t.r.md};
   padding: ${t.s.md};
+  > svg {
+    flex: none;
+    margin-top: 0.1rem;
+    color: ${t.c.secondary};
+  }
+  > div {
+    min-width: 0;
+  }
   strong {
     display: block;
     font-size: 0.9rem;
@@ -120,6 +135,9 @@ const FooterRow = styled.div`
 `;
 
 const Note = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: ${t.c.inkVar};
   font-size: 0.8rem;
   font-style: italic;
@@ -182,8 +200,8 @@ const NoteLine = styled.div`
 `;
 
 const journeyIcons: Record<string, ReactNode> = {
-  campus: <MusicNoteIcon aria-hidden />,
-  corporate: <CompassIcon aria-hidden />,
+  ielts: <BookOpenIcon size={20} aria-hidden />,
+  "classroom-to-corporate": <BriefcaseIcon size={20} aria-hidden />,
 };
 
 const Ventures = () => {
@@ -208,7 +226,7 @@ const Ventures = () => {
                 <Pill $tone="dark">Flagship collective</Pill>
                 <ExtLink href={synergy.url} target="_blank" rel="noopener noreferrer">
                   @{synergy.handle}
-                  <ArrowSquareOutIcon aria-hidden />
+                  <ArrowSquareOutIcon size={20} aria-hidden />
                 </ExtLink>
               </PanelHead>
               <Title>{synergy.name}</Title>
@@ -219,20 +237,30 @@ const Ventures = () => {
               </Muted>
               <MiniGrid>
                 <Mini>
-                  <strong>Cohort bootcamps</strong>
-                  <span>Live scenario practice &amp; peer feedback</span>
+                  <UsersThreeIcon size={20} aria-hidden />
+                  <div>
+                    <strong>Cohort bootcamps</strong>
+                    <span>Live scenario practice &amp; peer feedback</span>
+                  </div>
                 </Mini>
                 <Mini>
-                  <strong>Executive presence</strong>
-                  <span>Vocal resonance, styling &amp; body language</span>
+                  <CompassIcon size={20} aria-hidden />
+                  <div>
+                    <strong>Executive presence</strong>
+                    <span>Vocal resonance, styling &amp; body language</span>
+                  </div>
                 </Mini>
               </MiniGrid>
             </div>
             <FooterRow>
               <Btn href="/community#contact" $v="secondary">
+                <UsersThreeIcon size={20} aria-hidden />
                 Join the upcoming cohort
               </Btn>
-              <Note>Next batch enrolling</Note>
+              <Note>
+                <CalendarBlankIcon size={20} aria-hidden />
+                Next batch enrolling
+              </Note>
             </FooterRow>
           </SynergyPanel>
 
@@ -242,7 +270,7 @@ const Ventures = () => {
                 <Pill $tone="clay">Culinary passion</Pill>
                 <ExtLink href={bhoojan.url} target="_blank" rel="noopener noreferrer">
                   @{bhoojan.handle}
-                  <ArrowSquareOutIcon aria-hidden />
+                  <ArrowSquareOutIcon size={20} aria-hidden />
                 </ExtLink>
               </PanelHead>
               <Title>{bhoojan.name}</Title>
@@ -252,7 +280,7 @@ const Ventures = () => {
               </Muted>
               <VideoRow $tone="lowest" $pad="md">
                 <IconBadge $tone="error" $round $size="sm">
-                  <YoutubeLogoIcon aria-hidden />
+                  <YoutubeLogoIcon size={20} aria-hidden />
                 </IconBadge>
                 <div>
                   <strong>YouTube culinary series</strong>
@@ -262,7 +290,7 @@ const Ventures = () => {
             </div>
             <FooterRow>
               <ExtBtn href={bhoojan.href} target="_blank" rel="noopener noreferrer" $v="ghost">
-                <YoutubeLogoIcon weight="fill" aria-hidden />
+                <YoutubeLogoIcon size={20} weight="fill" aria-hidden />
                 Watch playlist &amp; recipes
               </ExtBtn>
             </FooterRow>
@@ -277,7 +305,7 @@ const Ventures = () => {
               <h3>{journey.title}</h3>
               <Muted>{journey.text}</Muted>
               <NoteLine>
-                <CheckCircleIcon weight="fill" aria-hidden />
+                <CheckCircleIcon size={20} weight="fill" aria-hidden />
                 <span>{journey.foot}</span>
               </NoteLine>
             </JourneyCard>
@@ -287,6 +315,7 @@ const Ventures = () => {
         <Row style={{ marginTop: t.s.xl, justifyContent: "center" }}>
           <Btn href="/community" $v="ghost">
             Explore the Skills Synergy community
+            <ArrowRightIcon size={20} aria-hidden />
           </Btn>
         </Row>
       </Container>

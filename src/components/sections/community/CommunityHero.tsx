@@ -19,9 +19,11 @@ import { communityMetrics, communityPanelPoints, person } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
   BookOpenIcon,
+  ChatCircleDotsIcon,
   HeadphonesIcon,
   InstagramLogoIcon,
   StarIcon,
+  UserCircleIcon,
   UserIcon,
   UsersThreeIcon,
   WhatsappLogoIcon,
@@ -146,10 +148,17 @@ const Stars = styled.div`
 `;
 
 const pointIcons: Record<string, ReactNode> = {
-  groups: <UsersThreeIcon aria-hidden />,
-  masterclass: <BookOpenIcon aria-hidden />,
-  support: <HeadphonesIcon aria-hidden />,
-  "one-to-one": <UserIcon aria-hidden />,
+  groups: <UsersThreeIcon size={20} aria-hidden />,
+  masterclass: <BookOpenIcon size={20} aria-hidden />,
+  support: <HeadphonesIcon size={20} aria-hidden />,
+  "one-to-one": <UserIcon size={20} aria-hidden />,
+};
+
+const metricIcons: Record<string, ReactNode> = {
+  "Active cohorts": <UsersThreeIcon size={20} aria-hidden />,
+  "18 posts and reels from live sessions": <InstagramLogoIcon size={20} aria-hidden />,
+  "Dedicated WhatsApp & DM hotline": <ChatCircleDotsIcon size={20} aria-hidden />,
+  "Customised 1:1 guidance": <UserCircleIcon size={20} aria-hidden />,
 };
 
 const CommunityHero = () => {
@@ -186,7 +195,7 @@ const CommunityHero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <WhatsappLogoIcon aria-hidden />
+                    <WhatsappLogoIcon size={20} aria-hidden />
                     Join the WhatsApp community
                   </ExtBtn>
                   <ExtBtn
@@ -195,7 +204,7 @@ const CommunityHero = () => {
                     rel="noopener noreferrer"
                     $v="ghost"
                   >
-                    <InstagramLogoIcon aria-hidden />
+                    <InstagramLogoIcon size={20} aria-hidden />
                     Follow @skill_synergy_
                   </ExtBtn>
                 </Row>
@@ -231,7 +240,7 @@ const CommunityHero = () => {
                   <span>Community rating</span>
                   <Stars>
                     {[0, 1, 2, 3, 4].map((i) => (
-                      <StarIcon key={i} weight="fill" aria-hidden />
+                      <StarIcon key={i} size={20} weight="fill" aria-hidden />
                     ))}
                     <small>4.9 / 5</small>
                   </Stars>
@@ -247,7 +256,7 @@ const CommunityHero = () => {
           <MetricStripInner>
             {communityMetrics.map((item) => (
               <Metric key={item}>
-                <Dot />
+                {metricIcons[item]}
                 {item}
               </Metric>
             ))}

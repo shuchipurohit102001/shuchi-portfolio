@@ -4,6 +4,7 @@ import {
   Container,
   ExtBtn,
   Grid,
+  IconBadge,
   Muted,
   Panel,
   Pill,
@@ -12,8 +13,22 @@ import {
 } from "@/components/ui/ui";
 import { homeServices, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { CalendarBlankIcon } from "@phosphor-icons/react";
+import {
+  CalendarBlankIcon,
+  ChatTextIcon,
+  ChartLineUpIcon,
+  GraduationCapIcon,
+  UsersThreeIcon,
+} from "@phosphor-icons/react";
+import type { ReactNode } from "react";
 import styled from "styled-components";
+
+const serviceIcons: Record<string, ReactNode> = {
+  communication: <ChatTextIcon size={20} aria-hidden />,
+  corporate: <UsersThreeIcon size={20} aria-hidden />,
+  bd: <ChartLineUpIcon size={20} aria-hidden />,
+  campus: <GraduationCapIcon size={20} aria-hidden />,
+};
 
 const ServiceCard = styled(Panel)`
   display: flex;
@@ -32,6 +47,13 @@ const ServiceCard = styled(Panel)`
   }
 `;
 
+const CardHead = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${t.s.sm};
+`;
+
 const Offerings = () => {
   return (
     <Section $tone="high">
@@ -48,7 +70,7 @@ const Offerings = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <CalendarBlankIcon aria-hidden />
+              <CalendarBlankIcon size={20} aria-hidden />
               Request a custom proposal
             </ExtBtn>
           }
@@ -57,7 +79,12 @@ const Offerings = () => {
         <Grid $min="240px">
           {homeServices.map((service, index) => (
             <ServiceCard key={service.id} $tone="lowest" $pad="lg" $shadow="soft">
-              <Pill $tone={index % 2 === 0 ? "clay" : "cont"}>{service.tag}</Pill>
+              <CardHead>
+                <Pill $tone={index % 2 === 0 ? "clay" : "cont"}>{service.tag}</Pill>
+                <IconBadge $tone="cont" $size="sm">
+                  {serviceIcons[service.id]}
+                </IconBadge>
+              </CardHead>
               <h3>{service.title}</h3>
               <Muted>{service.text}</Muted>
               <CheckList items={service.points} />
