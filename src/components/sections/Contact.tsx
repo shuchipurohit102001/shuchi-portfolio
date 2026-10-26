@@ -1,5 +1,6 @@
 "use client";
 import InquiryForm from "@/components/InquiryForm";
+import EmailModalLink from "@/components/EmailModalLink";
 import { Container, Eyebrow, H2, IconBadge, Lead, Panel, Section, Split } from "@/components/ui/ui";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
@@ -108,7 +109,8 @@ const Meta = styled.div`
   flex-wrap: wrap;
   gap: ${t.s.md};
   padding-top: ${t.s.xs};
-  a {
+  a,
+  button {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -164,10 +166,10 @@ const Contact = () => {
             </WhatsAppCard>
 
             <Meta>
-              <a href={`mailto:${person.email}`}>
+              <EmailModalLink>
                 <EnvelopeIcon size={20} aria-hidden />
                 {person.email}
-              </a>
+              </EmailModalLink>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
                 <LinkedinLogoIcon size={20} aria-hidden />
                 LinkedIn

@@ -178,7 +178,7 @@ const EmailModal = ({ open, onClose }: Props) => {
         <Bar>
           <span>New Message</span>
           <button type="button" onClick={onClose} aria-label="Close">
-            <XIcon size={18} aria-hidden />
+            <XIcon size={20} aria-hidden />
           </button>
         </Bar>
 
@@ -246,12 +246,12 @@ const EmailModal = ({ open, onClose }: Props) => {
                 htmlType="submit"
                 type="primary"
                 loading={sending}
-                icon={<PaperPlaneRightIcon size={16} aria-hidden />}
+                icon={<PaperPlaneRightIcon size={20} aria-hidden />}
               >
                 Send
               </SendButton>
               <button type="button" className="discard" onClick={discard} aria-label="Discard draft" disabled={sending}>
-                <TrashIcon size={18} aria-hidden />
+                <TrashIcon size={20} aria-hidden />
               </button>
             </Foot>
           </Compose>

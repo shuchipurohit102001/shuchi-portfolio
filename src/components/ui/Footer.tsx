@@ -1,4 +1,5 @@
 "use client";
+import EmailModalLink from "@/components/EmailModalLink";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
@@ -112,7 +113,8 @@ const SocialPills = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${t.s.sm};
-  a {
+  a,
+  button {
     padding: 0.22rem 0.65rem;
     border-radius: ${t.r.full};
     background: ${t.c.cont};
@@ -143,7 +145,8 @@ const ColTitle = styled.span`
 const Nav = styled.nav`
   display: grid;
   gap: ${t.s.xs};
-  a {
+  a,
+  button {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -174,7 +177,8 @@ const Meta = styled.div`
   display: grid;
   gap: 0.3rem;
   padding-top: ${t.s.xs};
-  a {
+  a,
+  button {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -270,10 +274,10 @@ export default function Footer() {
                 <PhoneIcon size={20} aria-hidden />
                 {person.phone}
               </a>
-              <a href={`mailto:${person.email}`}>
+              <EmailModalLink>
                 <EnvelopeIcon size={20} aria-hidden />
                 {person.email}
-              </a>
+              </EmailModalLink>
             </Meta>
           </Col>
         </Grid>
