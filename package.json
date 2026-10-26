@@ -33,5 +33,10 @@
   },
   "allowScripts": {
     "unrs-resolver@1.12.2": true
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "maintained node versions"
+  ]
 }

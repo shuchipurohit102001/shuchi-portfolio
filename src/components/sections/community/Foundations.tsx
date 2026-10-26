@@ -117,7 +117,7 @@ const Foundations = () => {
               </div>
             </FounderHead>
             <Quote>{founderNote}</Quote>
-            <Media label="Skill Workshop" src="/skillSynergy.JPEG" />
+            <Media label="Skill Workshop" src="/skillSynergy.png" />
             <NoteFoot>
               <span>Community hub</span>
               <strong>Skills Synergy platform</strong>

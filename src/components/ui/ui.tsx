@@ -212,8 +212,7 @@ export const Panel = styled.div<{
   background: ${(p) => t.c[p.$tone ?? "lowest"]};
   border-radius: ${(p) => t.r[p.$round ?? "lg"]};
   padding: ${(p) => t.s[p.$pad ?? "lg"]};
-  box-shadow: ${(p) =>
-    p.$shadow === "lift" ? t.shadowLift : p.$shadow === "soft" ? t.shadowSoft : "none"};
+  box-shadow: ${(p) => (p.$shadow === "lift" ? t.shadowLift : p.$shadow === "soft" ? t.shadowSoft : "none")};
 `;
 
 export const Lift = styled.div`
@@ -299,8 +298,7 @@ export const Dot = styled.span<{ $tone?: "secondary" | "primary" | "clay"; $puls
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: ${(p) =>
-    p.$tone === "primary" ? t.c.primaryInk : p.$tone === "clay" ? t.c.clay : t.c.secondary};
+  background: ${(p) => (p.$tone === "primary" ? t.c.primaryInk : p.$tone === "clay" ? t.c.clay : t.c.secondary)};
   ${(p) =>
     p.$pulse &&
     css`
@@ -346,7 +344,9 @@ export const Avatar = styled.span<{ $size?: number; $src?: string }>`
   height: ${(p) => p.$size ?? 40}px;
   border-radius: 50%;
   background: ${(p) =>
-    p.$src ? `url(${p.$src}) center / cover no-repeat, ${t.c.clay}` : `linear-gradient(145deg, ${t.c.clay}, ${t.c.high})`};
+    p.$src
+      ? `url(${p.$src}) center / cover no-repeat, ${t.c.clay}`
+      : `linear-gradient(145deg, ${t.c.clay}, ${t.c.high})`};
   border: 2px solid ${t.c.lowest};
   color: ${(p) => (p.$src ? "transparent" : t.c.clayInk)};
   font-family: var(--font-epilogue);
@@ -681,7 +681,9 @@ export function Media({
   const icon = kind === "video" ? "▶" : "🖼";
   return (
     <Frame $ratio={ratio} role="img" aria-label={label}>
-      {src && kind === "image" && <Image src={src} alt={label} loading="lazy" fill style={{ objectFit: "cover" }} />}
+      {src && kind === "image" && (
+        <Image src={src} alt={label} loading="eager" fill sizes="full" style={{ objectFit: "cover" }} />
+      )}
       {src && kind === "video" && <video src={src} poster={poster} controls preload="metadata" />}
       {!src && (
         <figcaption>
