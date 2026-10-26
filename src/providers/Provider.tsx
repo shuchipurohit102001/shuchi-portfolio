@@ -41,7 +41,7 @@ const Global = createGlobalStyle`
   }
 
   :focus-visible{
-    outline:2px solid ${t.c.primary};
+    outline:2px solid ${t.c.primaryInk};
     outline-offset:3px
   }
 

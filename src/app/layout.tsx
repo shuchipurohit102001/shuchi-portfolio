@@ -13,13 +13,13 @@ const anekLatin = Anek_Latin({
 
 const epilogue = Epilogue({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-epilogue",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-manrope",
 });
 
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#fef9f1",
+  themeColor: "#fffdf9",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

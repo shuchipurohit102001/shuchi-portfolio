@@ -1,51 +1,238 @@
 "use client";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
+import { InstagramOutlined, MailOutlined, MessageOutlined, PhoneOutlined } from "@ant-design/icons";
+import Link from "next/link";
 import styled from "styled-components";
 import { Container } from "./ui";
 
-const F = styled.footer`
+const FooterShell = styled.footer`
   background: ${t.c.low};
-  padding: ${t.s.xl} 0;
-  margin-top: ${t.s.xl};
-  font-size: 0.9rem;
+  border-top: 1px solid ${t.c.line}44;
+  padding: ${t.s.xxl} 0 ${t.s.lg};
   color: ${t.c.inkVar};
+  font-size: 0.86rem;
 `;
-const Row = styled.div`
+
+const Grid = styled.div`
+  display: grid;
+  gap: ${t.s.xl};
+  padding-bottom: ${t.s.xl};
+  @media (min-width: ${t.bp.tablet}) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: ${t.bp.desktop}) {
+    grid-template-columns: 5fr 4fr 3fr;
+    gap: ${t.s.xxl};
+  }
+`;
+
+const BrandCol = styled.div`
+  display: grid;
+  gap: ${t.s.md};
+  align-content: start;
+  max-width: 28rem;
+`;
+
+const BrandRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${t.s.sm};
+  > div strong {
+    display: block;
+    font-family: var(--font-epilogue);
+    font-size: 1.1rem;
+    line-height: 1.2;
+    color: ${t.c.ink};
+  }
+  > div span {
+    display: block;
+    color: ${t.c.secondary};
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+`;
+
+const BrandMark = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: ${t.r.md};
+  background: ${t.c.primary};
+  color: ${t.c.onPrimary};
+  font-family: var(--font-epilogue);
+  font-size: 0.78rem;
+  font-weight: 700;
+`;
+
+const SocialPills = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: ${t.s.md};
-  justify-content: space-between;
-  align-items: center;
+  gap: ${t.s.sm};
   a {
-    text-decoration: none;
-    font-weight: 600;
+    padding: 0.22rem 0.65rem;
+    border-radius: ${t.r.full};
+    background: ${t.c.cont};
     color: ${t.c.ink};
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease;
     &:hover {
+      background: ${t.c.high};
+    }
+  }
+`;
+
+const Col = styled.div`
+  display: grid;
+  gap: ${t.s.sm};
+  align-content: start;
+`;
+
+const ColTitle = styled.span`
+  font-family: var(--font-epilogue);
+  color: ${t.c.ink};
+  font-size: 0.95rem;
+  font-weight: 600;
+`;
+
+const Nav = styled.nav`
+  display: grid;
+  gap: ${t.s.xs};
+  a {
+    color: ${t.c.inkVar};
+    font-size: 0.82rem;
+    text-decoration: none;
+    &:hover {
+      color: ${t.c.ink};
       text-decoration: underline;
     }
   }
 `;
+
+const Direct = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: ${t.c.secondary};
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover {
+    color: ${t.c.ink};
+  }
+`;
+
+const Meta = styled.div`
+  display: grid;
+  gap: 0.3rem;
+  padding-top: ${t.s.xs};
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: ${t.c.inkVar};
+    font-size: 0.78rem;
+    text-decoration: none;
+    &:hover {
+      color: ${t.c.ink};
+    }
+  }
+`;
+
+const Bottom = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${t.s.sm};
+  padding-top: ${t.s.lg};
+  border-top: 1px solid ${t.c.line}44;
+  p {
+    color: ${t.c.inkVar};
+    font-size: 0.76rem;
+  }
+  em {
+    font-family: var(--font-epilogue);
+    font-style: italic;
+    color: ${t.c.inkVar};
+  }
+`;
+
 export default function Footer() {
   return (
-    <F>
+    <FooterShell>
       <Container>
-        <Row>
-          <span>
-            © {new Date().getFullYear()} {person.name}
-          </span>
-          <Row style={{ gap: 16 }}>
-            {ventures.map((v) => (
-              <a key={v.handle} href={v.url} target="_blank" rel="noopener noreferrer">
-                @{v.handle}
+        <Grid>
+          <BrandCol>
+            <BrandRow>
+              <BrandMark aria-hidden>SP</BrandMark>
+              <div>
+                <strong>{person.name}</strong>
+                <span>Soft skills &amp; synergy</span>
+              </div>
+            </BrandRow>
+            <p>
+              Cultivating leadership, purposeful dialogue and creative ventures. Rooted in intentional modernism,
+              mentorship and thoughtful community building.
+            </p>
+            <SocialPills>
+              {ventures.map((v) => (
+                <a key={v.handle} href={v.url} target="_blank" rel="noopener noreferrer">
+                  <InstagramOutlined /> @{v.handle}
+                </a>
+              ))}
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                YouTube
               </a>
-            ))}
-            <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-          </Row>
-        </Row>
+            </SocialPills>
+          </BrandCol>
+
+          <Col>
+            <ColTitle>Exploration</ColTitle>
+            <Nav aria-label="Footer">
+              <Link href="/">Portfolio &amp; biography</Link>
+              <Link href="/community">Skills Synergy hub</Link>
+              <Link href="/#contact">Direct advisory &amp; inquiries</Link>
+              <Link href="/community#contact">Join the next cohort</Link>
+            </Nav>
+          </Col>
+
+          <Col>
+            <ColTitle>Direct access</ColTitle>
+            <p>Connect for keynote invitations, community mentorship and bespoke collaborations.</p>
+            <Direct href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
+              <MessageOutlined aria-hidden />
+              Initiate conversation
+            </Direct>
+            <Meta>
+              <a href={`tel:${person.wa}`}>
+                <PhoneOutlined aria-hidden />
+                {person.phone}
+              </a>
+              <a href={`mailto:${person.email}`}>
+                <MailOutlined aria-hidden />
+                {person.email}
+              </a>
+            </Meta>
+          </Col>
+        </Grid>
+
+        <Bottom>
+          <p>
+            © {new Date().getFullYear()} {person.name}. All rights reserved.
+          </p>
+          <p>
+            <em>Crafted with intention and quiet authority.</em>
+          </p>
+        </Bottom>
       </Container>
-    </F>
+    </FooterShell>
   );
 }

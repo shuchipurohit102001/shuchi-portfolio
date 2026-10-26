@@ -19,23 +19,37 @@ const schema = z.object({
 });
 type Values = z.infer<typeof schema>;
 
-const Box = styled.div`
-  background: ${t.c.lowest};
-  border: 1px solid ${t.c.line}66;
+const Box = styled.div<{ $plain?: boolean }>`
+  background: ${(p) => (p.$plain ? "transparent" : t.c.lowest)};
+  border: ${(p) => (p.$plain ? "none" : `1px solid ${t.c.line}55`)};
   border-radius: ${t.r.xl};
-  padding: ${t.s.lg};
-  box-shadow: ${t.shadow};
+  padding: ${(p) => (p.$plain ? 0 : t.s.lg)};
+  box-shadow: ${(p) => (p.$plain ? "none" : t.shadow)};
   @media (min-width: 640px) {
-    padding: ${t.s.xl};
+    padding: ${(p) => (p.$plain ? 0 : t.s.xl)};
+  }
+  h3 {
+    margin-bottom: ${t.s.xs};
+    font-size: 1.45rem;
+  }
+  .form-lede {
+    color: ${t.c.inkVar};
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: ${t.s.lg};
   }
 `;
 
 export default function InquiryForm({
   options,
-  title = "Send an inquiry",
+  title = "Send an Inquiry",
+  description,
+  plain = false,
 }: {
   options: { value: string; label: string }[];
   title?: string;
+  description?: string;
+  plain?: boolean;
 }) {
   const {
     control,
@@ -76,9 +90,10 @@ export default function InquiryForm({
     </Form.Item>
   );
   return (
-    <Box id="contact">
+    <Box id="contact" $plain={plain}>
       {ctx}
-      <h3 style={{ marginBottom: 16, fontSize: "1.4rem" }}>{title}</h3>
+      <h3>{title}</h3>
+      {description && <p className="form-lede">{description}</p>}
       <Form layout="vertical" onFinish={handleSubmit(onSubmit)} requiredMark="optional">
         {field("name", "Full name", (f) => (
           <Input {...f} autoComplete="name" />
