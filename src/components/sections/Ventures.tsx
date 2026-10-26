@@ -183,8 +183,8 @@ const NoteLine = styled.div`
 `;
 
 const journeyIcons: Record<string, ReactNode> = {
-  kathak: <AudioOutlined aria-hidden />,
-  vedic: <CompassOutlined aria-hidden />,
+  campus: <AudioOutlined aria-hidden />,
+  corporate: <CompassOutlined aria-hidden />,
 };
 
 const Ventures = () => {

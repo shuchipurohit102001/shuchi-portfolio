@@ -60,14 +60,14 @@ export const Grid = styled.div<{ $min?: string }>`
   grid-template-columns: repeat(auto-fit, minmax(min(100%, ${(p) => p.$min ?? "250px"}), 1fr));
 `;
 
-export const Glow = styled.div<{ $tone?: "clay" | "cont" | "high" }>`
+export const Glow = styled.div<{ $tone?: "clay" | "cont" | "high" | "yellow" }>`
   position: absolute;
   z-index: 0;
   border-radius: 50%;
   pointer-events: none;
   filter: blur(80px);
   opacity: 0.6;
-  background: ${(p) => (p.$tone === "clay" ? t.c.clay : p.$tone === "high" ? t.c.high : t.c.cont)};
+  background: ${(p) => (p.$tone === "clay" ? t.c.clay : p.$tone === "high" ? t.c.high : p.$tone === "yellow" ? t.c.yellow : t.c.cont)};
 `;
 
 /* -------------------------------------------------------------------------------------------------

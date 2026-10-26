@@ -43,8 +43,8 @@ const WhatIDo = () => {
       <Container>
         <SectionHead
           eyebrow="Strategic foundations"
-          title="Enterprise software edge meets conscious human grace"
-          text="Bridging high-velocity tech enterprise sales with deep interpersonal calibration, communication elegance and structured personal mastery."
+          title="Tech Sales Skills, with a Human Touch"
+          text="I combine fast-paced enterprise software sales experience with strong people skills, clear and polished communication, and a disciplined approach to growing myself."
         />
         <Grid $min="240px">
           {homePillars.map((pillar) => (

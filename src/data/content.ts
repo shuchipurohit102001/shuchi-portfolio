@@ -134,10 +134,10 @@ export const ventures = [
   {
     handle: "purohitshuchi",
     name: "Personal profile",
-    tag: "Kathak · Vedic wisdom · Purposeful living",
+    tag: "Campus to corporate · Purposeful living",
     url: "https://www.instagram.com/purohitshuchi/",
     stats: "99 posts · 407 followers",
-    text: "Kathak, Vedic wisdom and everyday purposeful living.",
+    text: "My journey across campus, corporate and coaching, with lessons for students and early-career professionals.",
     href: "https://www.instagram.com/purohitshuchi/",
   },
 ];
@@ -190,10 +190,10 @@ export const homePillars = [
     foot: "Personalised mentorship",
   },
   {
-    id: "vedic",
-    title: "Vedic wisdom integration",
-    text: "Rooting stress regulation, mental clarity and ethical leadership in foundational Indian philosophy and holistic lifestyle discipline.",
-    foot: "Grounding & balance",
+    id: "campus",
+    title: "Campus to corporate transition",
+    text: "Practical guidance on resumes, interviews, networking and workplace etiquette, so students and fresh graduates step into their first job with confidence.",
+    foot: "Placement & career readiness",
   },
 ] as const;
 
@@ -223,29 +223,45 @@ export const homeServices = [
     message: "Hi Shuchi, I'm inquiring about Business Development Strategy consulting.",
   },
   {
-    id: "presence",
-    tag: "Mindset mastery",
-    title: "Executive presence & Vedic calm",
-    text: "Fusing somatic grounding, breath pacing and philosophical fortitude for professionals entering senior leadership arenas.",
-    points: ["Composure under pressure", "Mindful vocal calibration", "Sattvic daily routines"],
-    message: "Hi Shuchi, I'm inquiring about Executive Presence and Vedic Calm sessions.",
+    id: "campus",
+    tag: "Campus to corporate",
+    title: "Campus-to-corporate readiness",
+    text: "Built for final-year students and fresh graduates: resumes, interviews, networking and the workplace skills that matter in a first job.",
+    points: ["Resume & LinkedIn review", "Mock interviews & feedback", "Workplace etiquette for freshers"],
+    message: "Hi Shuchi, I'm inquiring about the Campus-to-Corporate Readiness programme.",
   },
 ] as const;
 
 export const journeys = [
   {
-    id: "kathak",
-    eyebrow: "Rhythmic discipline",
-    title: "Kathak & classical arts",
-    text: "A lifelong training in Kathak instils rhythm, poise, precision and emotive expression. The rigorous practice of tatkar, chakkars and abhinaya directly informs executive stage presence, posture and unwavering composure.",
-    foot: "Classical discipline • Stage presence • Expressive storytelling",
+    id: "ielts",
+    eyebrow: "Language preparation",
+    title: "IELTS preparation program",
+    text: "Structured practice across all four IELTS skills, with time management, common question types and clear feedback on your writing and speaking, guided by a trainer with hands-on IELTS teaching experience.",
+    points: [
+      "Listening, reading, writing and speaking practice",
+      "Time management and common question types",
+      "Speaking simulations with feedback",
+      "Structured feedback on writing tasks",
+    ],
+    foot: "Four-skill practice • Speaking simulations • Writing feedback",
+    cta: "Enquire about IELTS",
+    message: "Hi Shuchi, I'm inquiring about the IELTS preparation program.",
   },
   {
-    id: "vedic",
-    eyebrow: "Ancient grounding",
-    title: "Vedic wisdom & mindful living",
-    text: "Harmonising timeless philosophical concepts — Dharma, Sattva and mindful intentionality — with high-stakes tech environments. A quiet anchor to prevent burnout, cultivate deep discernment and inspire genuine empathy.",
-    foot: "Daily contemplation • Balanced work ethic • Conscious living",
+    id: "classroom-to-corporate",
+    eyebrow: "Flagship programme",
+    title: "Classroom-to-Corporate series",
+    text: "A practical bridge from student life to the professional workplace: introduce yourself, tell your story, present your work and communicate with confidence in interviews and in your first job.",
+    points: [
+      "Personal branding and professional introductions",
+      "Résumé, portfolio and LinkedIn presence",
+      "Interview preparation and mock interviews",
+      "Email and meeting etiquette, body language and networking",
+    ],
+    foot: "Interview readiness • Professional presence • Workplace communication",
+    cta: "Enquire about Classroom-to-Corporate",
+    message: "Hi Shuchi, I'm inquiring about the Classroom-to-Corporate series.",
   },
 ] as const;
 

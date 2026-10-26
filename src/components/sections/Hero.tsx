@@ -116,7 +116,7 @@ const Hero = () => {
               </Pill>
 
               <H1>
-                Empowering professionals, fostering <Accent>synergy</Accent> &amp; celebrating purposeful living
+                Empowering Communication, Fostering <Accent>Leadership</Accent> &amp; Unlocking Opportunities.
               </H1>
 
               <Lead>
@@ -160,7 +160,7 @@ const Hero = () => {
                         <BankOutlined aria-hidden />
                         BDE @ Software Co
                       </Pill>
-                      <Pill $tone="clay">Vedic &amp; Kathak</Pill>
+                      <Pill $tone="clay">Corporate Trainer</Pill>
                     </MiniPills>
                   </FloatingPills>
                 </Portrait>
@@ -169,6 +169,8 @@ const Hero = () => {
           </Split>
         </Container>
       </Inner>
+      <Glow $tone="yellow" style={{ width: "24rem", height: "24rem", bottom: "-8rem", right: "-7rem" }} />
+      <Glow $tone="cont" style={{ width: "30rem", height: "30rem", bottom: "12rem", left: "-4rem" }} />
     </HeroShell>
   );
 };
