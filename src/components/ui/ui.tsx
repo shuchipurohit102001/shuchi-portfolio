@@ -30,8 +30,37 @@ const sectionTone = {
 } as const;
 
 export const Section = styled.section<{ $tone?: keyof typeof sectionTone }>`
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: ${t.s.xxl} 0;
-  background: ${(p) => (p.$tone ? sectionTone[p.$tone] : "transparent")};
+  background-color: ${(p) => (p.$tone ? sectionTone[p.$tone] : "transparent")};
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: clamp(20rem, 42vw, 34rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.42;
+    pointer-events: none;
+  }
+  &::before {
+    top: -14rem;
+    left: -12rem;
+    background: radial-gradient(circle, ${t.c.clay} 0%, transparent 70%);
+  }
+  &::after {
+    right: -12rem;
+    bottom: -16rem;
+    background: radial-gradient(circle, ${t.c.yellow} 0%, transparent 70%);
+  }
+  > * {
+    position: relative;
+    z-index: 1;
+  }
   @media (min-width: ${t.bp.desktop}) {
     padding: ${t.s.xxxl} 0;
   }

@@ -4,7 +4,6 @@ import {
   Container,
   Dot,
   ExtBtn,
-  Glow,
   H1,
   Lead,
   Pill,
@@ -102,8 +101,6 @@ const MiniPills = styled.div`
 const Hero = () => {
   return (
     <HeroShell>
-      <Glow $tone="clay" style={{ width: "24rem", height: "24rem", top: "-8rem", left: "-7rem" }} />
-      <Glow $tone="cont" style={{ width: "30rem", height: "30rem", top: "12rem", right: "-4rem" }} />
       <Inner>
         <Container>
           <Split>
@@ -172,8 +169,6 @@ const Hero = () => {
           </Split>
         </Container>
       </Inner>
-      <Glow $tone="yellow" style={{ width: "24rem", height: "24rem", bottom: "-8rem", right: "-7rem" }} />
-      <Glow $tone="cont" style={{ width: "30rem", height: "30rem", bottom: "12rem", left: "-4rem" }} />
     </HeroShell>
   );
 };

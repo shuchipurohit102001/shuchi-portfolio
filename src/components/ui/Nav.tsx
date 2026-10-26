@@ -131,7 +131,7 @@ const DrawerLinks = styled.div`
 `;
 
 const items = [
-  { href: "/", label: "Portfolio & about" },
+  { href: "/", label: "Portfolio & About" },
   { href: "/community", label: "Skills Synergy community" },
 ];
 

@@ -16,11 +16,40 @@ import styled from "styled-components";
 import { Container } from "./ui";
 
 const FooterShell = styled.footer`
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: ${t.c.low};
   border-top: 1px solid ${t.c.line}44;
   padding: ${t.s.xxl} 0 ${t.s.lg};
   color: ${t.c.inkVar};
   font-size: 0.86rem;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: clamp(18rem, 34vw, 28rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  &::before {
+    top: -14rem;
+    left: -10rem;
+    background: radial-gradient(circle, ${t.c.clay} 0%, transparent 70%);
+  }
+  &::after {
+    right: -10rem;
+    bottom: -16rem;
+    background: radial-gradient(circle, ${t.c.yellow} 0%, transparent 70%);
+  }
+  > div {
+    position: relative;
+    z-index: 1;
+  }
 `;
 
 const Grid = styled.div`
