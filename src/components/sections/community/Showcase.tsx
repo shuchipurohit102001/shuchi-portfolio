@@ -128,7 +128,8 @@ const FeedFoot = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: ${t.s.sm};
+  flex-wrap: wrap; /* footer wraps as a unit instead of the link breaking */
+  gap: ${t.s.xs} ${t.s.sm}; /* row-gap, column-gap */
   margin-top: auto;
   padding-top: ${t.s.md};
   font-size: 0.75rem;
@@ -137,8 +138,11 @@ const FeedFoot = styled.div`
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
+    white-space: nowrap; /* "1.2k" never splits from its icon */
   }
   a {
+    flex-shrink: 0;
+    white-space: nowrap; /* "Watch reel" stays on one line */
     color: ${t.c.secondary};
     font-weight: 600;
     text-decoration: none;
@@ -149,6 +153,7 @@ const FeedFoot = styled.div`
 `;
 
 const Stats = styled.span`
+  flex-wrap: nowrap;
   gap: ${t.s.sm} !important;
 `;
 
