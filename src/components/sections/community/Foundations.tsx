@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import {
   Avatar,
   Card,
@@ -110,6 +110,83 @@ const pillarIcons: Record<string, ReactNode> = {
   articulation: <MusicNoteIcon size={20} aria-hidden />,
 };
 
+const pillarMedia: Record<string, { src: string; kind: "image" | "video"; label: string; caption: string }> = {
+  "soft-skills": {
+    src: "/community-workshop/image1.png",
+    kind: "image",
+    label: "Classroom soft skills workshop",
+    caption: "Interactive drills in active listening and articulation",
+  },
+  grooming: {
+    src: "/1-1/image1.png",
+    kind: "image",
+    label: "Corporate grooming session",
+    caption: "Posture, presence and workplace etiquette in practice",
+  },
+  personality: {
+    src: "/community-workshop/image2.png",
+    kind: "image",
+    label: "Personality development cohort",
+    caption: "Confidence building through role-play and feedback",
+  },
+  articulation: {
+    src: "/community-workshop/c45dec25753e667ef1e2767bb2f31821.mp4",
+    kind: "video",
+    label: "Confident articulation practice",
+    caption: "Voice modulation and impromptu speaking in action",
+  },
+};
+
+const PillarCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  gap: ${t.s.sm};
+  padding: 0;
+  overflow: hidden;
+  h3 {
+    margin: 0 ${t.s.lg};
+  }
+  > p {
+    margin: 0 ${t.s.lg} ${t.s.lg};
+  }
+`;
+
+const PillarMediaWrap = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: ${t.c.cont};
+  img,
+  video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  video {
+    background: #000;
+  }
+`;
+
+const PillarHead = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${t.s.sm};
+  margin: ${t.s.lg} ${t.s.lg} 0;
+`;
+
+const PillarCaption = styled.span`
+  display: inline-flex;
+  margin: -${t.s.xs} ${t.s.lg} 0;
+  color: ${t.c.secondary};
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+`;
+
 const Foundations = () => {
   return (
     <Section>
@@ -127,6 +204,7 @@ const Foundations = () => {
             </FounderHead>
             <Quote>{founderNote}</Quote>
             <Media label="Skill Workshop" src="/skillSynergy.png" />
+            <Media label="Skill Workshop" src="/skillSynergy.png" />
             <NoteFoot>
               <span>
                 <UsersThreeIcon size={20} aria-hidden />
@@ -142,16 +220,30 @@ const Foundations = () => {
               title="The four strategic pillars of synergy"
               text="Every masterclass, cohort interaction and private audit is anchored in four interconnected competencies designed to transform internal conviction into external grace."
             />
-            <Grid $min="220px">
-              {communityPillars.map((pillar) => (
-                <Card key={pillar.id}>
-                  <IconBadge $tone="clay" $round>
-                    {pillarIcons[pillar.id]}
-                  </IconBadge>
-                  <h3>{pillar.title}</h3>
-                  <Muted>{pillar.text}</Muted>
-                </Card>
-              ))}
+            <Grid $min="240px">
+              {communityPillars.map((pillar) => {
+                const media = pillarMedia[pillar.id];
+                return (
+                  <PillarCard key={pillar.id}>
+                    <PillarMediaWrap>
+                      {media?.kind === "video" ? (
+                        <video src={media.src} title={media.label} muted loop playsInline autoPlay preload="metadata" />
+                      ) : (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={media?.src} alt={media?.label ?? pillar.title} loading="lazy" />
+                      )}
+                    </PillarMediaWrap>
+                    <PillarHead>
+                      <IconBadge $tone="clay" $round>
+                        {pillarIcons[pillar.id]}
+                      </IconBadge>
+                      <h3>{pillar.title}</h3>
+                    </PillarHead>
+                    {media?.caption ? <PillarCaption>{media.caption}</PillarCaption> : null}
+                    <Muted>{pillar.text}</Muted>
+                  </PillarCard>
+                );
+              })}
             </Grid>
           </div>
         </FoundationsGrid>
