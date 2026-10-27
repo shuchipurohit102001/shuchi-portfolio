@@ -1,5 +1,16 @@
 "use client";
-import { Avatar, Container, ExtBtn, Grid, Muted, Panel, Section, SectionHead } from "@/components/ui/ui";
+import {
+  Avatar,
+  Container,
+  DefaultBrand,
+  ExtBtn,
+  Grid,
+  InstagramBrand,
+  Muted,
+  Panel,
+  Section,
+  SectionHead,
+} from "@/components/ui/ui";
 import { feed, testimonials } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
@@ -7,7 +18,6 @@ import {
   CaretRightIcon,
   ChatIcon,
   HeartIcon,
-  InstagramLogoIcon,
   PlayCircleIcon,
   QuotesIcon,
 } from "@phosphor-icons/react";
@@ -253,7 +263,7 @@ const Showcase = () => {
               rel="noopener noreferrer"
               $v="ghost"
             >
-              <InstagramLogoIcon size={20} aria-hidden />
+              <InstagramBrand size={20} aria-hidden />
               Visit @skill_synergy_
             </ExtBtn>
           }
@@ -261,7 +271,7 @@ const Showcase = () => {
 
         <Carousel>
           <NavBtn $side="left" onClick={() => scrollByCard(-1)} disabled={!canPrev} aria-label="Previous">
-            <CaretLeftIcon size={22} />
+            <DefaultBrand icon={CaretLeftIcon} size={22} />
           </NavBtn>
 
           <Track ref={trackRef} role="region" aria-label="Instagram content" tabIndex={0}>
@@ -273,7 +283,7 @@ const Showcase = () => {
                   </PlayerWrap>
                   <FeedBody>
                     <Category>
-                      <PlayCircleIcon size={20} aria-hidden />
+                      <DefaultBrand icon={PlayCircleIcon} size={20} aria-hidden />
                       {item.category}
                     </Category>
                     <h4>{item.title}</h4>
@@ -281,15 +291,15 @@ const Showcase = () => {
                     <FeedFoot>
                       <Stats>
                         <span>
-                          <PlayCircleIcon size={20} aria-hidden />
+                          <DefaultBrand icon={PlayCircleIcon} color={t.c.linkedin} size={20} aria-hidden />
                           {item.plays}
                         </span>
                         <span>
-                          <HeartIcon size={20} aria-hidden />
+                          <DefaultBrand icon={HeartIcon} color={t.c.youtube} size={20} aria-hidden />
                           {item.likes}
                         </span>
                         <span>
-                          <ChatIcon size={20} aria-hidden />
+                          <DefaultBrand icon={ChatIcon} color={t.c.whatsapp} size={20} aria-hidden />
                           {item.comments}
                         </span>
                       </Stats>
@@ -304,7 +314,7 @@ const Showcase = () => {
           </Track>
 
           <NavBtn $side="right" onClick={() => scrollByCard(1)} disabled={!canNext} aria-label="Next">
-            <CaretRightIcon size={22} />
+            <DefaultBrand icon={CaretRightIcon} size={22} />
           </NavBtn>
         </Carousel>
 
@@ -312,7 +322,7 @@ const Showcase = () => {
           {testimonials.map((item) => (
             <Testimonial key={item.name} $tone="cont" $pad="lg">
               <blockquote>
-                <QuotesIcon size={20} weight="fill" aria-hidden />
+                <DefaultBrand icon={QuotesIcon} size={20} weight="fill" aria-hidden />
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
               <Author>

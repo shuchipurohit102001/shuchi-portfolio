@@ -3,19 +3,22 @@ import EmailModalLink from "@/components/EmailModalLink";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  EnvelopeIcon,
   GraduationCapIcon,
   HouseIcon,
-  InstagramLogoIcon,
-  LinkedinLogoIcon,
-  PhoneIcon,
   UsersThreeIcon,
-  WhatsappLogoIcon,
-  YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 import Link from "next/link";
 import styled from "styled-components";
-import { Container } from "./ui";
+import {
+  Container,
+  DefaultBrand,
+  GmailBrand,
+  InstagramBrand,
+  LinkedinBrand,
+  PhoneBrand,
+  WhatsappBrand,
+  YoutubeBrand,
+} from "./ui";
 
 const FooterShell = styled.footer`
   position: relative;
@@ -231,11 +234,11 @@ export default function Footer() {
             <SocialPills>
               {ventures.map((v) => (
                 <a key={v.handle} href={v.url} target="_blank" rel="noopener noreferrer">
-                  <InstagramLogoIcon size={20} aria-hidden /> @{v.handle}
+                  <InstagramBrand size={20} aria-hidden /> @{v.handle}
                 </a>
               ))}
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                <YoutubeLogoIcon size={20} aria-hidden />
+                <YoutubeBrand size={20} aria-hidden />
                 YouTube
               </a>
             </SocialPills>
@@ -245,19 +248,19 @@ export default function Footer() {
             <ColTitle>Exploration</ColTitle>
             <Nav aria-label="Footer">
               <Link href="/">
-                <HouseIcon size={20} aria-hidden />
+                <DefaultBrand icon={HouseIcon} size={20} aria-hidden />
                 Portfolio &amp; biography
               </Link>
               <Link href="/community">
-                <UsersThreeIcon size={20} aria-hidden />
+                <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />
                 Skills Synergy hub
               </Link>
               <Link href="/#contact">
-                <EnvelopeIcon size={20} aria-hidden />
+                <GmailBrand size={20} aria-hidden />
                 Direct advisory &amp; inquiries
               </Link>
               <Link href="/community#contact">
-                <GraduationCapIcon size={20} aria-hidden />
+                <DefaultBrand icon={GraduationCapIcon} size={20} aria-hidden />
                 Join the next cohort
               </Link>
             </Nav>
@@ -267,20 +270,20 @@ export default function Footer() {
             <ColTitle>Direct access</ColTitle>
             <p>Connect for keynote invitations, community mentorship and bespoke collaborations.</p>
             <Direct href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
-              <WhatsappLogoIcon size={20} aria-hidden />
+              <WhatsappBrand size={20} aria-hidden />
               Initiate conversation
             </Direct>
             <Meta>
               <a href={`tel:${person.wa}`}>
-                <PhoneIcon size={20} aria-hidden />
+                <PhoneBrand size={20} aria-hidden />
                 {person.phone}
               </a>
               <EmailModalLink>
-                <EnvelopeIcon size={20} aria-hidden />
+                <GmailBrand size={20} aria-hidden />
                 {person.email}
               </EmailModalLink>
               <a href={`${person.linkedin}`}>
-                <LinkedinLogoIcon size={20} aria-hidden />
+                <LinkedinBrand size={20} aria-hidden />
                 shuchi-purohit1
               </a>
             </Meta>

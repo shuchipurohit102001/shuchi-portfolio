@@ -3,6 +3,7 @@ import {
   Avatar,
   Card,
   Container,
+  DefaultBrand,
   Grid,
   IconBadge,
   Media,
@@ -104,10 +105,10 @@ const NoteFoot = styled.div`
 `;
 
 const pillarIcons: Record<string, ReactNode> = {
-  "soft-skills": <LightbulbIcon size={20} aria-hidden />,
-  grooming: <IdentificationCardIcon size={20} aria-hidden />,
-  personality: <SmileyIcon size={20} aria-hidden />,
-  articulation: <MusicNoteIcon size={20} aria-hidden />,
+  "soft-skills": <DefaultBrand icon={LightbulbIcon} size={20} aria-hidden />,
+  grooming: <DefaultBrand icon={IdentificationCardIcon} size={20} aria-hidden />,
+  personality: <DefaultBrand icon={SmileyIcon} size={20} aria-hidden />,
+  articulation: <DefaultBrand icon={MusicNoteIcon} size={20} aria-hidden />,
 };
 
 const pillarMedia: Record<string, { src: string; kind: "image" | "video"; label: string; caption: string }> = {
@@ -207,7 +208,7 @@ const Foundations = () => {
             <Media label="Skill Workshop" src="/community-workshop/image3.png" />
             <NoteFoot>
               <span>
-                <UsersThreeIcon size={20} aria-hidden />
+                <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />
                 Community hub
               </span>
               <strong>Skills Synergy platform</strong>

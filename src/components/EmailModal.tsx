@@ -1,10 +1,10 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
+import { DefaultBrand, GmailBrand } from "@/components/ui/ui";
 import { t } from "@/providers/tokens";
 import {
   ChatTextIcon,
-  EnvelopeIcon,
   PaperPlaneRightIcon,
   TagIcon,
   TrashIcon,
@@ -227,7 +227,7 @@ const EmailModal = ({ open, onClose }: Props) => {
         <Bar>
           <span>New Message</span>
           <button type="button" onClick={onClose} aria-label="Close">
-            <XIcon size={20} aria-hidden />
+            <DefaultBrand icon={XIcon} size={20} aria-hidden />
           </button>
         </Bar>
 
@@ -236,14 +236,14 @@ const EmailModal = ({ open, onClose }: Props) => {
             <Row>
               <span className="row-label">To</span>
               <Chip>
-                <EnvelopeIcon size={20} aria-hidden />
+                <GmailBrand size={20} aria-hidden />
                 {RECIPIENT}
               </Chip>
             </Row>
 
             <Row>
               <label htmlFor="email">
-                <EnvelopeIcon size={20} aria-hidden />
+                <GmailBrand size={20} aria-hidden />
                 From
               </label>
               <div className="field">
@@ -269,7 +269,7 @@ const EmailModal = ({ open, onClose }: Props) => {
 
             <Row>
               <label htmlFor="name">
-                <UserIcon size={20} aria-hidden />
+                <DefaultBrand icon={UserIcon} size={20} aria-hidden />
                 Name
               </label>
               <div className="field">
@@ -295,7 +295,7 @@ const EmailModal = ({ open, onClose }: Props) => {
 
             <Row>
               <label htmlFor="query">
-                <TagIcon size={20} aria-hidden />
+                <DefaultBrand icon={TagIcon} size={20} aria-hidden />
                 Subject
               </label>
               <div className="field">
@@ -321,7 +321,7 @@ const EmailModal = ({ open, onClose }: Props) => {
 
             <Row style={{ borderBottom: 0 }}>
               <label htmlFor="message">
-                <ChatTextIcon size={20} aria-hidden />
+                <DefaultBrand icon={ChatTextIcon} size={20} aria-hidden />
                 Message
               </label>
               <div className="field">
@@ -352,7 +352,7 @@ const EmailModal = ({ open, onClose }: Props) => {
                 htmlType="submit"
                 type="primary"
                 loading={isSubmitting}
-                icon={<PaperPlaneRightIcon size={20} aria-hidden />}
+                icon={<DefaultBrand icon={PaperPlaneRightIcon} size={20} aria-hidden />}
               >
                 Send
               </SendButton>
@@ -363,7 +363,7 @@ const EmailModal = ({ open, onClose }: Props) => {
                 aria-label="Discard draft"
                 disabled={isSubmitting}
               >
-                <TrashIcon size={20} aria-hidden />
+                <DefaultBrand icon={TrashIcon} size={20} aria-hidden />
               </button>
             </Foot>
           </Compose>

@@ -2,6 +2,7 @@
 import {
   Btn,
   Container,
+  DefaultBrand,
   ExtBtn,
   Eyebrow,
   IconBadge,
@@ -11,6 +12,7 @@ import {
   Row,
   Section,
   SectionHead,
+  YoutubeBrand,
 } from "@/components/ui/ui";
 import { journeys, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
@@ -23,7 +25,6 @@ import {
   CheckCircleIcon,
   CompassIcon,
   UsersThreeIcon,
-  YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
@@ -206,8 +207,8 @@ const NoteLine = styled.div`
 `;
 
 const journeyIcons: Record<string, ReactNode> = {
-  ielts: <BookOpenIcon size={20} aria-hidden />,
-  "classroom-to-corporate": <BriefcaseIcon size={20} aria-hidden />,
+  ielts: <DefaultBrand icon={BookOpenIcon} size={20} aria-hidden />,
+  "classroom-to-corporate": <DefaultBrand icon={BriefcaseIcon} size={20} aria-hidden />,
 };
 
 const Ventures = () => {
@@ -232,7 +233,7 @@ const Ventures = () => {
                 <Pill $tone="dark">Flagship collective</Pill>
                 <ExtLink href={synergy.url} target="_blank" rel="noopener noreferrer">
                   @{synergy.handle}
-                  <ArrowSquareOutIcon size={20} aria-hidden />
+                  <DefaultBrand icon={ArrowSquareOutIcon} size={20} aria-hidden />
                 </ExtLink>
               </PanelHead>
               <Title>{synergy.name}</Title>
@@ -243,14 +244,14 @@ const Ventures = () => {
               </Muted>
               <MiniGrid>
                 <Mini>
-                  <UsersThreeIcon size={20} aria-hidden />
+                  <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />
                   <div>
                     <strong>Cohort bootcamps</strong>
                     <span>Live scenario practice &amp; peer feedback</span>
                   </div>
                 </Mini>
                 <Mini>
-                  <CompassIcon size={20} aria-hidden />
+                  <DefaultBrand icon={CompassIcon} size={20} aria-hidden />
                   <div>
                     <strong>Executive presence</strong>
                     <span>Vocal resonance, styling &amp; body language</span>
@@ -260,11 +261,11 @@ const Ventures = () => {
             </div>
             <FooterRow>
               <Btn href="/community#contact" $v="secondary">
-                <UsersThreeIcon size={20} aria-hidden />
+                <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />
                 Join the upcoming cohort
               </Btn>
               <Note>
-                <CalendarBlankIcon size={20} aria-hidden />
+                <DefaultBrand icon={CalendarBlankIcon} size={20} aria-hidden />
                 Next batch enrolling
               </Note>
             </FooterRow>
@@ -276,7 +277,7 @@ const Ventures = () => {
                 <Pill $tone="clay">Culinary passion</Pill>
                 <ExtLink href={bhoojan.url} target="_blank" rel="noopener noreferrer">
                   @{bhoojan.handle}
-                  <ArrowSquareOutIcon size={20} aria-hidden />
+                  <DefaultBrand icon={ArrowSquareOutIcon} size={20} aria-hidden />
                 </ExtLink>
               </PanelHead>
               <Title>{bhoojan.name}</Title>
@@ -286,7 +287,7 @@ const Ventures = () => {
               </Muted>
               <VideoRow $tone="lowest" $pad="md">
                 <IconBadge $tone="error" $round $size="sm">
-                  <YoutubeLogoIcon size={20} aria-hidden />
+                  <YoutubeBrand size={20} aria-hidden />
                 </IconBadge>
                 <div>
                   <strong>YouTube culinary series</strong>
@@ -296,7 +297,7 @@ const Ventures = () => {
             </div>
             <FooterRow>
               <ExtBtn href={bhoojan.href} target="_blank" rel="noopener noreferrer" $v="ghost">
-                <YoutubeLogoIcon size={20} weight="fill" aria-hidden />
+                <YoutubeBrand size={20} weight="fill" aria-hidden />
                 Watch playlist &amp; recipes
               </ExtBtn>
             </FooterRow>
@@ -311,7 +312,7 @@ const Ventures = () => {
               <h3>{journey.title}</h3>
               <Muted>{journey.text}</Muted>
               <NoteLine>
-                <CheckCircleIcon size={20} weight="fill" aria-hidden />
+                <DefaultBrand icon={CheckCircleIcon} size={20} weight="fill" aria-hidden />
                 <span>{journey.foot}</span>
               </NoteLine>
             </JourneyCard>
@@ -321,7 +322,7 @@ const Ventures = () => {
         <Row style={{ marginTop: t.s.xl, justifyContent: "center" }}>
           <CommunityBtn href="/community" $v="ghost">
             Explore the Skills Synergy community
-            <ArrowRightIcon size={20} aria-hidden />
+            <DefaultBrand icon={ArrowRightIcon} size={20} aria-hidden />
           </CommunityBtn>
         </Row>
       </Container>

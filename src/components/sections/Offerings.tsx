@@ -2,6 +2,7 @@
 import {
   CheckList,
   Container,
+  DefaultBrand,
   ExtBtn,
   Grid,
   IconBadge,
@@ -24,10 +25,10 @@ import type { ReactNode } from "react";
 import styled from "styled-components";
 
 const serviceIcons: Record<string, ReactNode> = {
-  communication: <ChatTextIcon size={20} aria-hidden />,
-  corporate: <UsersThreeIcon size={20} aria-hidden />,
-  bd: <ChartLineUpIcon size={20} aria-hidden />,
-  campus: <GraduationCapIcon size={20} aria-hidden />,
+  communication: <DefaultBrand icon={ChatTextIcon} size={20} aria-hidden />,
+  corporate: <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
+  bd: <DefaultBrand icon={ChartLineUpIcon} size={20} aria-hidden />,
+  campus: <DefaultBrand icon={GraduationCapIcon} size={20} aria-hidden />,
 };
 
 const ServiceCard = styled(Panel)`
@@ -70,7 +71,7 @@ const Offerings = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <CalendarBlankIcon size={20} aria-hidden />
+              <DefaultBrand icon={CalendarBlankIcon} size={20} aria-hidden />
               Request a custom proposal
             </ExtBtn>
           }

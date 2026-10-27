@@ -3,9 +3,11 @@ import {
   Avatar,
   Container,
   Dot,
+  DefaultBrand,
   ExtBtn,
   Glow,
   H1,
+  InstagramBrand,
   Lead,
   Metric,
   MetricStrip,
@@ -14,6 +16,7 @@ import {
   Pill,
   Row,
   Split,
+  WhatsappBrand,
 } from "@/components/ui/ui";
 import { communityMetrics, communityPanelPoints, person } from "@/data/content";
 import { t } from "@/providers/tokens";
@@ -21,12 +24,10 @@ import {
   BookOpenIcon,
   ChatCircleDotsIcon,
   HeadphonesIcon,
-  InstagramLogoIcon,
   StarIcon,
   UserCircleIcon,
   UserIcon,
   UsersThreeIcon,
-  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
@@ -148,17 +149,17 @@ const Stars = styled.div`
 `;
 
 const pointIcons: Record<string, ReactNode> = {
-  groups: <UsersThreeIcon size={20} aria-hidden />,
-  masterclass: <BookOpenIcon size={20} aria-hidden />,
-  support: <HeadphonesIcon size={20} aria-hidden />,
-  "one-to-one": <UserIcon size={20} aria-hidden />,
+  groups: <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
+  masterclass: <DefaultBrand icon={BookOpenIcon} size={20} aria-hidden />,
+  support: <DefaultBrand icon={HeadphonesIcon} size={20} aria-hidden />,
+  "one-to-one": <DefaultBrand icon={UserIcon} size={20} aria-hidden />,
 };
 
 const metricIcons: Record<string, ReactNode> = {
-  "Active cohorts": <UsersThreeIcon size={20} aria-hidden />,
-  "18 posts and reels from live sessions": <InstagramLogoIcon size={20} aria-hidden />,
-  "Dedicated WhatsApp & DM hotline": <ChatCircleDotsIcon size={20} aria-hidden />,
-  "Customised 1:1 guidance": <UserCircleIcon size={20} aria-hidden />,
+  "Active cohorts": <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
+  "18 posts and reels from live sessions": <InstagramBrand size={20} aria-hidden />,
+  "Dedicated WhatsApp & DM hotline": <DefaultBrand icon={ChatCircleDotsIcon} size={20} aria-hidden />,
+  "Customised 1:1 guidance": <DefaultBrand icon={UserCircleIcon} size={20} aria-hidden />,
 };
 
 const CommunityHero = () => {
@@ -195,7 +196,7 @@ const CommunityHero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <WhatsappLogoIcon size={20} aria-hidden />
+                    <WhatsappBrand size={20} aria-hidden />
                     Reach out via WhatsApp
                   </ExtBtn>
                   <ExtBtn
@@ -204,7 +205,7 @@ const CommunityHero = () => {
                     rel="noopener noreferrer"
                     $v="ghost"
                   >
-                    <InstagramLogoIcon size={20} aria-hidden />
+                    <InstagramBrand size={20} aria-hidden />
                     Follow on <Accent>Instagram</Accent>
                   </ExtBtn>
                 </Row>
@@ -240,7 +241,7 @@ const CommunityHero = () => {
                   <span>Community rating</span>
                   <Stars>
                     {[0, 1, 2, 3, 4].map((i) => (
-                      <StarIcon key={i} size={20} weight="fill" aria-hidden />
+                      <DefaultBrand icon={StarIcon} key={i} size={20} weight="fill" aria-hidden />
                     ))}
                     <small>4.9 / 5</small>
                   </Stars>

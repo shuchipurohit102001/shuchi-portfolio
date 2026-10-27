@@ -1,6 +1,7 @@
 "use client";
 import {
   Container,
+  DefaultBrand,
   Eyebrow,
   Grid,
   IconBadge,
@@ -233,7 +234,7 @@ const Credentials = () => {
             <JobCard key={`${job.role}-${job.org}`} $tone="lowest" $pad="lg" $shadow="soft">
               <JobTop>
                 <IconBadge $tone="cont" $size="sm">
-                  <BriefcaseIcon size={20} aria-hidden />
+                  <DefaultBrand icon={BriefcaseIcon} size={20} aria-hidden />
                 </IconBadge>
                 <When>{job.when}</When>
               </JobTop>
@@ -249,7 +250,7 @@ const Credentials = () => {
           <Panel $tone="lowest" $pad="xl" $shadow="soft">
             <PanelHead>
               <IconBadge $tone="clay" $size="sm">
-                <GraduationCapIcon size={20} aria-hidden />
+                <DefaultBrand icon={GraduationCapIcon} size={20} aria-hidden />
               </IconBadge>
               <div>
                 <Eyebrow>Education</Eyebrow>
@@ -282,7 +283,7 @@ const Credentials = () => {
           <Panel $tone="lowest" $pad="xl" $shadow="soft">
             <PanelHead>
               <IconBadge $tone="cont" $size="sm">
-                <WrenchIcon size={20} aria-hidden />
+                <DefaultBrand icon={WrenchIcon} size={20} aria-hidden />
               </IconBadge>
               <div>
                 <Eyebrow>Skill set</Eyebrow>
@@ -299,7 +300,7 @@ const Credentials = () => {
             <SubHead>Software</SubHead>
             {software.map((tool) => (
               <ToolRow key={tool.name}>
-                <CertificateIcon size={20} aria-hidden />
+                <DefaultBrand icon={CertificateIcon} size={20} aria-hidden />
                 <div>
                   <strong>{tool.name}</strong>
                   <span>{tool.note}</span>

@@ -1,18 +1,21 @@
 "use client";
 import InquiryForm from "@/components/InquiryForm";
 import EmailModalLink from "@/components/EmailModalLink";
+import {
+  DefaultBrand,
+  GmailBrand,
+  LinkedinBrand,
+  WhatsappBrand,
+} from "@/components/ui/ui";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 import { Container, Eyebrow, H2, IconBadge, Lead, Panel, Section, Split } from "@/components/ui/ui";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  ArrowRightIcon,
   CoffeeIcon,
-  EnvelopeIcon,
-  LinkedinLogoIcon,
   PaperPlaneRightIcon,
   UserIcon,
   UsersThreeIcon,
-  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import styled from "styled-components";
@@ -125,9 +128,9 @@ const Meta = styled.div`
 `;
 
 const ventureIcons: Record<string, ReactNode> = {
-  skill_synergy_: <UsersThreeIcon size={20} aria-hidden />,
-  bhoojanpriye: <CoffeeIcon size={20} aria-hidden />,
-  purohitshuchi: <UserIcon size={20} aria-hidden />,
+  skill_synergy_: <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
+  bhoojanpriye: <DefaultBrand icon={CoffeeIcon} size={20} aria-hidden />,
+  purohitshuchi: <DefaultBrand icon={UserIcon} size={20} aria-hidden />,
 };
 
 const Contact = () => {
@@ -146,7 +149,7 @@ const Contact = () => {
             <WhatsAppCard $tone="clay" $pad="lg">
               <div style={{ display: "flex", alignItems: "center", gap: t.s.md }}>
                 <IconBadge $tone="dark" $round $size="lg">
-                  <WhatsappLogoIcon size={20} aria-hidden />
+                  <WhatsappBrand size={20} aria-hidden />
                 </IconBadge>
                 <div>
                   <strong>{person.phone}</strong>
@@ -161,17 +164,17 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 aria-label="Message Shuchi on WhatsApp"
               >
-                <PaperPlaneRightIcon size={20} aria-hidden />
+                <DefaultBrand icon={PaperPlaneRightIcon} size={20} aria-hidden />
               </SendBtn>
             </WhatsAppCard>
 
             <Meta>
               <EmailModalLink>
-                <EnvelopeIcon size={20} aria-hidden />
+                <GmailBrand size={20} aria-hidden />
                 {person.email}
               </EmailModalLink>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
-                <LinkedinLogoIcon size={20} aria-hidden />
+                <LinkedinBrand size={20} aria-hidden />
                 LinkedIn
               </a>
             </Meta>
@@ -188,7 +191,7 @@ const Contact = () => {
                     <small>{venture.tag}</small>
                   </span>
                 </SocialCopy>
-                <ArrowRightIcon size={20} aria-hidden />
+                <DefaultBrand icon={ArrowRightIcon} size={20} aria-hidden />
               </SocialRow>
             ))}
           </Copy>

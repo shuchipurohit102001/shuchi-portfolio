@@ -4,6 +4,7 @@ import Providers from "@/providers/Provider";
 import type { Metadata, Viewport } from "next";
 import { Anek_Latin, Epilogue, Manrope } from "next/font/google";
 import "./globals.css";
+import { BrandDefs } from "@/components/ui/ui";
 
 const anekLatin = Anek_Latin({
   variable: "--font-anek-latin",
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${epilogue.variable} ${anekLatin.variable} ${manrope.variable}`}>
       <body>
+        <BrandDefs />
         <Providers>
           <Nav />
           <main>{children}</main>

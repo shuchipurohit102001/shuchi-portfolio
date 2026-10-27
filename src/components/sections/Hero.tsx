@@ -2,6 +2,7 @@
 import {
   Btn,
   Container,
+  DefaultBrand,
   Dot,
   ExtBtn,
   HHead,
@@ -13,10 +14,11 @@ import {
   Split,
   Stat,
   StatGrid,
+  WhatsappBrand,
 } from "@/components/ui/ui";
 import { homeMetrics, person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ArrowRightIcon, BankIcon, SealCheckIcon, UsersThreeIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, BankIcon, SealCheckIcon, UsersThreeIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
@@ -169,18 +171,18 @@ const Hero = () => {
 
               <Lead>
                 Business development executive in software solutions, founder of <LeadStrong>Skills Synergy</LeadStrong>{" "}
-                &amp; <LeadStrong>Bhoojanpriye</LeadStrong>, classical Kathak artist, recipe curator and advocate for
-                grounded Vedic wisdom in modern leadership.
+                &amp; <LeadStrong>Bhoojanpriye</LeadStrong>, Campus &amp; Corporate Groomer, IELTS &amp; TOEFL Trainer
+                with strong Leadership foundations.
               </Lead>
 
               <Row>
                 <ExtBtn href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer">
-                  <WhatsappLogoIcon size={20} aria-hidden />
+                  <WhatsappBrand size={20} aria-hidden />
                   Book a 1:1 on WhatsApp
                 </ExtBtn>
                 <Btn href="/community" $v="secondary">
                   Explore Skills Synergy
-                  <ArrowRightIcon size={20} aria-hidden />
+                  <DefaultBrand icon={ArrowRightIcon} size={20} aria-hidden />
                 </Btn>
               </Row>
 
@@ -200,16 +202,16 @@ const Hero = () => {
                 <Portrait src="/profilePhoto.png" label="Shuchi Purohit" initials="SP" ratio="1/1">
                   <FloatingPills>
                     <Pill $tone="canvas">
-                      <SealCheckIcon size={20} aria-hidden />
+                      <DefaultBrand icon={SealCheckIcon} size={20} aria-hidden />
                       Founder @ Skills Synergy
                     </Pill>
                     <MiniPills>
                       <Pill $tone="cont">
-                        <BankIcon size={20} aria-hidden />
+                        <DefaultBrand icon={BankIcon} size={20} aria-hidden />
                         BDE @ Software Co
                       </Pill>
                       <Pill $tone="clay">
-                        <UsersThreeIcon size={20} aria-hidden />
+                        <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />
                         Corporate Trainer
                       </Pill>
                     </MiniPills>

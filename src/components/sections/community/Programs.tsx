@@ -2,6 +2,7 @@
 import {
   CheckList,
   Container,
+  DefaultBrand,
   ExtBtn,
   Grid,
   IconBadge,
@@ -19,8 +20,8 @@ import {
   IdentificationCardIcon,
   LightbulbIcon,
   UsersThreeIcon,
-  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
+import { WhatsappBrand } from "@/components/ui/ui";
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -57,10 +58,10 @@ const Foot = styled.div`
 `;
 
 const programIcons: Record<string, ReactNode> = {
-  grooming: <IdentificationCardIcon size={20} aria-hidden />,
-  communication: <ChatIcon size={20} aria-hidden />,
-  coaching: <LightbulbIcon size={20} aria-hidden />,
-  personality: <UsersThreeIcon size={20} aria-hidden />,
+  grooming: <DefaultBrand icon={IdentificationCardIcon} size={20} aria-hidden />,
+  communication: <DefaultBrand icon={ChatIcon} size={20} aria-hidden />,
+  coaching: <DefaultBrand icon={LightbulbIcon} size={20} aria-hidden />,
+  personality: <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
 };
 
 const Programs = () => {
@@ -81,7 +82,7 @@ const Programs = () => {
               $v="ghost"
             >
               Request cohort syllabus
-              <ArrowRightIcon size={20} aria-hidden />
+              <DefaultBrand icon={ArrowRightIcon} size={20} aria-hidden />
             </ExtBtn>
           }
         />
@@ -116,7 +117,7 @@ const Programs = () => {
                     rel="noopener noreferrer"
                     $v={featured ? "primary" : "ghost"}
                   >
-                    <WhatsappLogoIcon size={20} aria-hidden />
+                    <WhatsappBrand size={20} aria-hidden />
                     {featured ? "Book private 1:1" : "Enquire module"}
                   </ExtBtn>
                 </Foot>

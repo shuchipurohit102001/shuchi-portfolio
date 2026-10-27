@@ -1,12 +1,11 @@
 "use client";
 import { person } from "@/data/content";
+import { DefaultBrand, GmailBrand, WhatsappBrand } from "@/components/ui/ui";
 import { t } from "@/providers/tokens";
 import {
   ChatTextIcon,
-  EnvelopeIcon,
   TagIcon,
   UserIcon,
-  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Form, Input, message, Select } from "antd";
@@ -115,23 +114,23 @@ export default function InquiryForm({
       <h3>{title}</h3>
       {description && <p className="form-lede">{description}</p>}
       <Form layout="vertical" onFinish={handleSubmit(onSubmit)} requiredMark="optional">
-        {field("name", "Full name", <UserIcon size={20} aria-hidden />, (f) => (
+        {field("name", "Full name", <DefaultBrand icon={UserIcon} size={20} aria-hidden />, (f) => (
           <Input {...f} autoComplete="name" />
         ))}
-        {field("phone", "WhatsApp number", <WhatsappLogoIcon size={20} aria-hidden />, (f) => (
+        {field("phone", "WhatsApp number", <WhatsappBrand size={20} aria-hidden />, (f) => (
           <Input {...f} type="tel" autoComplete="tel" placeholder="+91 98765 43210" />
         ))}
-        {field("email", "Email", <EnvelopeIcon size={20} aria-hidden />, (f) => (
+        {field("email", "Email", <GmailBrand size={20} aria-hidden />, (f) => (
           <Input {...f} type="email" autoComplete="email" />
         ))}
-        {field("interest", "Topic", <TagIcon size={20} aria-hidden />, (f) => (
+        {field("interest", "Topic", <DefaultBrand icon={TagIcon} size={20} aria-hidden />, (f) => (
           <Select {...f} options={options} />
         ))}
-        {field("message", "What would you like help with?", <ChatTextIcon size={20} aria-hidden />, (f) => (
+        {field("message", "What would you like help with?", <DefaultBrand icon={ChatTextIcon} size={20} aria-hidden />, (f) => (
           <Input.TextArea {...f} rows={4} />
         ))}
         <Button type="primary" htmlType="submit" loading={isSubmitting} size="large" block>
-          <WhatsappLogoIcon size={20} aria-hidden />
+          <WhatsappBrand size={20} aria-hidden />
           Send on WhatsApp
         </Button>
       </Form>

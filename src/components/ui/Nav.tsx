@@ -1,8 +1,8 @@
 "use client";
-import { Container, ExtBtn } from "@/components/ui/ui";
+import { Container, DefaultBrand, ExtBtn, WhatsappBrand } from "@/components/ui/ui";
 import { person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ListIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
+import { ListIcon } from "@phosphor-icons/react";
 import { Drawer } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -204,13 +204,13 @@ export default function Nav() {
 
           <Cta>
             <ExtBtn href={`https://wa.me/${person.wa}`} target="_blank" rel="noopener noreferrer" $v="secondary">
-              <WhatsappLogoIcon size={20} aria-hidden />
+              <WhatsappBrand size={20} aria-hidden />
               WhatsApp Inquiry
             </ExtBtn>
           </Cta>
 
           <Burger aria-label="Open menu" onClick={() => setOpen(true)}>
-            <ListIcon size={20} aria-hidden />
+            <DefaultBrand icon={ListIcon} size={20} aria-hidden />
           </Burger>
 
           <Drawer open={open} onClose={() => setOpen(false)} placement="right" size={300} title="Menu">
@@ -230,7 +230,7 @@ export default function Nav() {
                 $v="secondary"
                 style={{ marginTop: t.s.sm }}
               >
-                <WhatsappLogoIcon size={20} aria-hidden />
+                <WhatsappBrand size={20} aria-hidden />
                 WhatsApp Inquiry
               </ExtBtn>
             </DrawerLinks>

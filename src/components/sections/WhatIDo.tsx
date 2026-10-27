@@ -3,6 +3,7 @@ import {
   Card,
   CardFoot,
   Container,
+  DefaultBrand,
   Eyebrow,
   Grid,
   IconBadge,
@@ -18,10 +19,10 @@ import type { ReactNode } from "react";
 import styled from "styled-components";
 
 const icons: Record<string, ReactNode> = {
-  ielts: <BankIcon size={20} aria-hidden />,
-  corporate: <UsersThreeIcon size={20} aria-hidden />,
-  coaching: <SmileyIcon size={20} aria-hidden />,
-  campus: <GraduationCapIcon size={20} aria-hidden />,
+  ielts: <DefaultBrand icon={BankIcon} size={20} aria-hidden />,
+  corporate: <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
+  coaching: <DefaultBrand icon={SmileyIcon} size={20} aria-hidden />,
+  campus: <DefaultBrand icon={GraduationCapIcon} size={20} aria-hidden />,
 };
 
 type PillarMediaItem = {

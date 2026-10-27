@@ -48,6 +48,13 @@ export const t = {
 
     /* Yellow */
     yellow: "#ffe6a7",
+
+    /* Brands */
+    youtube: "#FF0000",
+    linkedin: "#0A66C2",
+    gmail: "#EA4335",
+    phone: "#25D366",
+    whatsapp: "#25D366",
   },
 
   r: {

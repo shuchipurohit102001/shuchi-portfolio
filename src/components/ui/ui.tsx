@@ -1,6 +1,18 @@
 "use client";
 import { t } from "@/providers/tokens";
-import { CheckCircleIcon, ImageIcon, VideoCameraIcon } from "@phosphor-icons/react";
+import {
+  CheckCircleIcon,
+  EnvelopeIcon,
+  ImageIcon,
+  InstagramLogoIcon,
+  LinkedinLogoIcon,
+  PhoneIcon,
+  VideoCameraIcon,
+  WhatsappLogoIcon,
+  YoutubeLogoIcon,
+  type Icon,
+  type IconProps,
+} from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -373,6 +385,68 @@ export const Dot = styled.span<{ $tone?: "secondary" | "primary" | "clay"; $puls
     `}
 `;
 
+/* -------------------------------------------------------------------------------------------------
+ * Brand icons
+ * ----------------------------------------------------------------------------------------------- */
+
+/** Render ONCE in the layout (or the top-level page). Needed for the Instagram gradient. */
+export const BrandDefs = () => (
+  <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden focusable="false">
+    <defs>
+      <radialGradient id="instagram-gradient" cx="30%" cy="107%" r="100%">
+        <stop offset="0%" stopColor="#fdf497" />
+        <stop offset="5%" stopColor="#fdf497" />
+        <stop offset="45%" stopColor="#fd5949" />
+        <stop offset="60%" stopColor="#d6249f" />
+        <stop offset="90%" stopColor="#285aeb" />
+      </radialGradient>
+      {/* CSS: linear-gradient(to left, #e0a100, #2fa4b8, #2b6cb0) — "to left" runs right → left */}
+      <linearGradient id="default-brand-gradient" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%" stopColor="#e0a100" />
+        <stop offset="50%" stopColor="#2fa4b8" />
+        <stop offset="100%" stopColor="#2b6cb0" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+// Must be declared before any makeBrand() call below (const is not hoisted).
+const base: IconProps = { weight: "fill", size: 20, "aria-hidden": true };
+
+/**
+ * Call at module level only, never inside a component's render,
+ * otherwise a new component type is created on every render and the icon remounts.
+ * Prop precedence: base < defaults < caller props. `style` is merged so defaults survive.
+ */
+const makeBrand = (IconComponent: Icon, defaults: IconProps = {}) => {
+  const Brand = ({ style, ...p }: IconProps) => (
+    <IconComponent {...base} {...defaults} {...p} style={{ ...defaults.style, ...style }} />
+  );
+  return Brand;
+};
+
+export const YoutubeBrand = makeBrand(YoutubeLogoIcon, { color: t.c.youtube });
+export const LinkedinBrand = makeBrand(LinkedinLogoIcon, { color: t.c.linkedin });
+export const GmailBrand = makeBrand(EnvelopeIcon, { color: t.c.gmail });
+export const PhoneBrand = makeBrand(PhoneIcon, { color: t.c.phone });
+export const WhatsappBrand = makeBrand(WhatsappLogoIcon, { color: t.c.whatsapp });
+export const InstagramBrand = makeBrand(InstagramLogoIcon, { style: { fill: "url(#instagram-gradient)" } });
+
+type DefaultBrandProps = IconProps & { icon: Icon };
+
+/** Gradient fill by default. Passing `color` switches to a solid color; `style` is merged last. */
+export const DefaultBrand = ({ icon: IconComponent, style, ...p }: DefaultBrandProps) => (
+  <IconComponent
+    {...base}
+    {...p}
+    style={{ ...(p.color ? null : { fill: "url(#default-brand-gradient)" }), ...style }}
+  />
+);
+
+/* -------------------------------------------------------------------------------------------------
+ * Icon badge and avatar
+ * ----------------------------------------------------------------------------------------------- */
+
 export const IconBadge = styled.span<{
   $tone?: "clay" | "cont" | "dark" | "canvas" | "error";
   $round?: boolean;
@@ -496,7 +570,7 @@ export function CheckList({ items }: { items: readonly string[] }) {
     <CheckListWrap>
       {items.map((item) => (
         <li key={item}>
-          <CheckCircleIcon size={20} weight="fill" aria-hidden />
+          <DefaultBrand icon={CheckCircleIcon} size={20} weight="fill" aria-hidden />
           <span>{item}</span>
         </li>
       ))}
@@ -768,17 +842,17 @@ export function Media({
   poster?: string;
   hint?: boolean;
 }) {
-  const Icon = kind === "video" ? VideoCameraIcon : ImageIcon;
+  const MediaIcon = kind === "video" ? VideoCameraIcon : ImageIcon;
   return (
-    <Frame $ratio={ratio} role="img" aria-label={label}>
+    <Frame $ratio={ratio} role={src ? undefined : "img"} aria-label={src ? undefined : label}>
       {src && kind === "image" && (
-        <Image src={src} alt={label} loading="eager" fill sizes="full" style={{ objectFit: "cover" }} />
+        <Image src={src} alt={label} loading="eager" fill sizes="100vw" style={{ objectFit: "cover" }} />
       )}
       {src && kind === "video" && <video src={src} poster={poster} controls preload="metadata" />}
       {!src && (
         <figcaption>
           <span aria-hidden>
-            <Icon size={20} />
+            <DefaultBrand icon={MediaIcon} size={20} />
           </span>
           {label}
           {hint && <small>Placeholder: add file to /public/media</small>}
