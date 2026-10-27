@@ -86,7 +86,9 @@ const PlayerWrap = styled.div`
   aspect-ratio: 9 / 16;
   overflow: hidden;
   background: ${t.c.cont};
-  border-radius: 8px;
+  border-radius: 12px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   video {
     position: absolute;
     inset: 0;

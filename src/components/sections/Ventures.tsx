@@ -28,6 +28,12 @@ import {
 import type { ReactNode } from "react";
 import styled from "styled-components";
 
+const CommunityBtn = styled(Btn)`
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+`;
+
 const Bento = styled.div`
   display: grid;
   gap: ${t.s.lg};
@@ -313,10 +319,10 @@ const Ventures = () => {
         </Bento>
 
         <Row style={{ marginTop: t.s.xl, justifyContent: "center" }}>
-          <Btn href="/community" $v="ghost">
+          <CommunityBtn href="/community" $v="ghost">
             Explore the Skills Synergy community
             <ArrowRightIcon size={20} aria-hidden />
-          </Btn>
+          </CommunityBtn>
         </Row>
       </Container>
     </Section>

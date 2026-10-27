@@ -537,6 +537,8 @@ export const Metric = styled.div`
 const btnStyles = css<{ $v?: "primary" | "secondary" | "ghost" }>`
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  text-wrap: balance;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.72rem 1.35rem;
