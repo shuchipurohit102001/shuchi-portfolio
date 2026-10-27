@@ -7,6 +7,7 @@ import {
   GraduationCapIcon,
   HouseIcon,
   InstagramLogoIcon,
+  LinkedinLogoIcon,
   PhoneIcon,
   UsersThreeIcon,
   WhatsappLogoIcon,
@@ -278,6 +279,10 @@ export default function Footer() {
                 <EnvelopeIcon size={20} aria-hidden />
                 {person.email}
               </EmailModalLink>
+              <a href={`${person.linkedin}`}>
+                <LinkedinLogoIcon size={20} aria-hidden />
+                shuchi-purohit1
+              </a>
             </Meta>
           </Col>
         </Grid>

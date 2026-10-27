@@ -1,17 +1,9 @@
 "use client";
 import InquiryForm from "@/components/InquiryForm";
-import {
-  Container,
-  H2,
-  IconBadge,
-  Lead,
-  Panel,
-  Pill,
-  Section,
-} from "@/components/ui/ui";
+import { Container, H2, IconBadge, Lead, Panel, Pill, Section } from "@/components/ui/ui";
 import { person } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ArrowRightIcon, ChatIcon, InstagramLogoIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, ChatIcon, InstagramLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const JoinPanel = styled(Panel)`
@@ -100,7 +92,7 @@ const Join = () => {
               <H2>Ready to elevate your personal and professional presence?</H2>
               <Lead>
                 Whether you are seeking 1:1 mentorship from {person.name} or wish to participate in our next
-                collaborative cohort, connect directly via the WhatsApp hotline or Instagram DM.
+                collaborative cohort, connect directly via the WhatsApp hotline, Instagram or Linkedin DM.
               </Lead>
 
               <Hotlines>
@@ -123,11 +115,7 @@ const Join = () => {
                   <ArrowRightIcon size={20} aria-hidden />
                 </Hotline>
 
-                <Hotline
-                  href="https://www.instagram.com/skill_synergy_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Hotline href="https://www.instagram.com/skill_synergy_/" target="_blank" rel="noopener noreferrer">
                   <HotlineCopy>
                     <IconBadge $tone="cont" $round>
                       <InstagramLogoIcon size={20} aria-hidden />
@@ -135,6 +123,19 @@ const Join = () => {
                     <span>
                       <strong>Instagram direct message</strong>
                       <span>@skill_synergy_</span>
+                    </span>
+                  </HotlineCopy>
+                  <ArrowRightIcon size={20} aria-hidden />
+                </Hotline>
+
+                <Hotline href={person.linkedin} target="_blank" rel="noopener noreferrer">
+                  <HotlineCopy>
+                    <IconBadge $tone="cont" $round>
+                      <LinkedinLogoIcon size={20} aria-hidden />
+                    </IconBadge>
+                    <span>
+                      <strong>Linkedin direct message</strong>
+                      <span>shuchi-purohit1</span>
                     </span>
                   </HotlineCopy>
                   <ArrowRightIcon size={20} aria-hidden />
