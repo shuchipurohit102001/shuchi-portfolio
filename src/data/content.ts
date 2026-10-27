@@ -4,7 +4,7 @@ export const person = {
   wa: "918329537693",
   email: "shuchipurohit102001@gmail.com",
   location: "Nagpur, Maharashtra",
-  linkedin: "https://www.linkedin.com/in/shuchi-purohit1/",
+  linkedin: "https://www.linkedin.com/in/shuchi-purohit-b79206244",
   headline: "I help students and early-career professionals communicate with clarity and confidence.",
   summary:
     "With a background in Psychology and English Literature, I coach interpersonal skills, public speaking and personality development. As a Business Development Executive in IT, I bring practical sales and marketing experience into the classroom, helping students move from campus to corporate: networking, pitching, presenting, negotiating and interviews.",
@@ -31,7 +31,9 @@ export const jobs = [
     role: "Business Development Executive",
     org: "Ensis Innovations Pvt Ltd",
     when: "Jan 2024 – Present",
-    note: "IT firm specialising in business technologies",
+    note: "New Zealand-based technology firm (iMonitor)",
+    summary:
+      "Overseeing project management, sales operations, business strategy, marketing strategy, negotiation and lead management.",
     points: [
       "Oversee project management, sales operations, business and marketing strategy, and lead management.",
       "Build client and partner relationships through direct communication.",
@@ -40,54 +42,62 @@ export const jobs = [
     ],
   },
   {
-    role: "Soft Skills & Communication Coach",
-    org: "CPC College, Nagpur",
-    when: "Aug 2023 – Present",
-    points: ["Tailored coaching in communication, interpersonal skills and professional etiquette."],
-  },
-  {
-    role: "Communication Trainer",
-    org: "IDEAS College of Architecture",
-    when: "Jan 2023 – Present",
+    role: "Communication Trainer — Classroom to Corporate",
+    org: "IDEAS College of Architecture, Nagpur",
+    when: "Oct 2023 – Present",
+    summary:
+      "Mentoring budding architects on communication strategies that help them market themselves in a competitive industry.",
     points: [
       "Mentor future architects on communication strategies to market themselves in a competitive industry.",
       "Designed interactive workshops that improved communication within teams.",
     ],
   },
   {
+    role: "Soft Skills & Communication Coach",
+    org: "CPC College, Nagpur",
+    when: "Aug – Sep 2023",
+    note: "One-month project",
+    summary:
+      "Tailored coaching in communication, interpersonal skills and professional etiquette for college students.",
+    points: ["Tailored coaching in communication, interpersonal skills and professional etiquette."],
+  },
+  {
     role: "IELTS Trainer",
-    org: "GB Institute & So What – A Centre for Excellence, Nagpur",
+    org: "GB Institute & So What — A Centre for Excellence, Nagpur",
     when: "Apr 2022 – Jan 2023",
+    summary:
+      "Ran IELTS sessions with practical strategies for language proficiency tests, exam technique and confident communication.",
     points: ["Ran IELTS sessions with strategies for language proficiency tests."],
   },
   {
     role: "Student & Parent Counselor | Admin & HR Executive",
-    org: "EuroKids International School",
+    org: "EuroKids International School (Lighthouse Learning Group)",
     when: "Dec 2021 – Oct 2022",
+    summary:
+      "Conducted student and parent counselling sessions while handling administrative responsibilities and supporting HR functions.",
     points: ["Conducted student and parent counselling; handled admin and supported HR."],
   },
   {
-    role: "Senior Intern, Articleship",
+    role: "Senior Intern — Articleship",
     org: "The Times of India",
     when: "Apr 2021 – Sep 2021",
+    summary:
+      "Contributed to editorial projects, attended press conferences, and wrote press notes and public reviews.",
     points: ["Contributed to editorial projects, wrote press notes and public reviews, and covered press events."],
   },
 ];
 export const education = [
   {
-    title: "Master's, English Literature",
+    title: "Master's in English Literature",
     org: "Hislop College, Nagpur University",
-    when: "May 2024",
+    when: "2022 – 2024",
+    detail: "Second merit",
   },
   {
-    title: "Bachelor's, Psychology",
+    title: "Bachelor's in Psychology",
     org: "Hislop College, Nagpur",
-    when: "May 2022",
-  },
-  {
-    title: "MBA, Marketing Management",
-    org: "Welingkar Institute of Management, Mumbai",
-    when: "",
+    when: "2019 – 2022",
+    detail: "8.9 CGPA",
   },
 ];
 export const certs = [
@@ -97,21 +107,27 @@ export const certs = [
     when: "Oct 2024",
   },
   {
-    title: "Foreign Language Training (English)",
-    org: "IDP",
-    when: "Jun 2022",
+    title: "Foreign Language Training — English",
+    org: "IDP (International Education Specialist)",
+    when: "2022",
   },
   {
     title: "Communication Skills Training",
     org: "PET (Pearson Pathways)",
-    when: "Feb 2022",
+    when: "2022",
   },
   {
-    title: "German, A1 level",
+    title: "German Language — A1 Level",
     org: "Dept. of Linguistics and Foreign Languages, Nagpur",
-    when: "May 2021",
+    when: "2020 – 2021",
   },
 ];
+export const software = [
+  { name: "Microsoft Office", note: "Documents, presentations & reports" },
+  { name: "Google Sheets", note: "Tracking, planning & collaboration" },
+  { name: "HubSpot CRM", note: "Lead management & client pipelines" },
+] as const;
+
 export const ventures = [
   {
     handle: "skill_synergy_",
@@ -397,29 +413,27 @@ export const feed = [
   },
 ] as const;
 
-// NOTE: these testimonials could not be verified from Instagram data.
-// Replace with real, permissioned quotes before publishing.
 export const testimonials = [
   {
-    initials: "AK",
-    name: "Ananya K.",
-    role: "Product lead, fintech",
+    initials: "SG",
+    name: "Samyak Gotekar",
+    role: "BAMS First Year, Shri Ayurved College, Nagpur",
     quote:
-      "Shuchi's coaching approach is grounded yet exceptionally powerful. In just three sessions, I transformed from dreading executive all-hands meetings to chairing them with ease.",
+      "Your session on effective communication and personal development was truly insightful and impactful. It helped me open up to people more comfortably and understand how to initiate and sustain meaningful conversations. I still cherish the Blue Pilot pen you awarded me — it serves as a special reminder.",
   },
   {
-    initials: "RS",
-    name: "Rohan S.",
-    role: "Corporate consultant",
+    initials: "MM",
+    name: "Muskan Malvi",
+    role: "B.Arch First Year, IDEAS College of Architecture",
     quote:
-      "The Skills Synergy WhatsApp group is hands-down the most constructive professional space I belong to. Daily insights without clutter, direct critiques and genuine community empathy.",
+      "Taking the communication class has helped me grow in many meaningful ways. I've learned to express myself more clearly and confidently, especially when speaking in front of others. It has also enhanced my grammar and English-speaking abilities.",
   },
   {
-    initials: "MP",
-    name: "Meera P.",
-    role: "HR business partner",
+    initials: "DK",
+    name: "Darshana Kulkarni",
+    role: "BAMS First Year, Shri Ayurved College, Nagpur",
     quote:
-      "Grooming is so much more than clothes — Shuchi helped me align my voice cadence, posture and internal self-perception into true organic leadership presence.",
+      "Your session was truly inspiring and incredibly helpful. It taught us how to set clear goals, stay focused, and manage our time efficiently — skills that are already making a difference in how I approach my studies and daily routine.",
   },
 ] as const;
 

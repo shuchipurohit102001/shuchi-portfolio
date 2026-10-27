@@ -196,7 +196,7 @@ const CommunityHero = () => {
                     rel="noopener noreferrer"
                   >
                     <WhatsappLogoIcon size={20} aria-hidden />
-                    Join the WhatsApp community
+                    Reach out via WhatsApp
                   </ExtBtn>
                   <ExtBtn
                     href="https://www.instagram.com/skill_synergy_/"
@@ -205,7 +205,7 @@ const CommunityHero = () => {
                     $v="ghost"
                   >
                     <InstagramLogoIcon size={20} aria-hidden />
-                    Follow @skill_synergy_
+                    Follow on <Accent>Instagram</Accent>
                   </ExtBtn>
                 </Row>
               </Copy>

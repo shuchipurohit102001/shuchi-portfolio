@@ -27,9 +27,16 @@ const Global = createGlobalStyle`
   h1,h2,h3,h4{
     font-family: var(--font-epilogue),serif;
     margin: 0;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.005em;
     line-height: 1.2;
-    color: ${t.c.ink}
+    color: ${t.c.ink};
+    text-transform: uppercase;
+  }
+
+  .ant-btn{
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   p{

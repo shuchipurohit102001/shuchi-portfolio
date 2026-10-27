@@ -104,19 +104,20 @@ export const Glow = styled.div<{ $tone?: "clay" | "cont" | "high" | "yellow" }>`
  * ----------------------------------------------------------------------------------------------- */
 
 export const H1 = styled.h1`
-  font-size: clamp(2.4rem, 5.2vw, 3.35rem);
+  font-size: clamp(2.1rem, 4.6vw, 3.05rem);
   font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.025em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   text-wrap: balance;
   overflow-wrap: break-word;
+  hyphens: auto;
 `;
 
 export const H2 = styled.h2`
-  font-size: clamp(1.7rem, 3.4vw, 2.25rem);
+  font-size: clamp(1.55rem, 3.1vw, 2.1rem);
   font-weight: 600;
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
   text-wrap: balance;
 `;
 
@@ -532,9 +533,11 @@ const btnStyles = css<{ $v?: "primary" | "secondary" | "ghost" }>`
   gap: 0.5rem;
   padding: 0.72rem 1.35rem;
   border-radius: ${t.r.md};
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.82rem;
   line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   text-decoration: none;
   transition:
     background 0.15s ease,
