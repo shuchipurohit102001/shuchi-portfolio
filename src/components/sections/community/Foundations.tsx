@@ -204,7 +204,7 @@ const Foundations = () => {
             </FounderHead>
             <Quote>{founderNote}</Quote>
             <Media label="Skill Workshop" src="/skillSynergy.png" />
-            <Media label="Skill Workshop" src="/skillSynergy.png" />
+            <Media label="Skill Workshop" src="/community-workshop/image3.png" />
             <NoteFoot>
               <span>
                 <UsersThreeIcon size={20} aria-hidden />
