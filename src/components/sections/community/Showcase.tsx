@@ -70,9 +70,9 @@ const NavBtn = styled.button<{ $side: "left" | "right" }>`
   height: 44px;
   border: 0;
   border-radius: 50%;
-  background: ${t.c.cont};
+  background: ${t.c.primary};
   color: ${t.c.ink};
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  box-shadow: ${t.shadowSoft};
   cursor: pointer;
   &:disabled {
     opacity: 0.35;
@@ -88,6 +88,7 @@ const FeedCard = styled(Panel)`
   flex-direction: column;
   overflow: hidden;
   padding: 0;
+  border: 1px solid ${t.c.outlineVariant};
 `;
 
 const PlayerWrap = styled.div`
@@ -115,6 +116,7 @@ const FeedBody = styled.div`
   gap: ${t.s.xs};
   padding: ${t.s.lg};
   flex: 1;
+  background: ${t.c.sky};
   h4 {
     font-family: var(--font-manrope);
     font-size: 1rem;
@@ -128,6 +130,10 @@ const Category = styled.span`
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  width: fit-content;
+  padding: 0.2rem 0.55rem;
+  border-radius: ${t.r.full};
+  background: ${t.c.lavender};
   color: ${t.c.secondary};
   font-size: 0.72rem;
   font-weight: 700;
@@ -172,6 +178,15 @@ const Testimonial = styled(Panel)`
   flex-direction: column;
   justify-content: space-between;
   gap: ${t.s.md};
+  &:nth-child(4n + 2) {
+    background: ${t.c.lavender};
+  }
+  &:nth-child(4n + 3) {
+    background: ${t.c.mint};
+  }
+  &:nth-child(4n + 4) {
+    background: ${t.c.peach};
+  }
   blockquote {
     margin: 0;
     color: ${t.c.ink};

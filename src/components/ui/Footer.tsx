@@ -120,7 +120,8 @@ const SocialPills = styled.div`
   a,
   button {
     padding: 0.22rem 0.65rem;
-    border-radius: ${t.r.full};
+    border-radius: ${t.r.md};
+    border: 1px solid ${t.c.clayInk};
     background: ${t.c.cont};
     color: ${t.c.ink};
     font-size: 0.7rem;

@@ -55,10 +55,10 @@ const Bar = styled.div`
     border: 0;
     border-radius: 4px;
     background: transparent;
-    color: #fff;
+    color: ${t.c.onPrimary};
     cursor: pointer;
     &:hover {
-      background: rgba(255, 255, 255, 0.16);
+      background: ${t.c.secondaryDim};
     }
   }
 `;

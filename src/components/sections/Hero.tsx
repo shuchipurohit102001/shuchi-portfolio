@@ -170,9 +170,9 @@ const Hero = () => {
               </RoleLine>
 
               <Lead>
-                Business development executive in software solutions, founder of <LeadStrong>Skills Synergy</LeadStrong>{" "}
-                &amp; <LeadStrong>Bhoojanpriye</LeadStrong>, Campus &amp; Corporate Groomer, IELTS &amp; TOEFL Trainer
-                with strong Leadership foundations.
+                Business development executive in software solutions, founder of <LeadStrong>Skills Synergy</LeadStrong>
+                , Campus to Corporate Groomer, <Accent>IELTS - TOEFL</Accent> Trainer with strong Leadership
+                foundations.
               </Lead>
 
               <Row>

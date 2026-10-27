@@ -2,52 +2,57 @@ import type { ThemeConfig } from "antd";
 
 export const t = {
   c: {
-    /* Surfaces (light-cyan family, very soft steps) */
-    canvas: "#ffffff",
-    low: "#f6fcfe",
-    cont: "#eef9fc",
-    high: "#e4f5fa",
-    highest: "#d8f0f7",
+    /* Surfaces (soft pastel palette) */
+    canvas: "#fffdfb",
+    low: "#f8f4ff",
+    cont: "#f0f7ff",
+    high: "#fff3e9",
+    highest: "#eaf7f2",
     lowest: "#ffffff",
 
-    /* Ink (soft navy, not harsh black) */
-    ink: "#14283f",
-    inkVar: "#4b6279",
+    /* Keep text dark enough to read against the light surfaces. */
+    ink: "#2b3045",
+    inkVar: "#5b6378",
 
-    /* Primary: bright-teal-blue, readable with white text */
-    primary: "#0077b6",
-    primaryHover: "#0a68a3",
-    primaryContainer: "#ade8f4",
-    primaryInk: "#005f94",
-    onPrimary: "#ffffff",
+    /* Primary: powder blue with dark readable foregrounds. */
+    primary: "#e5edff",
+    primaryHover: "#d8e4ff",
+    primaryContainer: "#eff3ff",
+    primaryInk: "#465d91",
+    onPrimary: "#35466d",
 
     /* Secondary / accent */
-    secondary: "#023e8a",
-    secondaryDim: "#90e0ef",
+    secondary: "#715e99",
+    secondaryDim: "#eee7ff",
     onSecondary: "#ffffff",
-    clay: "#caf0f8",
-    clayInk: "#023e8a",
+    clay: "#fff0e4",
+    clayInk: "#79583f",
 
     /* Tertiary */
-    tertiary: "#5a7e96",
-    tertiaryContainer: "#dcf0f6",
+    tertiary: "#507d76",
+    tertiaryContainer: "#eaf7f2",
 
     /* Lines and outlines */
-    line: "#cfe5ee",
-    outline: "#7ea6bb",
-    outlineVariant: "#e1eff5",
+    line: "#e4deed",
+    outline: "#958ba9",
+    outlineVariant: "#f0ebf5",
 
     /* Inverse (footer, dark sections) */
     inverse: "#0b2a4a",
-    inverseInk: "#caf0f8",
+    inverseInk: "#eaf7f2",
 
     /* Feedback */
-    error: "#b3261e",
-    errorContainer: "#ffe7e3",
-    onErrorContainer: "#8c1d18",
+    error: "#ad4e52",
+    errorContainer: "#fff0ef",
+    onErrorContainer: "#81383c",
 
-    /* Yellow */
-    yellow: "#ffe6a7",
+    /* Additional pale accents */
+    yellow: "#fff4cf",
+    lavender: "#f1ebff",
+    mint: "#e8f7ef",
+    rose: "#fff0f4",
+    sky: "#edf6ff",
+    peach: "#fff1e7",
 
     /* Brands */
     youtube: "#FF0000",
@@ -75,9 +80,9 @@ export const t = {
     xxxl: "4.5rem",
   },
 
-  shadow: "0 8px 30px rgba(2,62,138,0.07)",
-  shadowSoft: "0 1px 8px rgba(2,62,138,0.05)",
-  shadowLift: "0 18px 44px rgba(2,62,138,0.10)",
+  shadow: "0 8px 30px rgba(91,74,133,0.07)",
+  shadowSoft: "0 1px 8px rgba(91,74,133,0.05)",
+  shadowLift: "0 18px 44px rgba(91,74,133,0.10)",
 
   bp: {
     tablet: "640px",
