@@ -1,7 +1,16 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
-import { PaperPlaneRightIcon, TrashIcon, XIcon } from "@phosphor-icons/react";
+import { t } from "@/providers/tokens";
+import {
+  ChatTextIcon,
+  EnvelopeIcon,
+  PaperPlaneRightIcon,
+  TagIcon,
+  TrashIcon,
+  UserIcon,
+  XIcon,
+} from "@phosphor-icons/react";
 import { Button, Input, Modal, Select, message } from "antd";
 import { Controller, useForm } from "react-hook-form";
 import styled from "styled-components";
@@ -35,9 +44,9 @@ const Bar = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0.6rem 0.9rem 0.6rem 1.1rem;
-  background: #404040;
-  color: #fff;
-  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  background: ${t.c.primary};
+  color: ${t.c.onPrimary};
+  font-family: var(--font-epilogue), var(--font-manrope), sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   button {
@@ -49,15 +58,15 @@ const Bar = styled.div`
     color: #fff;
     cursor: pointer;
     &:hover {
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.16);
     }
   }
 `;
 
 const Compose = styled.div`
-  font-family: Roboto, Arial, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
   font-size: 0.9rem;
-  color: #202124;
+  color: ${t.c.ink};
 `;
 
 const Row = styled.div`
@@ -65,13 +74,22 @@ const Row = styled.div`
   align-items: flex-start;
   gap: 0.5rem;
   padding: 0.15rem 1.1rem;
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 1px solid ${t.c.line};
   > label,
   > span.row-label {
     flex: none;
-    width: 3.4rem;
+    width: 5rem;
     padding-top: 0.45rem;
-    color: #5f6368;
+    color: ${t.c.inkVar};
+  }
+  > label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  > label svg {
+    flex: none;
+    color: ${t.c.secondary};
   }
   .field {
     flex: 1;
@@ -80,7 +98,7 @@ const Row = styled.div`
   .field-error {
     display: block;
     padding: 0.15rem 0 0.35rem;
-    color: #d93025;
+    color: ${t.c.error};
     font-size: 0.75rem;
   }
 `;
@@ -88,11 +106,13 @@ const Row = styled.div`
 const Chip = styled.span`
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
   margin-top: 0.3rem;
   padding: 0.15rem 0.6rem;
-  border: 1px solid #dadce0;
+  border: 1px solid ${t.c.line};
   border-radius: 16px;
-  background: #f1f3f4;
+  background: ${t.c.cont};
+  color: ${t.c.ink};
   font-size: 0.82rem;
   overflow-wrap: anywhere;
 `;
@@ -108,10 +128,10 @@ const Foot = styled.div`
     border: 0;
     border-radius: 50%;
     background: transparent;
-    color: #5f6368;
+    color: ${t.c.inkVar};
     cursor: pointer;
     &:hover {
-      background: #f1f3f4;
+      background: ${t.c.cont};
     }
   }
 `;
@@ -122,14 +142,14 @@ const SendButton = styled(Button)`
     padding: 0 1.4rem;
     border: 0;
     border-radius: 18px;
-    background: #0b57d0;
-    color: #fff;
+    background: ${t.c.primary};
+    color: ${t.c.onPrimary};
     font-weight: 500;
     box-shadow: none;
   }
   &&:hover {
-    background: #0a4db8 !important;
-    color: #fff !important;
+    background: ${t.c.primaryHover} !important;
+    color: ${t.c.onPrimary} !important;
   }
 `;
 
@@ -198,7 +218,10 @@ const EmailModal = ({ open, onClose }: Props) => {
         closable={false}
         centered
         width="min(580px, calc(100vw - 24px))"
-        styles={{ root: { padding: 0, overflow: "hidden", borderRadius: 12 } }}
+        styles={{
+          root: { padding: 0, overflow: "hidden", borderRadius: t.r.lg },
+          body: { padding: 0, background: t.c.lowest },
+        }}
         aria-label="Compose email to Shuchi Purohit"
       >
         <Bar>
@@ -212,11 +235,17 @@ const EmailModal = ({ open, onClose }: Props) => {
           <Compose>
             <Row>
               <span className="row-label">To</span>
-              <Chip>{RECIPIENT}</Chip>
+              <Chip>
+                <EnvelopeIcon size={20} aria-hidden />
+                {RECIPIENT}
+              </Chip>
             </Row>
 
             <Row>
-              <label htmlFor="email">From</label>
+              <label htmlFor="email">
+                <EnvelopeIcon size={20} aria-hidden />
+                From
+              </label>
               <div className="field">
                 <Controller
                   name="email"
@@ -239,7 +268,10 @@ const EmailModal = ({ open, onClose }: Props) => {
             </Row>
 
             <Row>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">
+                <UserIcon size={20} aria-hidden />
+                Name
+              </label>
               <div className="field">
                 <Controller
                   name="name"
@@ -262,7 +294,10 @@ const EmailModal = ({ open, onClose }: Props) => {
             </Row>
 
             <Row>
-              <label htmlFor="query">Subject</label>
+              <label htmlFor="query">
+                <TagIcon size={20} aria-hidden />
+                Subject
+              </label>
               <div className="field">
                 <Controller
                   name="query"
@@ -285,6 +320,10 @@ const EmailModal = ({ open, onClose }: Props) => {
             </Row>
 
             <Row style={{ borderBottom: 0 }}>
+              <label htmlFor="message">
+                <ChatTextIcon size={20} aria-hidden />
+                Message
+              </label>
               <div className="field">
                 <Controller
                   name="message"
