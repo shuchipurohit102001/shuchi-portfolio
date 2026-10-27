@@ -172,9 +172,9 @@ const EmailModal = ({ open, onClose }: Props) => {
 
   const handleFinish = async (values: FormValues) => {
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_fzkncrr";
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_m4xt0uh";
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "qwptM_v-GiQ9ucJr6";
       if (!serviceId || !templateId || !publicKey) {
         throw new Error("Email sending is not configured. Please try again later.");
       }
