@@ -4,7 +4,7 @@ import {
   Container,
   Dot,
   ExtBtn,
-  H1,
+  HHead,
   Lead,
   Pill,
   Portrait,
@@ -157,9 +157,9 @@ const Hero = () => {
                 <span style={{ color: t.c.secondary }}>{person.location}</span>
               </Pill>
 
-              <H1>
+              <HHead>
                 Empowering Communication, Fostering <Accent>Leadership</Accent> &amp; Unlocking Opportunities.
-              </H1>
+              </HHead>
 
               <RoleLine aria-label={roles.join(", ")}>
                 <AnimatedRole key={roles[roleIndex]} aria-hidden="true">

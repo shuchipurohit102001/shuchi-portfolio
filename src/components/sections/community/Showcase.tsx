@@ -2,8 +2,76 @@
 import { Avatar, Container, ExtBtn, Grid, Muted, Panel, Section, SectionHead } from "@/components/ui/ui";
 import { feed, testimonials } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ChatIcon, HeartIcon, InstagramLogoIcon, PlayCircleIcon, QuotesIcon } from "@phosphor-icons/react";
+import {
+  CaretLeftIcon,
+  CaretRightIcon,
+  ChatIcon,
+  HeartIcon,
+  InstagramLogoIcon,
+  PlayCircleIcon,
+  QuotesIcon,
+} from "@phosphor-icons/react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
+const Carousel = styled.div`
+  position: relative;
+`;
+
+const Track = styled.div`
+  display: flex;
+  gap: ${t.s.lg};
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  padding-bottom: ${t.s.sm};
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const Slide = styled.div`
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+  display: flex; /* so the card stretches to equal height */
+
+  @media (min-width: 600px) {
+    flex-basis: calc((100% - ${t.s.lg}) / 2);
+  }
+  @media (min-width: 960px) {
+    flex-basis: calc((100% - 2 * ${t.s.lg}) / 3);
+  }
+  @media (min-width: 1280px) {
+    flex-basis: calc((100% - 3 * ${t.s.lg}) / 4);
+  }
+`;
+
+const NavBtn = styled.button<{ $side: "left" | "right" }>`
+  position: absolute;
+  top: 40%;
+  ${({ $side }) => ($side === "left" ? "left: -0.75rem;" : "right: -0.75rem;")}
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: ${t.c.cont};
+  color: ${t.c.ink};
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  @media (hover: none) {
+    display: none; /* touch devices just swipe */
+  }
+`;
 
 const FeedCard = styled(Panel)`
   display: flex;
@@ -12,14 +80,13 @@ const FeedCard = styled(Panel)`
   padding: 0;
 `;
 
-/* Instagram's embed player is a tall, fixed-layout frame, so the wrapper
-   gives it a portrait box and lets the iframe fill it. */
 const PlayerWrap = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
   overflow: hidden;
   background: ${t.c.cont};
+  border-radius: 8px;
   video {
     position: absolute;
     inset: 0;
@@ -113,7 +180,53 @@ const Author = styled.div`
   }
 `;
 
+const LazyVideo = ({ src, title }: { src: string; title: string }) => {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), {
+      threshold: 0.6,
+    });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
+  return <video ref={ref} src={src} title={title} muted loop playsInline controls preload="metadata" />;
+};
+
 const Showcase = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+
+  const updateEdges = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setCanPrev(el.scrollLeft > 4);
+    setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    updateEdges();
+    const el = trackRef.current;
+    el?.addEventListener("scroll", updateEdges, { passive: true });
+    window.addEventListener("resize", updateEdges);
+    return () => {
+      el?.removeEventListener("scroll", updateEdges);
+      window.removeEventListener("resize", updateEdges);
+    };
+  }, [updateEdges]);
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-slide]");
+    const step = card ? card.offsetWidth + 24 : el.clientWidth; // 24 ≈ gap
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
   return (
     <Section>
       <Container>
@@ -139,42 +252,54 @@ const Showcase = () => {
           }
         />
 
-        <Grid $min="280px">
-          {feed.map((item) => (
-            <FeedCard key={item.id} $tone="lowest" $shadow="soft">
-              <PlayerWrap>
-                <video src={item.url} title={item.title} autoPlay muted loop playsInline controls />
-              </PlayerWrap>
-              <FeedBody>
-                <Category>
-                  <PlayCircleIcon size={20} aria-hidden />
-                  {item.category}
-                </Category>
-                <h4>{item.title}</h4>
-                <Muted>{item.text}</Muted>
-                <FeedFoot>
-                  <Stats>
-                    <span>
+        <Carousel>
+          <NavBtn $side="left" onClick={() => scrollByCard(-1)} disabled={!canPrev} aria-label="Previous">
+            <CaretLeftIcon size={22} />
+          </NavBtn>
+
+          <Track ref={trackRef} role="region" aria-label="Instagram content" tabIndex={0}>
+            {feed.map((item) => (
+              <Slide key={item.id} data-slide>
+                <FeedCard $tone="lowest" $shadow="soft" style={{ width: "100%" }}>
+                  <PlayerWrap>
+                    <LazyVideo src={item.url} title={item.title} />
+                  </PlayerWrap>
+                  <FeedBody>
+                    <Category>
                       <PlayCircleIcon size={20} aria-hidden />
-                      {item.plays}
-                    </span>
-                    <span>
-                      <HeartIcon size={20} aria-hidden />
-                      {item.likes}
-                    </span>
-                    <span>
-                      <ChatIcon size={20} aria-hidden />
-                      {item.comments}
-                    </span>
-                  </Stats>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    {item.cta}
-                  </a>
-                </FeedFoot>
-              </FeedBody>
-            </FeedCard>
-          ))}
-        </Grid>
+                      {item.category}
+                    </Category>
+                    <h4>{item.title}</h4>
+                    <Muted>{item.text}</Muted>
+                    <FeedFoot>
+                      <Stats>
+                        <span>
+                          <PlayCircleIcon size={20} aria-hidden />
+                          {item.plays}
+                        </span>
+                        <span>
+                          <HeartIcon size={20} aria-hidden />
+                          {item.likes}
+                        </span>
+                        <span>
+                          <ChatIcon size={20} aria-hidden />
+                          {item.comments}
+                        </span>
+                      </Stats>
+                      <a href={item.url} target="_blank" rel="noopener noreferrer">
+                        {item.cta}
+                      </a>
+                    </FeedFoot>
+                  </FeedBody>
+                </FeedCard>
+              </Slide>
+            ))}
+          </Track>
+
+          <NavBtn $side="right" onClick={() => scrollByCard(1)} disabled={!canNext} aria-label="Next">
+            <CaretRightIcon size={22} />
+          </NavBtn>
+        </Carousel>
 
         <Grid $min="260px" style={{ marginTop: t.s.xl }}>
           {testimonials.map((item) => (

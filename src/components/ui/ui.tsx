@@ -113,6 +113,14 @@ export const H1 = styled.h1`
   hyphens: auto;
 `;
 
+export const HHead = styled.h1`
+  font-size: clamp(2.1rem, 4.6vw, 3.05rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+`;
+
 export const H2 = styled.h2`
   font-size: clamp(1.55rem, 3.1vw, 2.1rem);
   font-weight: 600;

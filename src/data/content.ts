@@ -371,6 +371,7 @@ export const programs = [
 ] as const;
 
 // Real reels from @skill_synergy_ with figures as captured from Instagram
+// `url` is the local video file in /public; `ig` is the reel on Instagram.
 export const feed = [
   {
     id: "waste",
@@ -383,6 +384,7 @@ export const feed = [
     likes: "170",
     comments: "0",
     url: "/waste.mp4",
+    ig: "https://www.instagram.com/reel/DU5w51yk0L1/",
     cta: "Watch reel",
   },
   {
@@ -396,6 +398,35 @@ export const feed = [
     likes: "185",
     comments: "2",
     url: "/felecit.mp4",
+    ig: "https://www.instagram.com/reel/DTssZG8jFfb/",
+    cta: "Watch reel",
+  },
+  {
+    id: "coaching-journey",
+    kind: "video",
+    format: "Reel",
+    category: "1:1 coaching · Jan 2026",
+    title: "A 1:1 coaching journey in professional communication",
+    text: "Sessions on self-endorsement, personal branding and entrepreneurship, helping a student build confidence and a professional network.",
+    plays: "2.4k",
+    likes: "70",
+    comments: "2",
+    url: "/coaching.mp4",
+    ig: "https://www.instagram.com/reel/DTpXh_uk23f/",
+    cta: "Watch reel",
+  },
+  {
+    id: "yoga-interns",
+    kind: "video",
+    format: "Reel",
+    category: "Training session · Dec 2025",
+    title: "Training young yoga interns in communication and presence",
+    text: "Introduction sessions, interactive activities and confidence-building exercises where mindfulness meets self-expression and professional presence.",
+    plays: "2.4k",
+    likes: "36",
+    comments: "2",
+    url: "/yoga.mp4",
+    ig: "https://www.instagram.com/reel/DSPU2e7jLDY/",
     cta: "Watch reel",
   },
   {
@@ -409,6 +440,7 @@ export const feed = [
     likes: "22",
     comments: "4",
     url: "/launch.mp4",
+    ig: "https://www.instagram.com/reel/DLNjjh-zTWW/",
     cta: "Watch reel",
   },
 ] as const;
