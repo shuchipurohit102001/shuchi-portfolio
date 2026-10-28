@@ -1,5 +1,5 @@
 "use client";
-import { Container, DefaultBrand, ExtBtn, WhatsappBrand } from "@/components/ui/ui";
+import { Avatar, Container, DefaultBrand, ExtBtn, WhatsappBrand } from "@/components/ui/ui";
 import { person } from "@/data/content";
 import { t } from "@/providers/tokens";
 import { ListIcon } from "@phosphor-icons/react";
@@ -182,7 +182,7 @@ export default function Nav() {
       <Container>
         <Inner>
           <Brand href="/" aria-label={`${person.name} — home`}>
-            <BrandMark aria-hidden>SP</BrandMark>
+            <BrandMark aria-hidden><Avatar $src={"/profilePhoto.png"} /></BrandMark>
             <BrandText>
               <strong>{person.name}</strong>
               <small>Soft skills &amp; synergy</small>

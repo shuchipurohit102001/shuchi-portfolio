@@ -2,8 +2,8 @@
 import {
   Avatar,
   Container,
-  Dot,
   DefaultBrand,
+  Dot,
   ExtBtn,
   Glow,
   H1,
@@ -18,7 +18,7 @@ import {
   Split,
   WhatsappBrand,
 } from "@/components/ui/ui";
-import { communityMetrics, communityPanelPoints, person } from "@/data/content";
+import { communityMetrics, communityPanelPoints, person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
   BookOpenIcon,
@@ -196,7 +196,7 @@ const CommunityHero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <WhatsappBrand size={20} aria-hidden />
+                    <WhatsappBrand size={30} aria-hidden />
                     Reach out via WhatsApp
                   </ExtBtn>
                   <ExtBtn
@@ -205,7 +205,7 @@ const CommunityHero = () => {
                     rel="noopener noreferrer"
                     $v="ghost"
                   >
-                    <InstagramBrand size={20} aria-hidden />
+                    <Avatar $src={ventures[0].src} $size={30} aria-hidden />
                     Follow on <Accent>Instagram</Accent>
                   </ExtBtn>
                 </Row>
@@ -213,9 +213,8 @@ const CommunityHero = () => {
 
               <HeroPanel $tone="lowest" $pad="lg" $shadow="lift">
                 <FounderRow>
-                  <Avatar $size={64} $src="/profilePhoto.png">
-                    SP
-                  </Avatar>
+                  <Avatar $size={64} $src="/profilePhoto.png" />
+
                   <div>
                     <strong>{person.name}</strong>
                     <span>

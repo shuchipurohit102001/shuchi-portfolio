@@ -1,24 +1,24 @@
 "use client";
-import InquiryForm from "@/components/InquiryForm";
 import EmailModalLink from "@/components/EmailModalLink";
+import InquiryForm from "@/components/InquiryForm";
 import {
   Avatar,
+  Container,
   DefaultBrand,
+  Eyebrow,
   GmailBrand,
+  H2,
+  IconBadge,
+  Lead,
   LinkedinBrand,
+  Panel,
+  Section,
+  Split,
   WhatsappBrand,
 } from "@/components/ui/ui";
-import { ArrowRightIcon } from "@phosphor-icons/react";
-import { Container, Eyebrow, H2, IconBadge, Lead, Panel, Section, Split } from "@/components/ui/ui";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
-import {
-  CoffeeIcon,
-  PaperPlaneRightIcon,
-  UserIcon,
-  UsersThreeIcon,
-} from "@phosphor-icons/react";
-import type { ReactNode } from "react";
+import { ArrowRightIcon, PaperPlaneRightIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const Copy = styled.div`
@@ -128,12 +128,6 @@ const Meta = styled.div`
   }
 `;
 
-const ventureIcons: Record<string, ReactNode> = {
-  skill_synergy_: <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
-  bhoojanpriye: <DefaultBrand icon={CoffeeIcon} size={20} aria-hidden />,
-  purohitshuchi: <DefaultBrand icon={UserIcon} size={20} aria-hidden />,
-};
-
 const Contact = () => {
   return (
     <Section>
@@ -185,7 +179,7 @@ const Contact = () => {
               <SocialRow key={venture.handle} href={venture.url} target="_blank" rel="noopener noreferrer">
                 <SocialCopy>
                   <IconBadge $tone={venture.handle === "skill_synergy_" ? "clay" : "cont"} $round $size="sm">
-                    <Avatar $src={venture.src}/>
+                    <Avatar $src={venture.src} />
                   </IconBadge>
                   <span>
                     <strong>@{venture.handle}</strong>

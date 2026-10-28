@@ -1,20 +1,20 @@
 "use client";
 import InquiryForm from "@/components/InquiryForm";
 import {
+  Avatar,
   Container,
   DefaultBrand,
   H2,
   IconBadge,
-  InstagramBrand,
   Lead,
-  LinkedinBrand,
   Panel,
   Pill,
   Section,
+  WhatsappBrand,
 } from "@/components/ui/ui";
-import { person } from "@/data/content";
+import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
-import { ArrowRightIcon, ChatIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 const JoinPanel = styled(Panel)`
@@ -116,7 +116,7 @@ const Join = () => {
                 >
                   <HotlineCopy>
                     <IconBadge $tone="clay" $round>
-                      <DefaultBrand icon={ChatIcon} size={20} aria-hidden />
+                      <WhatsappBrand size={20} aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>WhatsApp direct helpline</strong>
@@ -129,7 +129,7 @@ const Join = () => {
                 <Hotline href="https://www.instagram.com/skill_synergy_/" target="_blank" rel="noopener noreferrer">
                   <HotlineCopy>
                     <IconBadge $tone="cont" $round>
-                      <InstagramBrand size={20} aria-hidden />
+                      <Avatar $src={ventures[0].src} $size={30} aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>Instagram direct message</strong>
@@ -142,7 +142,7 @@ const Join = () => {
                 <Hotline href={person.linkedin} target="_blank" rel="noopener noreferrer">
                   <HotlineCopy>
                     <IconBadge $tone="cont" $round>
-                      <LinkedinBrand size={20} aria-hidden />
+                      <Avatar $src="/profile/shuchiwa.png" $size={30} aria-hidden />
                     </IconBadge>
                     <span>
                       <strong>Linkedin direct message</strong>

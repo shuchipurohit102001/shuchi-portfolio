@@ -2,23 +2,10 @@
 import EmailModalLink from "@/components/EmailModalLink";
 import { person, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
-import {
-  GraduationCapIcon,
-  HouseIcon,
-  UsersThreeIcon,
-} from "@phosphor-icons/react";
+import { GraduationCapIcon, HouseIcon, UsersThreeIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import styled from "styled-components";
-import {
-  Container,
-  DefaultBrand,
-  GmailBrand,
-  InstagramBrand,
-  LinkedinBrand,
-  PhoneBrand,
-  WhatsappBrand,
-  YoutubeBrand,
-} from "./ui";
+import { Avatar, Container, DefaultBrand, GmailBrand, LinkedinBrand, PhoneBrand, WhatsappBrand } from "./ui";
 
 const FooterShell = styled.footer`
   position: relative;
@@ -117,19 +104,38 @@ const SocialPills = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${t.s.sm};
-  a,
-  button {
-    padding: 0.22rem 0.65rem;
-    border-radius: ${t.r.md};
-    border: 1px solid ${t.c.clayInk};
+  a {
+    position: relative;
+    display: inline-flex;
+    width: 3rem;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
     background: ${t.c.cont};
     color: ${t.c.ink};
-    font-size: 0.7rem;
-    font-weight: 600;
     text-decoration: none;
     transition: background 0.15s ease;
     &:hover {
       background: ${t.c.high};
+    }
+    &:focus-visible {
+      outline: 2px solid ${t.c.ink};
+      outline-offset: 3px;
+    }
+    svg:first-child {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      text {
+        fill: currentColor;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.9px;
+      }
     }
   }
 `;
@@ -222,7 +228,9 @@ export default function Footer() {
         <Grid>
           <BrandCol>
             <BrandRow>
-              <BrandMark aria-hidden>SP</BrandMark>
+              <BrandMark aria-hidden>
+                <Avatar $src="/profilePhoto.png" />
+              </BrandMark>
               <div>
                 <strong>{person.name}</strong>
                 <span>Soft skills &amp; synergy</span>
@@ -233,11 +241,29 @@ export default function Footer() {
               mentorship and thoughtful community building.
             </p>
             <SocialPills>
-              {ventures.map((v) => (
-                <a key={v.handle} href={v.url} target="_blank" rel="noopener noreferrer">
-                  <InstagramBrand size={20} aria-hidden /> @{v.handle}
-                </a>
-              ))}
+              {ventures.map((v, index) => {
+                const textPathId = `instagram-handle-path-${index}`;
+
+                return (
+                  <a
+                    key={v.handle}
+                    href={v.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Instagram @${v.handle}`}
+                  >
+                    <svg viewBox="0 0 80 80" aria-hidden="true">
+                      <defs>
+                        <path id={textPathId} d="M 40,8 A 32,32 0 1,1 39.99,8" />
+                      </defs>
+                      <text>
+                        <textPath href={`#${textPathId}`}>@{v.handle}</textPath>
+                      </text>
+                    </svg>
+                    <Avatar $src={v.src} $size={40} aria-hidden />
+                  </a>
+                );
+              })}
               {/* <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
                 <YoutubeBrand size={20} aria-hidden />
                 YouTube

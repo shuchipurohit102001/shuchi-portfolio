@@ -1,26 +1,8 @@
 "use client";
-import {
-  Avatar,
-  Container,
-  DefaultBrand,
-  ExtBtn,
-  Grid,
-  InstagramBrand,
-  Muted,
-  Panel,
-  Section,
-  SectionHead,
-} from "@/components/ui/ui";
+import { Avatar, Container, DefaultBrand, ExtBtn, Grid, Muted, Panel, Section, SectionHead } from "@/components/ui/ui";
 import { feed, testimonials } from "@/data/content";
 import { t } from "@/providers/tokens";
-import {
-  CaretLeftIcon,
-  CaretRightIcon,
-  ChatIcon,
-  HeartIcon,
-  PlayCircleIcon,
-  QuotesIcon,
-} from "@phosphor-icons/react";
+import { CaretLeftIcon, CaretRightIcon, ChatIcon, HeartIcon, PlayCircleIcon, QuotesIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -278,7 +260,7 @@ const Showcase = () => {
               rel="noopener noreferrer"
               $v="ghost"
             >
-              <InstagramBrand size={20} aria-hidden />
+              <Avatar $src="/profile/synergy.png" $size={30} aria-hidden />
               Visit @skill_synergy_
             </ExtBtn>
           }

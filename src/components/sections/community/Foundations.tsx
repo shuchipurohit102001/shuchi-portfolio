@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Avatar,
   Card,
@@ -195,9 +195,8 @@ const Foundations = () => {
         <FoundationsGrid>
           <NotePanel $tone="high" $pad="xl">
             <FounderHead>
-              <Avatar $size={72} $src="/profilePhoto.png">
-                SP
-              </Avatar>
+              <Avatar $size={72} $src="/profilePhoto.png" />
+
               <div>
                 <strong>Founder&apos;s note</strong>
                 <span>{person.name}</span>

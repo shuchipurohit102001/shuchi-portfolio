@@ -199,7 +199,7 @@ const Hero = () => {
             <PortraitWrap>
               <Halo aria-hidden />
               <FrameCard>
-                <Portrait src="/profilePhoto.png" label="Shuchi Purohit" initials="SP" ratio="1/1">
+                <Portrait src="/profilePhoto.png" label="Shuchi Purohit" ratio="1/1">
                   <FloatingPills>
                     <Pill $tone="canvas">
                       <DefaultBrand icon={SealCheckIcon} size={20} aria-hidden />
