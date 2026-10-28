@@ -137,7 +137,7 @@ const WhatIDo = () => {
         <SectionHead
           eyebrow="Strategic foundations"
           title="Tech Sales Skills, with a Human Touch"
-          text="I combine fast-paced enterprise software sales experience with strong people skills, clear and polished communication, and a disciplined approach to growing myself."
+          text="A corporate Professional with a Passion for Empowering People Through Communication, Confidence, and Career Readiness."
         />
         <Grid $min="240px">
           {homePillars.map((pillar) => {
