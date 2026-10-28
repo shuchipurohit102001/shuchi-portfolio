@@ -158,7 +158,7 @@ const pointIcons: Record<string, ReactNode> = {
 const metricIcons: Record<string, ReactNode> = {
   "Active cohorts": <DefaultBrand icon={UsersThreeIcon} size={20} aria-hidden />,
   "18 posts and reels from live sessions": <InstagramBrand size={20} aria-hidden />,
-  "Dedicated WhatsApp & DM hotline": <DefaultBrand icon={ChatCircleDotsIcon} size={20} aria-hidden />,
+  "Dedicated WhatsApp & DM": <DefaultBrand icon={ChatCircleDotsIcon} size={20} aria-hidden />,
   "Customised 1:1 guidance": <DefaultBrand icon={UserCircleIcon} size={20} aria-hidden />,
 };
 
@@ -184,8 +184,9 @@ const CommunityHero = () => {
                 </H1>
 
                 <Lead>
-                  A premier hub for soft skills, corporate grooming, personality development and 1:1 coaching. We
-                  cultivate quiet authority, articulate dialogue and organic executive presence.
+                  A premier hub for leadership, presence, and personal branding. Through expert corporate grooming, soft
+                  skills training, and 1:1 coaching, we empower professionals to elevate their personality and unlock
+                  their full potential.
                 </Lead>
 
                 <Row>

@@ -332,8 +332,7 @@ export const communityPillars = [
 
 export const communityMetrics = [
   "Active cohorts",
-  "18 posts and reels from live sessions",
-  "Dedicated WhatsApp & DM hotline",
+  "Dedicated WhatsApp & DM",
   "Customised 1:1 guidance",
 ] as const;
 

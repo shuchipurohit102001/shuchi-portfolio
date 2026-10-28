@@ -242,9 +242,9 @@ const Ventures = () => {
                 <Title>{synergy.name}</Title>
               </div>
               <Muted>
-                A purposeful community and learning platform designed to bridge academic capability with executive
-                confidence — conversational polish, campus-to-corporate readiness, confident articulation and structured
-                grooming cohorts.
+                A premier hub for leadership, presence, and personal branding. Through expert corporate grooming, soft
+                skills training, and 1:1 coaching, we empower professionals to elevate their personality and unlock
+                their full potential.
               </Muted>
               <MiniGrid>
                 <Mini>
