@@ -238,10 +238,10 @@ export default function Footer() {
                   <InstagramBrand size={20} aria-hidden /> @{v.handle}
                 </a>
               ))}
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
                 <YoutubeBrand size={20} aria-hidden />
                 YouTube
-              </a>
+              </a> */}
             </SocialPills>
           </BrandCol>
 

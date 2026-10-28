@@ -1,5 +1,6 @@
 "use client";
 import {
+  Avatar,
   Btn,
   Container,
   DefaultBrand,
@@ -17,8 +18,8 @@ import {
 import { journeys, ventures } from "@/data/content";
 import { t } from "@/providers/tokens";
 import {
-  ArrowSquareOutIcon,
   ArrowRightIcon,
+  ArrowSquareOutIcon,
   BookOpenIcon,
   BriefcaseIcon,
   CalendarBlankIcon,
@@ -236,7 +237,10 @@ const Ventures = () => {
                   <DefaultBrand icon={ArrowSquareOutIcon} size={20} aria-hidden />
                 </ExtLink>
               </PanelHead>
-              <Title>{synergy.name}</Title>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, paddingTop: 16 }}>
+                <Avatar $src="/profile/synergy.png" />
+                <Title>{synergy.name}</Title>
+              </div>
               <Muted>
                 A purposeful community and learning platform designed to bridge academic capability with executive
                 confidence — conversational polish, campus-to-corporate readiness, confident articulation and structured
@@ -280,7 +284,10 @@ const Ventures = () => {
                   <DefaultBrand icon={ArrowSquareOutIcon} size={20} aria-hidden />
                 </ExtLink>
               </PanelHead>
-              <Title>{bhoojan.name}</Title>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, paddingTop: 16 }}>
+                <Avatar $src="/profile/bhojan.png" />
+                <Title>{bhoojan.name}</Title>
+              </div>
               <Muted>
                 Wholesome, home-rooted culinary creations tailored for busy corporate schedules — nourishing satvik
                 recipes, quick gourmet meals and celebration platters that restore vitality after long workdays.

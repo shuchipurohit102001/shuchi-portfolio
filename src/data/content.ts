@@ -137,6 +137,7 @@ export const ventures = [
     stats: "18 posts · 73 followers",
     text: "Soft skills, grooming, corporate training, 1:1 coaching and personality development.",
     href: "/community",
+    src: "/profile/synergy.png"
   },
   {
     handle: "purohitshuchi",
@@ -146,6 +147,7 @@ export const ventures = [
     stats: "99 posts · 407 followers",
     text: "My journey across campus, corporate and coaching, with lessons for students and early-career professionals.",
     href: "https://www.instagram.com/purohitshuchi/",
+    src: "/profile/shuchi.png"
   },
   {
     handle: "bhoojanpriye",
@@ -155,6 +157,7 @@ export const ventures = [
     stats: "117 posts · 180 followers",
     text: "Easy recipes for busy people, with new recipes every week and full videos on YouTube.",
     href: "https://www.youtube.com/playlist?list=PLYAsIpW5s7mQFNhNpfI2tGJvu8VZ73",
+    src: "/profile/bhojan.png"
   },
 ];
 export const offerings = [

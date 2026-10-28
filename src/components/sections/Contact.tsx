@@ -2,6 +2,7 @@
 import InquiryForm from "@/components/InquiryForm";
 import EmailModalLink from "@/components/EmailModalLink";
 import {
+  Avatar,
   DefaultBrand,
   GmailBrand,
   LinkedinBrand,
@@ -184,7 +185,7 @@ const Contact = () => {
               <SocialRow key={venture.handle} href={venture.url} target="_blank" rel="noopener noreferrer">
                 <SocialCopy>
                   <IconBadge $tone={venture.handle === "skill_synergy_" ? "clay" : "cont"} $round $size="sm">
-                    {ventureIcons[venture.handle]}
+                    <Avatar $src={venture.src}/>
                   </IconBadge>
                   <span>
                     <strong>@{venture.handle}</strong>
