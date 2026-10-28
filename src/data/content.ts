@@ -137,17 +137,17 @@ export const ventures = [
     stats: "18 posts · 73 followers",
     text: "Soft skills, grooming, corporate training, 1:1 coaching and personality development.",
     href: "/community",
-    src: "/profile/synergy.png"
+    src: "/profile/synergy.png",
   },
   {
     handle: "purohitshuchi",
     name: "Personal profile",
-    tag: "Campus to corporate · Purposeful living",
+    tag: "Shuchi Purohit - only Purposeful living",
     url: "https://www.instagram.com/purohitshuchi/",
     stats: "99 posts · 407 followers",
     text: "My journey across campus, corporate and coaching, with lessons for students and early-career professionals.",
     href: "https://www.instagram.com/purohitshuchi/",
-    src: "/profile/shuchi.png"
+    src: "/profile/shuchi.png",
   },
   {
     handle: "bhoojanpriye",
@@ -157,7 +157,7 @@ export const ventures = [
     stats: "117 posts · 180 followers",
     text: "Easy recipes for busy people, with new recipes every week and full videos on YouTube.",
     href: "https://www.youtube.com/playlist?list=PLYAsIpW5s7mQFNhNpfI2tGJvu8VZ73",
-    src: "/profile/bhojan.png"
+    src: "/profile/bhojan.png",
   },
 ];
 export const offerings = [
@@ -204,7 +204,7 @@ export const homePillars = [
   },
   {
     id: "coaching",
-    title: "1:1 personality calibration",
+    title: "1:1 personal mentorship",
     text: "Intimate diagnostic sessions that break through imposter friction, speech hesitations and career communication bottlenecks.",
     foot: "Personalised mentorship",
   },
