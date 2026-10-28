@@ -81,12 +81,17 @@ export const jobs = [
     role: "Senior Intern — Articleship",
     org: "The Times of India",
     when: "Apr 2021 – Sep 2021",
-    summary:
-      "Contributed to editorial projects, attended press conferences, and wrote press notes and public reviews.",
+    summary: "Contributed to editorial projects, attended press conferences, and wrote press notes and public reviews.",
     points: ["Contributed to editorial projects, wrote press notes and public reviews, and covered press events."],
   },
 ];
 export const education = [
+  {
+    title: "Master's in Business Administration",
+    org: "Welingkar Instutite of Managment, Mumbai",
+    when: "2025 – Present",
+    detail: "",
+  },
   {
     title: "Master's in English Literature",
     org: "Hislop College, Nagpur University",
@@ -97,7 +102,7 @@ export const education = [
     title: "Bachelor's in Psychology",
     org: "Hislop College, Nagpur",
     when: "2019 – 2022",
-    detail: "8.9 CGPA",
+    detail: "First Class",
   },
 ];
 export const certs = [
@@ -126,6 +131,7 @@ export const software = [
   { name: "Microsoft Office", note: "Documents, presentations & reports" },
   { name: "Google Sheets", note: "Tracking, planning & collaboration" },
   { name: "HubSpot CRM", note: "Lead management & client pipelines" },
+  { name: "Zoho CRM", note: "Lead management & client pipelines" },
 ] as const;
 
 export const ventures = [
@@ -330,11 +336,7 @@ export const communityPillars = [
   },
 ] as const;
 
-export const communityMetrics = [
-  "Active cohorts",
-  "Dedicated WhatsApp & DM",
-  "Customised 1:1 guidance",
-] as const;
+export const communityMetrics = ["Active cohorts", "Dedicated WhatsApp & DM", "Customised 1:1 guidance"] as const;
 
 export const programs = [
   {
