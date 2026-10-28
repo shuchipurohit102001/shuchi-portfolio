@@ -136,7 +136,7 @@ const WhatIDo = () => {
       <Container>
         <SectionHead
           eyebrow="Strategic foundations"
-          title="Tech Sales Skills, with a Human Touch"
+          title="Communication, confidence and career readiness"
           text="A corporate Professional with a Passion for Empowering People Through Communication, Confidence, and Career Readiness."
         />
         <Grid $min="240px">
