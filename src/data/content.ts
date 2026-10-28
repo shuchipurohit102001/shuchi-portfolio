@@ -190,7 +190,7 @@ export const offerings = [
 ];
 
 export const homeMetrics = [
-  { value: "100+", label: "Mentees & professionals guided", accent: "secondary" },
+  { value: "500+", label: "Mentees & professionals guided", accent: "secondary" },
   { value: "650+", label: "Followers across Instagram profiles", accent: "primary" },
   { value: "4", label: "Pillars of holistic growth", accent: "tertiary" },
 ] as const;
