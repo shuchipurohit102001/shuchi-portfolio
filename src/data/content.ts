@@ -204,7 +204,7 @@ export const homePillars = [
   },
   {
     id: "coaching",
-    title: "1:1 personal mentorship",
+    title: "Mentorship and Personality Grooming",
     text: "Intimate diagnostic sessions that break through imposter friction, speech hesitations and career communication bottlenecks.",
     foot: "Personalised mentorship",
   },
